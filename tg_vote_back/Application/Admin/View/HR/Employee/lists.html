@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head> 
+<meta charset="UTF-8">
+<title>Document</title>
+<link rel="stylesheet" href="__PUBLIC__/common/common.css">
+<!-- <link rel="stylesheet" href="../css/demo.css">
+	<link rel="stylesheet" href="../common/table.css">
+	<link rel="stylesheet" href="../css/form.css">
+	<link rel="stylesheet" href="../css/alert.css"> -->
+<script src="__PUBLIC__/js/jquery.js"></script>
+<script src="__PUBLIC__/js/table+.js"></script>
+</head>
+<body class="content-box">
+	<div class="header">
+		<div class="header-title"></div>
+
+		<div class="header-content">
+			<label> 部门<select class='selects' data-name='department_id' data-url='organization_department' data-oc='true'></select>
+			</label>	
+			<label> 职位<select class='selects'  data-url='organization_position' data-oc='true' name='position_id'><option value="0">请选择</option></select>
+			</label>
+			<label> 雇员名<input type="text" class="input-text"
+				name="name">
+			</label> <label> 过滤<input type="button" class="input-button-guolv">
+			</label> <label> 重置过滤<input type="button"
+				class="input-button-resetguolv">
+			</label> <br> <label> <!-- 添加数据按钮  需增加类名 add-table --> 添加<input
+				type="button" class="input-button-fileadd add-table"
+				urls='__URL__/add'>
+			</label> <label> 导入<input type="button" class="input-button-down">
+			</label> <label> 导出<input type="button" class="input-button-update">
+			</label>
+		</div>
+	</div>
+	<!-- -----表格部分复制开始--------- -->
+	<div class="content">
+		<div class="header-title">表格</div>
+		<div class="header-content">
+			<!-- 表格部分 开始-->
+			<div class="table-content">
+				<table class="table text-l">
+					<!-- 表头部分 结束-->
+					<tr class="table-header">
+						<th>选择</th>
+						<th data-role='id' data-hid='true'>id</th>
+						<th data-role='name'>名字</th>
+						<th data-role='hiredate'>入职日期</th>
+						<th data-role='department_id' class="options" data-id='organization_department' data-oc='true'>部门</th>
+						<th data-role='position_id' class="options" data-id='organization_position' data-oc='true'>职位</th>
+						
+						<th data-role='user_id'>用户</th>
+						<th>操作</th>
+					</tr>
+
+					<!-- 表头部分 结束-->
+					<!-- 第1行 开始 -->
+					<volist name="list" id="vo">
+
+					<tr>
+						<td><input type="checkbox"></td>
+						<td data-role='id' data-hid='true'>{$vo.id}</td>
+						<td data-role='name'>{$vo.name}</td>
+						<td data-role='hiredate'>{$vo.hiredate}</td>
+						<td data-role='position_id'>{$vo.position_id}</td>
+						<td data-role='user_id'>{$vo.user_id}</td>
+						
+						<td><input type="button"
+							class="input-button-guolv small view"> <input
+							type="button" class="input-button-wirte small edit"
+							urls='__URL__/updateInput/id/{$vo.id}'> <input
+							type="button" class="input-button-fileremove small delete"
+							urls='__URL__/delete/id/{$vo.id}'></td>
+					</tr>
+
+					</volist>
+
+					<!-- 第1行 结束 -->
+
+				</table>
+			</div>
+			<!-- 表格部分 结束-->
+			<!-- 翻页部分 开始-->
+			<div class="table-footer">
+				<div class="button-bottom">
+					<select name="" id="" class="select">
+						<option value="">10</option>
+						<option value="">20</option>
+						<option value="">30</option>
+					</select> <span id="pageStr">{$pagestr}</span>
+				</div>
+			</div>
+			<!-- 翻页部分 结束-->
+		</div>
+	</div>
+
+
+
+	<!-- 弹窗 页面-->
+	<div class="alert-box header">
+		<div class="header-title">弹出窗口</div>
+		
+		<div class="header-content">
+			<!--content 在此-->
+			<table class="tables text-l">
+				<!--内容 js读写-->
+			</table>
+		</div>
+		
+		<div class="alert-btn">
+			<!--
+      	 		button 在此
+      	 		urls ajax 提交后台地址
+      	 	-->
+			<input type="button" class="input-button-yes" value="确定"> <input
+				type="button" class="input-button-no" value="取消">
+
+		</div>
+	</div>
+	<script>
+	
+	$(function(){
+		 var selects =$("select[data-name='department_id']");
+		 
+		
+			   
+				var urls = selects.attr('data-url');
+				var oc = selects.attr('data-oc');
+				$.ajax({
+					url:'ajaxed',
+					type:'post',
+					data:'urled='+urls+'&oc='+oc,
+					success:function(data){
+						var ids = new Array();
+						var contented = '';
+						contented = '<option value=0>请选择</option>';
+
+						$.each(data,function(i){
+							//console.log($(this).attr('parent_id'));
+								//parent_id 为null 的是一级菜单
+								var self_id = $(this).attr('id');
+								var parent_id = $(this).attr('parent_id');
+
+								if( parent_id == null)
+								{
+									contented = contented+'<option value='+self_id+' data-pid=5 >'+$(this).attr('name')+'</option>';
+									//ids[i] = self_id;
+									ids.push(self_id);
+								}else{
+
+									//二级菜单 二级菜单的parent_id不为null 而且在一级菜单id范围内
+									if( $.inArray(parent_id, ids) != -1 )
+									{
+										var optionName = "---" + $(this).attr('name');
+									}else
+									{
+										var optionName = "------" + $(this).attr('name');
+									}
+
+									contented = contented+'<option value='+$(this).attr('id')+' data-pid=5 >'+ optionName +'</option>';
+								}
+						});
+
+						
+						
+						selects.html(contented);
+
+					
+						
+					}
+				})
+		 
+		
+		$(".input-button-guolv").click(function(){
+			$(".header-content").wrap("<form class='search'></form>");
+			var datas=$(".search"). serialize();
+			$.ajax({
+				url:'search',
+				type:'post',
+				data:datas,
+				success:function(data){
+					$('.content').html(data);
+				}
+			});
+		});
+		 
+		 $("select[data-name='department_id']").change(function(){
+				
+			 var selectId = $("select[data-name='department_id']>option:selected").val();
+		        	if(selectId != '0'){
+		        		position = $("select[name='position_id']")
+		        		 
+		  				var urls = position.attr('data-url');
+		  				var oc = position.attr('data-oc');
+		        		$.ajax({
+		        			url:'ajaxed',
+		        			type:'post',
+		        			data:'urled='+urls+'&oc='+oc+'&departmentid='+selectId,
+		        			success:function(data){
+		        				var ids = new Array();
+								var contented = '';
+								contented = '<option value=0>请选择</option>';
+
+								$.each(data,function(i){
+									//console.log($(this).attr('parent_id'));
+										//parent_id 为null 的是一级菜单
+										var self_id = $(this).attr('id');
+										var parent_id = $(this).attr('parent_id');
+
+										if( parent_id == null)
+										{
+											contented = contented+'<option value='+self_id+' data-pid=5 >'+$(this).attr('name')+'</option>';
+											//ids[i] = self_id;
+											ids.push(self_id);
+										}else{
+
+											//二级菜单 二级菜单的parent_id不为null 而且在一级菜单id范围内
+											if( $.inArray(parent_id, ids) != -1 )
+											{
+												var optionName = "---" + $(this).attr('name');
+											}else
+											{
+												var optionName = "------" + $(this).attr('name');
+											}
+
+											contented = contented+'<option value='+$(this).attr('id')+' data-pid=5 >'+ optionName +'</option>';
+										}
+								});
+
+								
+								
+								position.html(contented);
+		        			}
+		        		})
+		        			
+		        		
+		        	}
+		        
+		    })
+			//alert(a);
+			//console.dir(a);
+	})
+	
+	$('.add-table').click(function(){
+			setTimeout(function(){
+				 $(".abc[name='department_id']").change(function(){
+						
+					 var selectId = $(".abc,select[name='department_id']>option:selected").val();
+				        	if(selectId != '0'){
+				        		position = $(".abc[name='position_id']");
+				        		
+				  				var urls = 'organization_position';
+				  				var oc = 'true';
+				        		$.ajax({
+				        			url:'ajaxed',
+				        			type:'post',
+				        			data:'urled='+urls+'&oc='+oc+'&departmentid='+selectId,
+				        			success:function(data){
+				        				var ids = new Array();
+										var contented = '';
+										contented = '<option value=0>请选择</option>';
+
+										$.each(data,function(i){
+											
+												var self_id = $(this).attr('id');
+												var parent_id = $(this).attr('parent_id');
+
+												if( parent_id == null)
+												{
+													contented = contented+'<option value='+self_id+' data-pid=5 >'+$(this).attr('name')+'</option>';
+													ids.push(self_id);
+												}else{
+
+													//二级菜单 二级菜单的parent_id不为null 而且在一级菜单id范围内
+													if( $.inArray(parent_id, ids) != -1 )
+													{
+														var optionName = "---" + $(this).attr('name');
+													}else
+													{
+														var optionName = "------" + $(this).attr('name');
+													}
+
+													contented = contented+'<option value='+$(this).attr('id')+' data-pid=5 >'+ optionName +'</option>';
+												}
+										});
+
+										
+										
+										position.html(contented);
+				        			}
+				        		})
+				        			
+				        		
+				        	}
+				        
+				    })
+			},1000);
+	})
+	</script>
+</body>
+</html>

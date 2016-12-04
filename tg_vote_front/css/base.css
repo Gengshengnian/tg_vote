@@ -1,0 +1,78 @@
+body,li,ul,ol,h1,h3,span,strong{
+    border:none;
+    padding:0;
+    list-style:none;
+    margin:0;
+    font-size:16px;
+    color: #031a6a;
+}
+*{
+	box-sizing: border-box;
+}
+@font-face{
+    font-family:"font";
+    src:url('../font/HIRAGINO SANS GB W3.OTF');
+}
+.font{
+    font-family:font!important;
+}
+input{
+    margin:0;padding:0;list-style:none;
+}
+a{
+    text-decoration:none;
+}
+img{
+    border:0;margin:0;padding:0;
+    width: 100%;
+    height: auto;
+}
+body{
+    background-image:url(../img/bg.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    padding: 3% 3%;      
+}
+/*头部*/
+.top{
+   width: 60%;
+   height: auto;
+   display: inline-block;
+}
+/*主办单位*/
+.danwei{
+	font-size: 0.5em;
+	text-align:center;
+	margin-top: 3%;
+	width:100%;
+}
+/*箭头*/
+.wxBottom{
+	display: block;
+	width: 10%;
+	height: auto;
+    margin: 3% auto 3%;
+    left: 45%;
+    -moz-animation: bottom ease 1s infinite;
+	-webkit-animation: bottom ease 1s infinite;
+}
+@keyframes  bottom{
+	0%{
+		margin-bottom: 1%;
+		transform: scale(1.2,1.2);
+	}
+	50%{
+		margin-bottom: 3%;
+		transform: scale(1,1);
+	}
+	100%{
+		margin-bottom: 1%;
+		transform: scale(1.2,1.2);
+	}
+}
+/*登录*/
+.dl{
+	width:11%; height: auto;margin-right: 0;float: right;display: inline-block;
+}
+.dl span{display:block;width:100%;text-align:center;font-size: 0.5rem;color:white;}
+

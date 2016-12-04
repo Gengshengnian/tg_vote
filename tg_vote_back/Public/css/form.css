@@ -1,0 +1,348 @@
+input{
+	margin:0 10px;
+	vertical-align: middle;
+	
+}
+input[type=button]{
+	outline:none;
+}
+input:active{
+	opacity: 0.8;
+}
+label{
+	height:40px;line-height: 40px;
+	padding:0 10px;
+	cursor:pointer;
+}
+.input-text{
+	width:200px;
+	height:30px;
+	padding:0 5px;
+	line-height: 30px;
+	border: 1px solid #DDDCDC;
+    -moz-box-shadow: inset 2px 1px 5px #CBC9C9;
+    -webkit-box-shadow: inset 2px 1px 5px #CBC9C9;
+    -o-box-shadow: inset 2px 1px 5px #CBC9C9;
+    box-shadow: inset 2px 1px 5px #CBC9C9;
+    background: #FFF;
+    border-radius:3px;
+}
+.input-text:checked{
+	border-radius:3px;
+}
+
+.input-button-down{
+	background-image:url(../image/arrow-down.png);
+	background-position: center; 
+	width:16px;
+	height:22px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-update{
+	background-image:url(../image/arrow-up.png);
+	background-position: center; 
+	width:16px;
+	height:22px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-next{
+	background-image:url(../image/arrow-right.png);
+	background-position: center; 
+	width:22px;
+	height:16px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-prev{
+	background-image:url(../image/arrow-left.png);
+	background-position: center; 
+	width:22px;
+	height:16px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-add{
+	background-image:url(../image/glyph-add.png);
+	background-position: center; 
+	width:17px;
+	height:22px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-fileadd{
+	background-image:url(../image/folder-add.png);
+	background-position: center; 
+	width:20px;
+	height:17px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-fileremove{
+	background-image:url(../image/folder-remove.png);
+	background-position: center; 
+	width:20px;
+	height:17px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-delete{
+	background-image:url(../image/glyph-remove.png);
+	background-position: center; 
+	width:20px;
+	height:17px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-submit{
+	background-image:url(../image/glyph-check.png);
+	background-position: center; 
+	width:22px;
+	height:16px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;	
+}
+.input-button-guolv{
+	background-image:url(../image/search.png);
+	background-position: center; 
+	background-size: cover;
+	width:20px;
+	height:21px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;	
+}
+.input-button-resetguolv{
+	background-image:url(../image/search-remove.png);
+	background-position: center;
+	background-size: cover;
+	cursor:pointer;
+	width:20px;
+	height:21px;
+	border:0px;
+	background-color:transparent;	
+}
+.input-button-refresh{
+	cursor:pointer;
+	background-image:url(../image/refresh.png);
+	background-position: center; 
+	background-size: cover;
+	width:17px;
+	height:21px;
+	border:0px;
+	background-color:transparent;	
+}
+.input-button-contral{
+	cursor:pointer;
+	background-image:url(../image/users.png);
+	background-position: center; 
+	background-size: cover;
+	width:24px;
+	height:21px;
+	border:0px;
+	background-color:transparent;	
+}
+.input-button-user{
+	cursor:pointer;
+	background-image:url(../image/user.png);
+	background-position: center; 
+	background-size:cover ;
+	width:20px;
+	height:21px;
+	border:0px;
+	background-color:transparent;	
+}
+.input-button-wirte{
+	cursor:pointer;
+	background-image:url(../image/folder.png);
+	background-position:center; 
+	background-size:cover;
+	width:22px;
+	height:21px;
+	border:0px;
+	background-color:transparent;	
+}
+.input-button-yes{
+	width:60px;
+	height: 30px;
+	font-weight: bold;
+	line-height: 30px;
+	border: 1px solid #50BFFC;
+    -moz-box-shadow: inset 2px 1px 5px #50BFFC;
+    -webkit-box-shadow: inset 2px 1px 5px #50BFFC;
+    -o-box-shadow: inset 2px 1px 5px #50BFFC;
+    box-shadow: inset 2px 1px 5px #50BFFC;
+    background: #5FBFF5;
+    border-radius:3px;
+    color: #fff;
+}
+.input-button-no{
+	color: #fff;
+	width:60px;
+	height: 30px;
+	font-weight: bold;
+	line-height: 30px;
+	border: 1px solid #FFb19E;
+    -moz-box-shadow: inset 2px 1px 5px #FFc19E;
+    -webkit-box-shadow: inset 2px 1px 5px #FFc19E;
+    -o-box-shadow: inset 2px 1px 5px #FFc19E;
+    box-shadow: inset 2px 1px 5px #FFc19E;
+    background: #FFA19E;
+    border-radius:3px;
+}
+
+
+.select{
+	width:150px;
+	height:30px;
+	 -moz-box-shadow: inset 2px 1px 5px #CBC9C9;
+    -webkit-box-shadow: inset 2px 1px 5px #CBC9C9;
+    -o-box-shadow: inset 2px 1px 5px #CBC9C9;
+    border: 1px solid #DDDCDC;
+    border-radius:3px;
+	border: 1px solid #DDDCDC;
+	vertical-align: text-bottom;
+}
+.textarea{
+	border: 1px solid #DDDCDC;
+    -moz-box-shadow: inset 2px 1px 5px #CBC9C9;
+    -webkit-box-shadow: inset 2px 1px 5px #CBC9C9;
+    -o-box-shadow: inset 2px 1px 5px #CBC9C9;
+    box-shadow: inset 2px 1px 5px #CBC9C9;
+    background:transparent;
+    width:98%;
+    max-width: 96%;
+	padding:1% 0px;
+    height:100px;
+    display: block;
+    margin: 0 auto;
+    resize:vertical;
+}
+
+
+.button-bottom{
+	width:100%;
+	height:36px;
+	margin: 5px auto;
+	box-sizing:border-box;
+	border: 1px solid #DDDCDC;
+	background: #fff;
+	line-height: 36px;
+
+}
+.button-bottom .select{
+	width:60px;
+	float: left;
+	margin:2px 10px ;
+}
+.button-bottom input{
+	float: left;
+	margin: 10px 10px;
+}
+.button-bottom .input-text{
+	width:20px;
+	margin: 1px 0px ;
+}
+.di{
+	float: left;
+	margin-left: 5px;
+	letter-spacing: 5px;
+}
+.button-bottom .daxiao{
+	margin:7px 5px; 
+}
+
+/*信息提示*/
+.success{
+	width:100%;
+	height:auto;
+	border: 1px solid #95B630 !important;
+    color: #2E640A;
+    box-sizing:border-box;
+    padding: 15px 10px 15px 40px;
+    background: #E9FBB4 url(../image/button-white-check.png) no-repeat 5px center;
+   	border-radius: 8px;
+   	box-shadow: 0px 2px 3px #AFAEAE;
+   	position: relative;
+   	vertical-align:center;
+
+}
+.success b{
+	color:#000;
+	font-size: 1.5em;
+}
+.faild{
+	width:100%;
+	height:auto;
+    border: 1px solid #C21C1C;
+    color: #C21C1C;
+    box-sizing:border-box;
+    padding: 15px 10px 15px 40px;
+    background: #FBB4B4 url(../image/stop.png) no-repeat 5px center;
+   	border-radius: 8px;
+   	box-shadow: 0px 2px 3px #AFAEAE;
+   	position: relative;
+   	
+}
+.faild b{
+	color:#000;
+	font-size: 1.5em;
+}
+.waring{
+	width:100%;
+	height:auto;
+    border: 1px solid #656310;
+    color: #656310;
+    box-sizing:border-box;
+    padding: 15px 10px 15px 40px;
+    background: #F2EDB7 url(../image/warning.png) no-repeat 5px center;
+   	border-radius: 8px;
+   	box-shadow: 0px 2px 3px #AFAEAE;
+   	position: relative;
+}
+.waring b{
+	color:#000;
+	font-size: 1.5em;
+}
+.information{
+	width:100%;
+	height:auto;
+    border: 1px solid #0B809F;
+    color: #0B809F;
+    box-sizing:border-box;
+    padding: 15px 10px 15px 40px;
+    background: #F2EDB7 url(../image/button-info.png) no-repeat 5px center;
+   	border-radius: 8px;
+   	box-shadow: 0px 2px 3px #AFAEAE;
+   	position: relative;
+}
+.information b{
+	color:#000;
+	font-size: 1.5em;
+}
+.close{
+	position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 12px;
+    height: 13px;
+    display: block;
+    background: url(../image/close.png);
+}
+.small{
+	width:18px;
+	height:14px;
+	margin:0 3px;
+	background-size:auto 100%;
+	background-repeat: no-repeat;
+}

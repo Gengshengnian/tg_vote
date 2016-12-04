@@ -1,0 +1,11 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+<head>
+	<title>后台登陆后首页</title>
+</head>
+<body>
+
+欢迎登录硬汉综合服务平台!请选择适合您的操作！
+
+</body>
+</html>

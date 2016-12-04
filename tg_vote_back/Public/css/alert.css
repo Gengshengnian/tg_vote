@@ -1,0 +1,42 @@
+.alert-box{
+	width:500px;
+	/*min-height: 150px;*/
+	height: auto;
+	position: absolute;
+	z-index: 999999;
+	margin:auto;
+	top:35%;
+	left:0;
+	right: 0;
+	display: none;
+}
+.alert-btn{
+	padding:10px 0;
+	text-align: center;
+}
+.header-title{
+	color: #f1f1f1;
+}
+.header .tables span{
+	text-align: right;
+}
+.header .tables input{
+	height:35px;
+	margin:0;
+	width: 70%;
+}
+.header .tables{
+	border-top:1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.header .tables td{
+	overflow: hidden;
+	height: 35px;
+	line-height: 35px;
+	padding-left:8px;
+	border-left:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+}
+.header .tables tr:hover{
+	background-color: none;
+}

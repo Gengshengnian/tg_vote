@@ -1,0 +1,146 @@
+<html>
+	<head>
+		<title>主观题显示</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <link href="__PUBLIC__/bui/Common/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
+   <link href="__PUBLIC__/bui/Common/assets/css/prettify.css" rel="stylesheet" type="text/css" />
+		
+		
+		<script src="__PUBLIC__/js/jquery.js"></script>
+   <style>
+body{
+	font-size:12pt;
+     background:url(__PUBLIC__/image/demo01.png);
+     line-height:4;
+}
+   
+
+
+  </style>
+	</head>
+	<body class="content-box" style = "text-align:left">
+
+		<form action = "__URL__/subScores" method = "post">
+			<input type="hidden" value="{$shunxua}"  id="shunxua">
+			<input type="hidden" value="{$shunxub}"  id="shunxub">
+			
+			<span id = "jianda"></span>
+			<h1>{$title1}</h1>
+			<volist name = "jianda" id = "vo" >
+				<input type = "hidden" name = "tep_id" value = "{$vo.pager_id}"/>
+				<input type = "hidden" name = "studentid" value = "{$vo.student_id}"/>
+
+				&nbsp;&nbsp;&nbsp;&nbsp;{$i}<input type = "hidden" name = "tet_id[]" value = "{$vo.title_id}" />
+				.{$vo.tet_content}<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;答：{$vo.student_anwser}<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;<input type = "button" value = "正确答案" id = "truanswer" onclick="answer(this)"/><span style="display:none" >{$vo.tet_answer}</span><br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;<input type = "button" value = "解析" id = "analyze" onclick = "analyze(this)"/><span style="display:none">{$vo.tet_analyze}</span><br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;<input type = "button" value = "分值" id = "grade" onclick = "grade(this)"/><span>{$vo.tet_score}分</span>
+				<div style = "text-align:right">
+					得分：    
+					<input type = "text"  class="input-large"  name = "grade[]" style = "width:50px" class = "score"  onblur = "pan(this)" value = "{$vo.student_score}" /><span style = "display:none">{$vo.tet_score}</span>
+				</div>
+			</volist>
+
+			<h3>{$title2}</h3>
+			<volist name = "paint" id = "vo">
+				<input type = "hidden" name = "tep_id" value = "{$vo.pager_id}"/>
+				<input type = "hidden" name = "studentid" value = "{$vo.student_id}"/>
+
+				&nbsp;&nbsp;&nbsp;&nbsp;{$i}<input type = "hidden" name = "tet_id[]" value = "{$vo.title_id}" />
+				.{$vo.tet_content}<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;答：{$vo.student_anwser}<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;<input type = "button" value = "正确答案" id = "truanswer" onclick="answer(this)"/><span style="display:none" >{$vo.tet_answer}</span><br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;<input type = "button" value = "解析" id = "analyze" onclick = "analyze(this)"/><span style="display:none">{$vo.tet_analyze}</span><br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;<input type = "button" value = "分值" id = "grade" onclick = "grade(this)"/><span>{$vo.tet_score}分</span>
+				<div style = "text-align:right">
+					得分：<input type = "text"  class="input-large"  name = "grade[]" style = "width:50px" class = "score"  onblur = "pan(this)" value = "{$vo.student_score}" /><span style = "display:none">{$vo.tet_score}</span>
+				</div>
+			</volist>
+
+			<h1>{$title3}</h1>
+			<volist name = "process" id = "vo">
+				<input type = "hidden" name = "tep_id" value = "{$vo.pager_id}"/>
+				<input type = "hidden" name = "studentid" value = "{$vo.student_id}"/>
+
+				&nbsp;&nbsp;&nbsp;&nbsp;{$i}<input type = "hidden" name = "tet_id[]" value = "{$vo.title_id}" />
+				.{$vo.tet_content}<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;答：{$vo.student_anwser}<br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;<input type = "button" class='button button-info' value = "正确答案" id = "truanswer" onclick="answer(this)"/><span style="display:none" >{$vo.tet_answer}</span><br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;<input type = "button" class='button button-info' value = "解析" id = "analyze" onclick = "analyze(this)"/><span style="display:none">{$vo.tet_analyze}</span><br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;<input type = "button" class='button' value = "分值" id = "grade" onclick = "grade(this)"/><span>{$vo.tet_score}分</span>
+				<div style = "text-align:right">
+					得分：<input type = "text"  class="input-large"  name = "grade[]" style = "width:50px" class = "score"  onblur = "pan(this)" value = "{$vo.student_score}" /><span style = "display:none">{$vo.tet_score}</span>
+				</div>
+			</volist>
+			<input type = "submit"  class='button button-primary'value = "提交" id= 'cc' />
+		</form>
+
+		<script type="text/javascript">
+			//打开主观题评分窗口
+			$('#cc').click(
+			function grade(){
+				var score = $(".score");
+				var a = parseInt(0);
+				var zf = parseInt(0);
+				for(var i=0 ; i<score.length ; i++){
+					var a = parseInt(score.eq(i).val());
+					zf = zf + a;
+					zf = parseInt(zf);
+				}
+				var p = window.opener;
+				var b = $("#shunxua").val();
+				var c = $("#shunxub").val();
+				
+				if(b.length == 0){
+					var m = c;
+				}else{
+					var m = b;
+				}
+				var pd = p.document.getElementById(m);
+				pd.innerHTML = zf;
+				//window.close();
+			})
+
+			//显示答案
+			function answer(obj){
+
+				 $(obj).next().toggle();
+				 if($(obj).val() == "正确答案"){
+					 $(obj).val("隐藏答案");
+				 }else{
+					 $(obj).val("正确答案");
+				 }
+
+			}
+
+			//显示解析
+			function analyze(obj){
+				$(obj).next().toggle();
+				 if($(obj).val() == "解析"){
+					 $(obj).val("隐藏解析");
+				 }else{
+					 $(obj).val("解析");
+				 }
+			}
+
+			//判分
+			function pan(obj){
+				
+				//console.dir(obj);
+				var a = $(obj).next().html();
+				//alert(a);
+				var b = $(obj).val();
+				//alert(b);
+				//alert(b<0);
+				if(a<b || b<0){
+					alert('您的评分不在分数线内，请重新评分');
+				}
+				
+
+			}
+		</script>
+	</body>
+</html>

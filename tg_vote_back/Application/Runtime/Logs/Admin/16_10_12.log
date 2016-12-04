@@ -1,0 +1,439 @@
+[ 2016-10-12T11:25:34+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-10-12T11:25:34+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Login/verifyCodeImg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-12T11:26:32+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tg_privilege_user` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `tg_privilege_user` WHERE `username` = 'admin' AND `password` = '96e79218965eb72c92a549dd5a330112' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tg_organization_employee` [ RunTime:0.0080s ]
+SQL: select id,position_id from tg_organization_employee where user_id = 1 [ RunTime:0.0000s ]
+
+[ 2016-10-12T11:26:32+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tg_privilege_menu` [ RunTime:0.0070s ]
+SQL: SELECT `id`,name as text FROM `tg_privilege_menu` WHERE ( parent_id is null ) ORDER BY id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-12T11:26:32+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Login/getMenus
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+SQL: SHOW COLUMNS FROM `tg_privilege_menu` [ RunTime:0.0060s ]
+SQL: SELECT `id`,name as text,target_href href,parent_id as pid FROM `tg_privilege_menu` ORDER BY id asc  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-10-12T11:26:33+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-12T11:26:41+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Teacher/INDEX.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_course` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `tg_acdemic_course`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_class` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `tg_acdemic_class`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tg_organization_employee` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `tg_organization_employee`  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-12T11:26:41+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Teacher/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tg_organization_employee` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `tg_organization_position` [ RunTime:0.0100s ]
+SQL: SELECT `id` FROM `tg_organization_position` WHERE ( name like '%讲师%' )  [ RunTime:0.0010s ]
+ERR: 1054:Unknown column 't2.course_id' in 'on clause'
+ [ SQL语句 ] : SELECT t1.id,t1.name yname,t3.name kname,t5.name cname,t4.start,t4.end FROM tg_organization_employee t1 LEFT JOIN tg_acdemic_course t3 on t3.id = t2.course_id LEFT JOIN tg_acdemic_teacher_record t4 on t4.tea_cou_id = t2.course_id LEFT JOIN tg_acdemic_class t5 on t5.id = t4.class_id  WHERE ( position_id in (12) ) LIMIT 0,10  
+ERR: 1054:Unknown column 't2.course_id' in 'on clause'
+ [ SQL语句 ] : SELECT t1.id,t1.name yname,t3.name kname,t5.name cname,t4.start,t4.end FROM tg_organization_employee t1 LEFT JOIN tg_acdemic_course t3 on t3.id = t2.course_id LEFT JOIN tg_acdemic_teacher_record t4 on t4.tea_cou_id = t2.course_id LEFT JOIN tg_acdemic_class t5 on t5.id = t4.class_id  WHERE ( position_id in (12) ) LIMIT 0,10  
+
+[ 2016-10-12T11:26:44+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/TeacherRecord/INDEX.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-12T11:26:44+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/TeacherRecord/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_teacher_record` [ RunTime:0.0050s ]
+NOTIC: [8] Undefined variable: offSet D:\WWW\tg_oa_crm_20161008\Application\Admin\Controller\TeacherRecordController.class.php 第 37 行.
+SQL: SHOW COLUMNS FROM `tg_acdemic_teacher_record` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tg_acdemic_teacher_record` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-12T11:26:47+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/TeacherCourse/INDEX.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_course` [ RunTime:0.0030s ]
+SQL: SELECT `id`,`name` FROM `tg_acdemic_course`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-12T11:26:47+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/TeacherCourse/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_teacher_couse` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_teacher_couse` [ RunTime:0.0040s ]
+SQL: SELECT t1.id,t2.name cname,t3.name tname FROM tg_acdemic_teacher_couse t1 LEFT JOIN tg_acdemic_course t2 on t1.course_id = t2.id LEFT JOIN tg_organization_employee t3 on t1.teacher_id = t3.id  LIMIT 0,10   [ RunTime:0.0030s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tg_acdemic_teacher_couse` LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-12T11:26:49+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Teacher/INDEX.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_course` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `tg_acdemic_course`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_class` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `tg_acdemic_class`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `tg_organization_employee` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `tg_organization_employee`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-12T11:26:49+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Teacher/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `tg_organization_employee` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `tg_organization_position` [ RunTime:0.0030s ]
+SQL: SELECT `id` FROM `tg_organization_position` WHERE ( name like '%讲师%' )  [ RunTime:0.0000s ]
+ERR: 1054:Unknown column 't2.course_id' in 'on clause'
+ [ SQL语句 ] : SELECT t1.id,t1.name yname,t3.name kname,t5.name cname,t4.start,t4.end FROM tg_organization_employee t1 LEFT JOIN tg_acdemic_course t3 on t3.id = t2.course_id LEFT JOIN tg_acdemic_teacher_record t4 on t4.tea_cou_id = t2.course_id LEFT JOIN tg_acdemic_class t5 on t5.id = t4.class_id  WHERE ( position_id in (12) ) LIMIT 0,10  
+ERR: 1054:Unknown column 't2.course_id' in 'on clause'
+ [ SQL语句 ] : SELECT t1.id,t1.name yname,t3.name kname,t5.name cname,t4.start,t4.end FROM tg_organization_employee t1 LEFT JOIN tg_acdemic_course t3 on t3.id = t2.course_id LEFT JOIN tg_acdemic_teacher_record t4 on t4.tea_cou_id = t2.course_id LEFT JOIN tg_acdemic_class t5 on t5.id = t4.class_id  WHERE ( position_id in (12) ) LIMIT 0,10  
+
+[ 2016-10-12T11:26:52+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Room/INDEX.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: depts D:\WWW\tg_oa_crm_20161008\Application\Runtime\Cache\Admin\1b2b85276bc7a9aa2244ede0c5b50016.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-12T11:26:52+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Room/getData.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_room` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `tg_acdemic_room` LIMIT 0,10   [ RunTime:0.0010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tg_acdemic_room` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-12T11:26:53+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/RoomRecord/INDEX.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_room` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `tg_acdemic_room`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_class` [ RunTime:0.0030s ]
+SQL: SELECT * FROM `tg_acdemic_class`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001001s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001001s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-12T11:26:54+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/RoomRecord/getData.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_room_record` [ RunTime:0.0090s ]
+SQL: SELECT tarr.id,tarr.start,tarr.end,room.name rname,class.name cname FROM tg_acdemic_room_record tarr left JOIN tg_acdemic_room room on tarr.room_id = room.id left JOIN tg_acdemic_class class on tarr.class_id = class.id  LIMIT 0,10   [ RunTime:0.0000s ]
+SQL: SELECT tarr.id,tarr.start,tarr.end,room.name rname,class.name cname FROM tg_acdemic_room_record tarr left JOIN tg_acdemic_room room on tarr.room_id = room.id left JOIN tg_acdemic_class class on tarr.class_id = class.id   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-12T11:27:20+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Room/INDEX.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: depts D:\WWW\tg_oa_crm_20161008\Application\Runtime\Cache\Admin\1b2b85276bc7a9aa2244ede0c5b50016.php 第 76 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-12T11:27:21+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Room/getData.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_room` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `tg_acdemic_room` LIMIT 0,10   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tg_acdemic_room` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-12T11:27:25+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/RoomRecord/INDEX.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_room` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `tg_acdemic_room`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_class` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `tg_acdemic_class`  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-12T11:27:26+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/RoomRecord/getData.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_room_record` [ RunTime:0.0000s ]
+SQL: SELECT tarr.id,tarr.start,tarr.end,room.name rname,class.name cname FROM tg_acdemic_room_record tarr left JOIN tg_acdemic_room room on tarr.room_id = room.id left JOIN tg_acdemic_class class on tarr.class_id = class.id  LIMIT 0,10   [ RunTime:0.0000s ]
+SQL: SELECT tarr.id,tarr.start,tarr.end,room.name rname,class.name cname FROM tg_acdemic_room_record tarr left JOIN tg_acdemic_room room on tarr.room_id = room.id left JOIN tg_acdemic_class class on tarr.class_id = class.id   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-12T11:27:26+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Teacher/INDEX.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_course` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `tg_acdemic_course`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_class` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `tg_acdemic_class`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tg_organization_employee` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `tg_organization_employee`  [ RunTime:0.0156s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-12T11:27:26+08:00 ] 127.0.0.1 /tg_oa_crm_20161008/index.php/Admin/Teacher/getData
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_organization_employee` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tg_organization_position` [ RunTime:0.0000s ]
+SQL: SELECT `id` FROM `tg_organization_position` WHERE ( name like '%讲师%' )  [ RunTime:0.0000s ]
+ERR: 1054:Unknown column 't2.course_id' in 'on clause'
+ [ SQL语句 ] : SELECT t1.id,t1.name yname,t3.name kname,t5.name cname,t4.start,t4.end FROM tg_organization_employee t1 LEFT JOIN tg_acdemic_course t3 on t3.id = t2.course_id LEFT JOIN tg_acdemic_teacher_record t4 on t4.tea_cou_id = t2.course_id LEFT JOIN tg_acdemic_class t5 on t5.id = t4.class_id  WHERE ( position_id in (12) ) LIMIT 0,10  
+ERR: 1054:Unknown column 't2.course_id' in 'on clause'
+ [ SQL语句 ] : SELECT t1.id,t1.name yname,t3.name kname,t5.name cname,t4.start,t4.end FROM tg_organization_employee t1 LEFT JOIN tg_acdemic_course t3 on t3.id = t2.course_id LEFT JOIN tg_acdemic_teacher_record t4 on t4.tea_cou_id = t2.course_id LEFT JOIN tg_acdemic_class t5 on t5.id = t4.class_id  WHERE ( position_id in (12) ) LIMIT 0,10  
+

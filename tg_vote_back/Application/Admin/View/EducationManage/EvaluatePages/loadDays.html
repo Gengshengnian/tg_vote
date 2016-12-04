@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>每日测试</title>
+<style>
+ input {
+	 border-left: 0;
+	 border-right: 0;
+	 border-top: 0;
+	 border-bottom: 1px solid #000000;
+}
+</style>
+<script language=JavaScript> 
+<!--   
+var maxtime = 1000 //一个小时，按秒计算，自己调整!   
+function CountDown(){   
+if(maxtime>=0){   
+minutes = Math.floor(maxtime/60);   
+seconds = Math.floor(maxtime%60);   
+msg = "距离考试结束还有"+minutes+"分"+seconds+"秒";   
+document.all["timer"].innerHTML=msg;   
+--maxtime;   
+}   
+else{   
+clearInterval(timer);
+alert('时间到，请确认提交......');   
+setTimeout("document.form1.submit()",1000);  
+}   
+}   
+timer = setInterval("CountDown()",1000);  
+ 
+</script>
+</head>
+<body>
+<div id="timer" style="color:red;position:fixed;left:700px;"></div>
+<br>
+     {$sjsm}<br>
+	<form action="__URL__/add" method="post" name="form1">
+	
+	<input type="hidden" name="tep_id" value="{$row.id}">
+	<input type="hidden" name="student_id" value="{$student_id[0]}"/>
+	<input type="hidden" name="class_id" value="{$_SESSION['loginedUser']['class_id']}"/>
+	
+	{$dxt}
+	<volist name="single" id="vo">
+  		 {$i}<input type="hidden" name="tet_id[]" value="{$vo.title_id}">
+  		 <input type="hidden" name="pager_title_id[]" value="{$vo.pager_title_id}">
+  		 .{$vo.tet_content}<br>
+  		 {$dxda}：<input type="text" name="answer[]" value=""><br><br>
+	</volist>
+	
+	<h2>{$tkt}</h2><h5><span style="color:green">{$tktsm}</span></h5>
+	<volist name="completion" id="vo">
+  		 {$i}<input type="hidden" name="tet_id[]" value="{$vo.title_id}">
+  		 <input type="hidden" name="pager_title_id[]" value="{$vo.pager_title_id}">
+  		 .{$vo.tet_content}<br>
+  		 {$tkda}：<input type="text" name="answer[]" value=""><br><br>
+	</volist>
+	
+	<h2>{$pdt}</h2><h5><span style="color:green">{$pdtsm}</span></h5>
+	<volist name="check" id="vo">
+  		 {$i}<input type="hidden" name="tet_id[]" value="{$vo.title_id}">
+  		 <input type="hidden" name="pager_title_id[]" value="{$vo.pager_title_id}">
+  		 .{$vo.tet_content}<br>
+  		 {$pdda}：<input type="text" name="answer[]" value=""><br><br>
+	</volist>
+	
+	<h2>{$jdt}</h2>{$jdsmk}
+	<volist name="jianda" id="vo">
+  		 {$i}<input type="hidden" name="tet_id[]" value="{$vo.title_id}">
+  		 <input type="hidden" name="pager_title_id[]" value="{$vo.pager_title_id}">
+  		 .{$vo.tet_content}<br>
+  		 <textarea name="answer[]" style="width:300px;height:80px";></textarea><br>
+	</volist>
+	
+	<h2>{$cxt}</h2>
+	<volist name="process" id="vo">
+  		 {$i}<input type="hidden" name="tet_id[]" value="{$vo.title_id}">
+  		 <input type="hidden" name="pager_title_id[]" value="{$vo.pager_title_id}">
+  		 .{$vo.tet_content}<br>
+  		 <textarea name="answer[]" style="width:300px;height:80px";></textarea><br>
+	</volist>
+	<input type="submit" value="提交">
+	</form>
+	
+</body>
+<script>
+//function stop(){
+
+//return false;
+
+//}
+
+//document.oncontextmenu=stop; -->
+
+
+</script>
+</html>

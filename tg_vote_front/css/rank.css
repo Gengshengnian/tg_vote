@@ -1,0 +1,117 @@
+
+.top{
+   width: 100%;
+   height: auto;
+   overflow: hidden;
+ 
+}
+.top img{
+	float: left;
+	width: 60%;
+}
+.top .touxiang{
+	float: right;
+	text-align: center;
+	margin-top: 5%;
+}
+.top .touxiang>img{
+	float: none;
+	width: 25%;
+}
+.top .touxiang .zhuangtai{
+	font-size: 0.5em;
+}
+.con{
+	width: 100%;
+	height: auto;
+	background: rgba(255,255,255,0.5);
+	border-radius: 5px;
+    font-size: 1em;
+    padding: 2% 1%;
+    margin: 1% 0;
+}
+.intro{
+	width: 100%;
+	height: auto;
+	margin: 5% 0 0 0;
+	padding: 5% 1%;
+}
+.content{
+	width: 100%;
+	height: auto;
+	margin-bottom: -10%;
+}
+.content .person{
+	width: 100%;
+	height: 40px;
+	margin-top: 10%;
+}
+.content .person .perLeft{
+	float: left;
+	width: 82%;	
+	height: 100%;
+	border-radius: 5px;
+	margin-left: 2%;
+	background: rgba(255,255,255,0.8);
+}
+.content .person .perLeft .div{
+	float: left;
+	width: 20%;
+	height: 100%;
+	font-size: 0.6em;
+    margin-left: 2%;
+}
+.content .person .perLeft .div .head,.content .person .perLeft .div .foot{
+	height: 20px;
+	line-height: 20px;
+}
+.content .person .perLeft  .xuanshou{
+	width: 12%;
+	font-size: 0.6em;
+}
+.content .person .perLeft  .xuanshou .xuanshouTop{
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	border-radius: 50%;
+	font-size: 0.9em;
+	color: #d60700;
+	font-weight: bold;
+	background: #FFC300;
+}
+.content .person .perLeft .perShow{
+	width: 25%;
+	float: left;
+	margin-top: -5%;
+	margin-left: -3%;
+}
+.content .person .perLeft .xsName{
+	width: 36%;
+}
+.content .person .perLeft .xsName .xsNameBot{ 
+	width: 100%;
+	height: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.content .person .perLeft  .piaoNum .piaoNumTop{
+	text-align: right;
+	font-style: italic;
+	font-size: 1em;
+	color: #d60700;
+}
+.content .person .perLeft  .piaoNum .piaoNumBot{
+	text-align: right;
+}
+.content .person .perRight{
+	float: right;
+	width: 15%;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+	background: #ffc300;
+	border-radius: 5px;
+	font-size: 0.9em;
+	margin-top: 5px;
+}

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../common/common.css">
+	<script src="../js/jquery.js"></script>
+	<script src="../js/table+.js"></script>
+	<style>
+	.btn-group{
+		width: 60px;
+	    height: 30px;
+	    font-weight: bold;
+	    line-height: 30px;
+	    border: 1px solid #50BFFC;
+	    -moz-box-shadow: inset 2px 1px 5px #50BFFC;
+	    -webkit-box-shadow: inset 2px 1px 5px #50BFFC;
+	    -o-box-shadow: inset 2px 1px 5px #50BFFC;
+	    box-shadow: inset 2px 1px 5px #50BFFC;
+	    background: #5FBFF5;
+	    border-radius: 3px;
+	    color: #fff;
+	}
+	</style>
+</head>
+<body class="content-box">
+      <div class="header">
+      	 <div class="header-title">输入区域</div>
+      	 <div class="header-content">
+      	 	<label>
+      	 		方向
+      	 		<select name="timu" class="select">
+      	 			<option value="">前端</option>
+      	 			<option value="">后台</option>
+      	 			<option value="">UI</option>	
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		课程
+      	 		<select name="timu" class="select">
+      	 			<option value="">HTML</option>
+      	 			<option value="">CSS</option>
+      	 			<option value="">javascript</option>
+      	 			<option value="">jQuery</option>
+      	 			<option value="">PHP</option>
+      	 			<option value="">Mysql</option>	
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		阶段
+      	 		<select name="stage" class="select">
+      	 			<option value="">HTML标签</option>
+      	 			<option value="">HTML媒体</option>
+      	 			<option value="">PHP初级</option>
+      	 			<option value="">PHP中级</option>
+      	 			<option value="">PHP高级</option>
+      	 		</select>
+      	 	</label>
+			<label>
+      	 		知识点
+      	 		<select name="timu" class="select">
+      	 			<option value="">前端</option>
+      	 			<option value="">后台</option>
+      	 			<option value="">UI</option>	
+      	 		</select>
+      	 	</label>
+			<label>
+      	 		题型
+      	 		<select name="timu" class="select">
+      	 			<option value="">选择题</option>
+      	 			<option value="">判断题</option>
+      	 			<option value="">程序题</option>	
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		<input type="button"  value="生成试卷" class="btn-group"> 
+      	 	</label>
+      	 </div>
+      </div>
+<!-- -----表格部分复制开始--------- -->
+    <div class="content">
+      	<div class="header-title">试卷</div>
+      	<div class="header-content">
+	      	 <!-- 表格部分 开始-->
+	      	 <div class="table-content">
+	      
+	      	</div>
+      		<!-- 表格部分 结束-->
+			<!-- 翻页部分 开始-->
+			<div class="table-footer">
+				<div class="button-bottom">
+					<select name="" id="" class="select">
+						<option value="">10</option>
+						<option value="">20</option>
+						<option value="">30</option>
+					</select>
+					<input type="button" class="input-button-prev">
+					<span class="di">第</span>
+					<input type="text"class="input-text">
+					<span class="di">页</span>
+					<span class="di">共3页</span>
+					<input type="button" class="input-button-next">
+					<input type="button" class="input-button-refresh daxiao" value="">
+				</div>
+			</div>
+			<!-- 翻页部分 结束-->
+      	<!--</div>
+    </div>
+<!-- -----表格部分复制结束--------- -->
+      <!--</div>
+
+
+
+      <!-- 弹窗 页面-->
+      <!--<div class="alert-box header">
+      	 <div class="header-title">弹出窗口</div>
+      	 <div class="header-content">
+      	 	<!--content 在此-->
+      	 	<!--<table class="tables text-l">
+      	 	<!--内容 js读写-->
+			<!-- </table>
+			      	 </div>
+			      	 <div class="alert-btn"> -->
+      	 	<!--
+      	 		button 在此
+      	 		urls ajax 提交后台地址
+      	 	-->
+      	 	<!-- <input type="button" class="input-button-yes" value="确定">
+      	 				<input type="button" class="input-button-no" value="取消"> -->
+	
+      	 </div>	 
+    	</div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>作品展示|个人详情页</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="css/toupiao_Details.css"/>
+	<link rel="stylesheet" href="css/yanzheng.css"/>
+	<script src="js/jquery-1.7.2.js"></script>
+</head>
+<body>
+	<div class="top">
+		<img src="img/wx_top.png"/>
+	</div>
+
+	<!--头像-->
+		<div class="dl_photo">
+			<img src="img/dl_photo.png" alt="" />
+			<strong><em>01</em></strong>
+		</div>
+		<!--设计主题和得票数-->
+		<div class="theme_piaoshu">
+			<span>李某某“U设计”主题 <br />目前得票数<strong>1000</strong></span>
+		</div>
+		<!--作品展示-->
+		<div class="zuopin">
+			<img src="img/zuopin.png" alt="参赛作品展示" />
+			<span>作品展示、作品理念简述、作品详情展示<br />
+			可以加载更多<br />
+			一点内容</span>
+		</div>
+	<div class="container register" style="height:10% !important">
+		<form action="" method="post" onsubmit="return formcheck(this);">
+			<div>
+				<div class="panel-body-tp">
+					<div>
+							<!--登录-->
+						<div class="dl form-denglu">
+							<img src="img/dl.png" alt="会员登录" />
+							<input name="mobile" type="text" value="已登录" style="font-size: 0.6em;color:#ffffff;text-align: left;" class="mobile text"/>
+						</div>
+					</div>
+					<div class="form-group submit">
+						<input type="submit" class="btn-register" value="投票">
+					</div>
+					<div class="form-group submit">
+						<a href="rank.html"><input type="text" class="btn-register" value="进入排行榜"></a>
+					</div>
+				</div>
+			</div>
+		</form>		
+		<!--主办单位-->
+	<!--<div class="danwei">
+			主办单位:山西农大信息学院艺术系;赞助单位:山西优逸客科技有限公司
+	</div>-->
+	     <!--向上箭头-->
+	<!--<a href="huiyuandenglu.html" class="wxBottom"><img src="img/xsjt.png" /></a>-->
+	</div>
+	<!--返回排行榜按钮-->
+</body>
+<script type="text/javascript">
+	$(function(){
+		
+		var h = document.documentElement.clientHeight;
+		$('.container').css('height', 3%h);
+	})
+	function tips(msg){
+		var modalobj = $('#tips-container');
+		if(modalobj.length == 0) {
+			$(".container").append('<div id="tips-container" class="text-center"><div id="tips-panel" class="text-center"></div></div>');
+			modalobj = $('#tips-container');
+		}
+		modalobj.hide().find('#tips-panel').html(msg);
+		$('#tips-container').fadeIn();
+		$('#tips-container .confirm').click(function(){$("#tips-container").fadeOut();});
+	}
+	function formcheck(form){
+		var aa=1;
+//		aa=1 投票1次
+		if ($.trim(form['mobile'].value) == '已登录') {					
+			tips("<p><span class='icon-gray tpcs'></span>您还有"+eval(3-aa)+"次投票机会；<br />点击确定继续投票，<br />点击“特权”享受会员特权</p><div class='text-center'><a class='confirm-tp' href='toupiao_Details.html'>确定</a><a class='confirm-tp' href='huiyuan_tq.html'>特权</a></div>");
+			form['mobile'].focus();			
+			return false;
+		}
+//		aa=2 投票2次
+		if ($.trim(form['mobile'].value) == '已登录') {					
+			tips("<p><span class='icon-gray'></span>您还有"+eval(3-aa)+"次投票机会；<br />点击确定继续投票，<br />点击“特权”享受会员特权</p><div class='text-center'><a class='confirm-tp' href='toupiao_Details.html'>确定</a><a class='confirm-tp' href='huiyuan_tq.html'>特权</a></div>");
+			form['mobile'].focus();			
+			return false;
+		}
+//      aa=3 投票3次
+		if ($.trim(form['mobile'].value) == '已登录') {					
+			tips("<p><span class='icon-gray'></span>您还有"+eval(3-aa)+"次投票机会；<br />点击确定继续投票，<br />点击“特权”享受会员特权</p><div class='text-center'><a class='confirm-tp' href='toupiao_Details.html'>确定</a><a class='confirm-tp' href='huiyuan_tq.html'>特权</a></div>");
+			form['mobile'].focus();			
+			return false;
+		}
+		
+		if ($.trim(form['mobile'].value) == '未登录') {
+			tips('<p><span class="icon-gray"></span>您已经成功投票1次，点击<br />确定注册成为优逸客会员<br />享受投票3次等更多会员特权</p><div class="text-center"><a class="confirm-tp" href="register.html">确定</a><a class="confirm-tp" href="javascript:;">取消</a></div>');
+			form['mobile'].focus();
+			return false;
+		}
+		return;
+	}
+</script>
+</html>

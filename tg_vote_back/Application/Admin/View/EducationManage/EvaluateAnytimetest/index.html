@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title>随时练习</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     
+   <style type="text/css">
+    code {
+      padding: 0px 4px;
+      color: #d14;
+      background-color: #f7f7f9;
+      border: 1px solid #e1e1e8;
+    }
+    #direction{
+	margin-top:35px;
+    	
+    }
+    #direction1{
+	margin-top:
+    }
+   </style>
+   <link rel="stylesheet" href="__PUBLIC__/common/common.css">
+   <link href="__PUBLIC__/bui/Common/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
+   <link href="__PUBLIC__/bui/Common/assets/css/prettify.css" rel="stylesheet" type="text/css" />
+   <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+   <script src="__PUBLIC__/js/jquery.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/table+.js"></script>
+    
+        <script>
+  function get(obj,fName,sName)
+  {
+	 del(fName); 
+	 
+		$.ajax({
+			type:"post",
+			url:'{:U("index")}',
+			data:"id="+obj.value+"&"+"fName="+fName+"&"+"sName="+sName,
+			success:function(msg)
+			{
+				var len = msg.length;
+				//$("#"+secondLevelName).empty();
+				for(var i=0;i<len;i++)
+					{
+						
+						var id = msg[i].id;
+						var name = msg[i].name;
+						//$("#dir").val(0);
+						$("#"+sName).append("<option value='"+id+"'>"+name+"</option>");
+					}
+			}
+		});
+	 
+	  
+	  
+	  
+		  /* 删除函数 */
+		 function del(levename)
+		  {
+                   if( levename == "class")
+				{   
+					$("#dir option:not(:first)").remove();
+					
+					//$("#dir").empty(); 
+				}
+		       
+                   if( levename == "dir")
+   				{   
+   					$("#stage option:not(:first)").remove();
+   					
+   					//$("#dir").empty(); 
+   				}
+                   
+                 if( levename == "stage")
+      			{   
+      			$("#course option:not(:first)").remove();
+      					
+      					//$("#dir").empty(); 
+      		    }
+                 
+                if( levename == "course")
+                {
+                 $("#days option:not(:first)").remove();
+                	
+                }
+                if( levename == "days")
+                {
+                 $("#knowledge option:not(:first)").remove();
+                	
+                }
+		  
+		  }  
+	  
+	  
+	  
+  }
+  </script>
+  
+    
+ </head>
+ <body>
+  <div class="container">
+   <form id="searchForm" class="form-horizontal"action="{:U('getData1')}"  method="post">
+      <div class="row">
+        <div class="control-group span8">
+          <label class="control-label">编号：</label>
+          <div class="controls" >
+            <input name="tet_code" type="text" >
+          </div>
+        </div>
+        
+         <div class="control-group span8">
+ <!--没有处理了  -->  <label class="control-label">所属方向：</label>
+          <div class="controls">
+            <select name="direction_id"  onchange="get(this,'dir','stage')"  >
+            <option value=0>请选择</option>
+                 <foreach name='direction' item='vo'>
+              <option value='{$vo.id}'>{$vo.name}</option>
+             </foreach>
+            </select>
+          </div>
+        </div>
+        
+           <div class="control-group span8">
+   <!-- 没有处理了 -->    <label class="control-label">所属阶段：</label>
+          <div class="controls">
+            <select name="stage_id" id='stage' onchange="get(this,'stage','course')">
+              <option value="">请选择</option>
+              
+            </select>
+          </div>
+        </div>
+     </div>
+     
+     
+      <div class="row">
+       
+        
+       <!-- 没处理了 -->  <div class="control-group span8">
+          <label class="control-label">所属课程：</label>
+          <div class="controls">
+            <select name="course_id" id='course'  onchange="get(this,'course','days')">
+              <option value="">请选择</option>
+            
+            </select>
+          </div>
+        </div>
+        
+         
+        <div class="control-group span8">
+        <!--  没处理了-->  <label class="control-label">所属天：</label>
+          <div class="controls">
+            <select name="days_id" id='days' onchange="get(this,'days','knowledge')">
+              <option value="">请选择</option>
+            
+            </select>
+          </div>
+        </div>
+        
+                <div class="control-group span8">
+        <!-- name处理了--> <label class="control-label">知识点：</label>
+          <div class="controls">
+            <select   name="tet_point" id='knowledge'>
+              <option value="">请选择</option>
+          
+            </select>
+          </div>
+        </div>
+     </div>
+      
+      
+      
+      <div class="row">
+        <div class="control-group span8">
+          <label class="control-label">题目类型：</label>
+          <div class="controls">
+            <select name="tet_category">
+              <option value="">请选择</option>
+              <option value="1">单选</option>
+              <option value="2">多选</option>
+              <option value="3">填空</option>
+              <option value="4">判断</option>
+              <option value="5">简答</option>
+              <option value="6">程序</option>
+            </select>
+          </div>
+        </div>
+       
+    <div class="control-group span8">
+          <label class="control-label">难度：</label>
+          <div class="controls">
+            <select name="tet_level">
+              <option value="">请选择</option>
+              <option value="1">★</option>
+              <option value="2">★★</option>
+              <option value="3">★★★</option>
+              <option value="4">★★★★</option>
+              <option value="5">★★★★★</option>
+            </select>
+          </div>
+        </div>
+       
+       <div class="control-group span8">
+         <label class="control-label">出题老师：</label>
+          <div class="controls">
+          <select name='teacher_id'>
+       <!--      <input name="teacher_id" type="text" class="control-text"> -->
+           
+             <option value='0'>请选择</option>
+             <foreach name='tea' item='vo'>
+             <option value='{$vo.id}'>{$vo.name}</option>
+            </foreach> 
+          </select>
+          </div>
+        </div>
+      </div> 
+      
+     <div class="row">
+        <div class="control-group span8">
+          <label class="control-label">出题时间：</label>
+	       	<div class="controls">
+	            <input name="tet_addtime" type="text" class="calendar" data-rules="{date:true}">
+	          </div>
+        </div>
+      
+       <div class="span3 offset2" >
+          <button  type="button" id="btnSearch" class="button button-primary">搜索</button>
+        </div>
+    </div> 
+     
+    </form>
+
+   
+  </div>
+<body>
+</html>

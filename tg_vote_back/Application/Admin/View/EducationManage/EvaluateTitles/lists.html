@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="__PUBLIC__/common/common.css">
+	<script src="__PUBLIC__/js/jquery.js"></script>
+	<script src="__PUBLIC__/js/table+.js?ver=110"></script>
+	
+	<script type="text/javascript">
+			function getStages(obj,firstLevelName,secondLevelName)
+			{
+				truncateHD(firstLevelName);
+				
+				$.ajax({
+					type:"post",
+					url:"__URL__/getSecondLevelResourses",
+					data:"id="+obj.value+"&"+"firstLevelName="+firstLevelName+"&"+"secondLevelName="+secondLevelName,
+					
+					success:function(msg)
+					{
+						
+						var len = msg.length;
+						
+						for(var i=0;i<len;i++)
+							{
+								var id = msg[i].id;
+								var name = msg[i].name;
+								
+								$("#"+secondLevelName).append("<option value='"+id+"'>"+name+"</option>");
+							}
+					}
+				});
+			}
+		
+		//清除第三代以后的数据
+		function truncateHD(selflevelName){
+			$("#knowledge option").remove(":gt(0)");
+			if(selflevelName == "course" || selflevelName == "stage" || selflevelName == "direction"  )
+			{
+				$("#days option").remove(":gt(0)");
+			}
+			if(selflevelName == "direction" || selflevelName == "stage" )
+			{
+				$("#course option").remove(":gt(0)");
+			}
+			if(selflevelName == "direction" )
+			{
+				$("#stage option").remove(":gt(0)");
+			}
+		}
+		
+		function load()
+		{
+			var knowledge = $("#knowledge option:selected").val();
+			$.ajax({
+					type:"post",
+					url:"getSearch",
+					data:"knowledgeID="+knowledge,
+					success: function(msg)
+					{
+						var len = msg.length;
+						var o = 0;
+						var str = 0;
+						
+						for(i=0;i<len;i++)
+						{
+							var id = msg[i].id;
+							var tet_code = msg[i].tet_code;
+							var tet_category = msg[i].tet_category;
+							var tet_content = msg[i].tet_content;
+							var tet_level = msg[i].tet_level;
+							var tet_point = msg[i].tet_point;
+							var tet_answer = msg[i].tet_answer;
+							var tet_analyze = msg[i].tet_analyze;
+							var teacher_id = msg[i].teacher_id;
+							var tet_addtime = msg[i].tet_addtime;
+							var kong = "";
+							
+							if(tet_code==null){tet_code=kong;}else{tet_code=tet_code;}
+							if(tet_analyze==null){tet_analyze=kong;}else{tet_analyze=tet_analyze;}
+							if(teacher_id==null){teacher_id=kong;}else{teacher_id=teacher_id;}
+							
+							if(o==0){str+="<tr>";}
+							str+="<td>"+id+"</td>"+"<td>"+tet_code+"</td>"+"<td>"+tet_category+"</td>"+"<td>"+tet_content+"</td>"+"<td>"+tet_level+"</td>"+"<td>"+tet_point+"</td>"+"<td>"+tet_answer+"</td>"+"<td>"+tet_analyze+"</td>"+"<td>"+teacher_id+"</td>"+"<td>"+tet_addtime+"</td>"+"<td>"+"php"+"</td>"+"<td>"+"<input type='button' class='input-button-guolv small view'>"+"<input type='button' class='input-button-wirte small edit'  urls='__URL__/update/id/{$vo.id}'>"+"<input type='button' class='input-button-fileremove small delete'  urls='__URL__/delete/id/{$vo.id}'>"+"</td>";
+							o++;
+							if(o==1){str+="</tr>";}
+						}
+						if(str==0)
+						{
+							str = "暂无查询记录";
+						}
+						$(".xx").html(str);
+					}
+			});
+		}
+		
+		function reset()
+		{
+				
+				$("#stage option").remove(":gt(0)");
+				$("#course option").remove(":gt(0)");
+				$("#days option").remove(":gt(0)");
+				$("#knowledge option").remove(":gt(0)");
+				
+		}
+		
+	
+	</script>
+</head>
+<body class="content-box">
+      <div class="header">
+      	 <div class="header-title">输入区域</div>
+      	 <div class="header-content">
+      	 	
+      	 	<label>
+      	 		所属方向
+      	 		<select id="direction" name="directionId" class="select" onchange="getStages(this,'direction','stage')">
+      	 			<option value="{$vo.id}">请选择方向</option>
+      	 			<volist name="direction" id="vo">
+      	 			<option value="{$vo.id}">{$vo.name}</option>
+      	 			</volist>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		所属阶段
+      	 		<select id="stage" name="timu" class="select" onchange="getStages(this,'stage','course')" >
+      	 			<option value="0">请选择阶段</option>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		所属课程
+      	 		<select id="course" name="timu" class="select" onchange="getStages(this,'course','days')" >
+      	 			<option value="{$vo.id}">请选择课程</option>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		所属天
+      	 		<select id="days" name="timu" class="select" onchange="getStages(this,'day','knowledge')">
+      	 			<option value="{$vo.id}">请选择天</option>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		所属知识点
+      	 		<select id="knowledge" name="knowledgeID" class="select">
+      	 			<option value="0">请选择知识点</option>
+      	 			
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		所属难度
+      	 		<select name="timu" class="select">
+      	 			<option value="">★</option>
+      	 			<option value="">★★</option>
+      	 			<option value="">★★★</option>
+      	 		</select>
+      	 	</label>
+      	 	
+      	 	<label>
+      	 		搜索：&nbsp;<input type="text" class="input-text" value="搜索题目编号">
+      	 	</label>
+      	 	<!-- <label>
+      	 		清空查询<input type="button" class="input-button-resetguolv">
+      	 	</label>
+      	 	<label>
+      	 		难度<input type="text" class="input-text">
+      	 	</label>
+      	 	<label>
+      	 		分值<input type="text" class="input-text">
+      	 	</label>     	 	
+      	 	<label>
+      	 		大题分值<input type="text" class="input-text">
+      	 	</label> -->
+      	 	
+      	 	
+      	 	<label>
+      	 		过滤<input type="button" class="input-button-guolv" onclick="load()">
+      	 	</label>
+      	 	<label>
+      	 		重置过滤<input type="button" class="input-button-guolv" onclick="reset()">
+      	 	</label>
+      	 
+      	 	<br>
+      	 	<label>
+      	 	<!-- 添加数据按钮  需增加类名 add-table -->
+      	 	    添加<input type="button" class="input-button-fileadd add-table" urls='__MODULE__/EvaluateTitles/add'>
+      	 	</label>
+      	 	<label>
+      	 	    导入<input type="button" class="input-button-down">
+      	 	</label>
+      	 	<label>
+      	 	    导出<input type="button" class="input-button-update">
+      	    </label>
+      	 </div>
+      </div>
+<!-- -----表格部分复制开始--------- -->
+    <div class="content">
+      	<div class="header-title">题库</div>
+      	<div class="header-content">
+	      	 <!-- 表格部分 开始-->
+	      	 <div class="table-content">
+	      	 	<table class="table text-l">
+				
+		      	 	<!-- 表头部分 结束-->
+		  	 		<tr class="table-header">
+						<th class="table-number">&nbsp;</th>
+						<th data-role="tet_code">题目编号</th>
+						<th data-role="tet_category">题目类型</th>
+						<th data-role="tet_content">题目</th>
+						<th data-role="tet_level">难度</th>
+						<th data-role="tet_point">知识点</th>
+						<th data-role="tet_answer">答案</th>
+						<th data-role="tet_analyze">解析</th>
+						<th data-role="teacher_id">出题老师</th>
+						<th data-role="tet_addtime">增添时间</th>
+						<th data-role="ssfx">所属方向</th>
+						<th>操作</th>
+					</tr>
+			      	 	
+					<!-- 表头部分 结束-->
+		      	 	<!-- 第1行 开始 -->	
+					<tbody class="xx">
+		      	 	<volist name="rows" id="vo">
+					<tr>
+						<td style="width:0px; height:0px;">{$vo['id']}</td> <!--编号-->
+						<td>{$vo['tet_code']}</td>
+						<td>{$vo['tet_category']}</td>
+						<td>{$vo['tet_content']}</td>
+						<td>{$vo['tet_level'] }</td>
+						<td>{$vo['tet_point']}</td>
+						<td>{$vo['tet_answer']}</td>
+						<td>{$vo['tet_analyze']}</td>
+						<td>{$vo['teacher_id']}</td>
+						<td>{$vo['tet_addtime']}</td>
+						<td>PHP</td>
+						<td>
+							<!--
+								编辑功能 添加类名 edit
+								查看功能 添加类名 view
+								删除功能 添加类名 delete
+							-->
+							<input type="button" class="input-button-guolv small view">
+							<input type="button" class="input-button-wirte small edit"  urls='__URL__/update/id/{$vo.id}'>
+							<input type="button" class="input-button-fileremove small delete"  urls='__URL__/delete/id/{$vo.id}'>
+						</td>
+					</tr>
+					</volist>
+					</tbody>
+					<!-- 第1行 结束 -->
+	
+				</table>
+	      	</div>
+      		<!-- 表格部分 结束-->
+			<!-- 翻页部分 开始-->
+			<div class="table-footer">
+				<div class="button-bottom">
+					<select name="" id="" class="select">
+						<option value="">10</option>
+						<option value="">20</option>
+						<option value="">30</option>
+					</select>
+					<input type="button" class="input-button-prev">
+					<span class="di">第</span>
+					<input type="text"class="input-text">
+					<span class="di">页</span>
+					<span class="di">共3页</span>
+					<input type="button" class="input-button-next">
+					<input type="button" class="input-button-refresh daxiao" value="">
+				</div>
+			</div>
+			<!-- 翻页部分 结束-->
+      	</div>
+    </div>
+<!-- -----表格部分复制结束--------- -->
+      </div>
+
+
+
+      <!-- 弹窗 页面-->
+      <div class="alert-box header">
+      	 <div class="header-title">弹出窗口</div>
+      	 <div class="header-content">
+      	 	<!--content 在此-->
+      	 	<table class="tables text-l">
+      	 	<!--内容 js读写-->
+			</table>
+      	 </div>
+      	 <div class="alert-btn">
+      	 	
+      	 	<!--
+      	 		button 在此
+      	 		urls ajax 提交后台地址
+      	 	-->
+      	 	<input type="button" class="input-button-yes" value="确定">
+			<input type="button" class="input-button-no" value="取消">
+	
+      	 </div>	 
+    	</div>
+</body>
+</html>

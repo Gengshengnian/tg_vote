@@ -1,0 +1,62 @@
+
+.top{
+   width: 60%;
+   height: auto;
+}
+.tpsj{
+	width: 100%;
+	height: auto;
+	background: rgba(255,255,255,0.5);
+	border-radius: 5px;
+	margin-top: 2%;
+    font-size: 1em;
+    padding: 2% 1%;
+}
+.con{
+	width: 100%;
+	height: auto;
+	background: rgba(255,255,255,0.5);
+	border-radius: 5px;
+    font-size: 1em;
+    padding: 1.5% 1%;
+    margin: 1% 0;
+}
+.ewm{
+	width: 35%;
+	margin: 5% auto 0; 
+}
+.awardDetail{
+	height: 75px;
+ 
+}
+.awardImg{
+	background: #fff;
+	text-align: center;
+	padding: 0;
+}
+.awardImg img{
+	width: 60%;
+	
+}
+.awardTit{
+	background: none;
+}
+.awardInt{
+	background:rgba(221,246,20,0.5);
+}
+.ljtp{
+	display: inline-block;
+	width: 20%;
+	height: auto;
+	margin:2% 0 0 30%;
+}
+.ljck{
+	display: inline-block;
+	line-height:10px ;
+	font-size: 0.7em;
+	color: #ce0000;
+	text-decoration: underline;
+	position:relative ;
+	bottom: 25px;
+	/*margin-bottom: 50%;*/
+}

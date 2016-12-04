@@ -1,0 +1,616 @@
+body{
+	margin:0;font-size:12px;
+}
+h1{
+	width:100px;
+}
+ul,ol,li{
+	padding:0;list-style:none;
+}
+a{
+	text-decoration: none;
+}
+a:active,a:hover,a:focus {
+	outline: 0
+}
+img{
+	border:0;
+}
+form{
+	padding:0;
+}
+/*清除table 默认样式*/
+table{
+	border-collapse: separate;
+	border-spacing: 0;
+}
+input,tr,td,th{
+	margin:0;
+	padding:0;
+	border:0;
+}
+/*table 样式*/
+.table{
+	border-right:1px solid #ddd;
+	border-top:1px solid #ddd;
+}
+.table th{
+	background-color:#F5F5F5;
+	border-left:1px solid #ddd;
+	border-bottom:1px solid #ddd;;
+	padding:10px;
+}
+.table td{
+	border-left:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	padding:10px;
+}
+.table tr:nth-of-type(odd){
+	background-color:#F7F7F7;
+}
+.table tr:hover{
+	background-color: #eeeeee;
+}
+/* 文本对齐方式 */
+.text-l{
+	text-align:left;
+}
+.text-r{
+	text-align:right;
+}
+.text-c{
+	text-align:center;
+}
+
+/*页面 表格样式*/
+/*表头*/
+/*.table-header{
+	background-color:#F5F5F5;
+	position: relative;
+	z-index: 2;
+	border:1px solid #ddd;
+}*/
+.table-content{
+	overflow:auto;background:#fff;
+}
+.table-content .table{
+	border-top:0;
+}
+.table-header th{
+	border-top:1px solid #ddd;
+	position: relative;
+	z-index: 2;
+}
+.table-content .table-number{
+	min-width: auto;
+}
+.table-content td,
+.table-content th{
+	min-width:50px;
+}
+.alert-box{
+	width:500px;
+	min-height: 150px;
+	height: auto;
+	position: absolute;
+	z-index: 999999;
+	margin:auto;
+	top:35%;
+	left:0;
+	right: 0;
+	display: none;
+}
+.alert-btn{
+	padding:10px 0;
+	text-align: center;
+}
+.header-title{
+	color: #f1f1f1;
+}
+.header .tables span{
+	text-align: right;
+}
+.header .tables input{
+	height:35px;
+	margin:0;
+	width: 70%;
+}
+.header .tables{
+	width: 100%;
+	border-top:1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.header .tables td{
+	overflow: hidden;
+	height: 35px;
+	line-height: 35px;
+	padding-left:8px;
+	border-left:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+}
+.header .tables tr:hover{
+	background-color: none;
+}
+.header{
+	background-color: #FFF;
+	overflow: hidden;
+	box-shadow: 0px 5px 10px #AFAEAE;
+}
+.header-title{
+	background: transparent url("../img/white-title.png") repeat scroll 0% 0%;
+	color: #2C2C2C;
+	text-shadow: 0px 1px #FFF;
+	font-weight: bold;
+	border: medium none;
+	height: 35px;
+	position: relative;
+	background: transparent url("../image/bloctitle.png") repeat scroll 0% 0%;
+	line-height: 34px;
+	padding: 0px 10px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #808080;
+	text-shadow: 0px -1px 0px #000;
+}
+.header-content{
+	padding: 10px;
+    background-color: #FFF;
+}
+.header-content label{
+	display:inline-block;
+}
+.footer{
+	position: fixed;
+	left:0;bottom:0px;
+	height:38px;
+	text-shadow: 0px -1px 0px #000;
+	width:100%;
+}
+input,select{
+	margin:0 10px;
+	vertical-align: middle;
+}
+
+input[type=button]{
+	outline:none;
+}
+input:active{
+	opacity: 0.8;
+}
+label{
+	height:40px;line-height: 40px;
+	padding:0 10px;
+	cursor:pointer;
+}
+.input-text{
+<<<<<<< HEAD
+	width:130px;
+=======
+	width:200px;
+>>>>>>> origin/master
+	height:30px;
+	padding:0 5px;
+	line-height: 30px;
+	border: 1px solid #DDDCDC;
+    -moz-box-shadow: inset 2px 1px 5px #CBC9C9;
+    -webkit-box-shadow: inset 2px 1px 5px #CBC9C9;
+    -o-box-shadow: inset 2px 1px 5px #CBC9C9;
+    box-shadow: inset 2px 1px 5px #CBC9C9;
+    background: #FFF;
+    border-radius:3px;
+}
+.input-text:checked{
+	border-radius:3px;
+}
+
+.input-button-down{
+	background-image:url(../image/arrow-down.png);
+	background-position: center; 
+	width:16px;
+	height:22px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-update{
+	background-image:url(../image/arrow-up.png);
+	background-position: center; 
+	width:16px;
+	height:22px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-next{
+	background-image:url(../image/arrow-right.png);
+	background-position: center; 
+	width:22px;
+	height:16px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-prev{
+	background-image:url(../image/arrow-left.png);
+	background-position: center; 
+	width:22px;
+	height:16px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-add{
+	background-image:url(../image/glyph-add.png);
+	background-position: center; 
+	width:17px;
+	height:22px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-fileadd{
+	background-image:url(../image/folder-add.png);
+	background-position: center; 
+	width:20px;
+	height:17px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-fileremove{
+	background-image:url(../image/folder-remove.png);
+	background-position: center; 
+	width:20px;
+	height:17px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-delete{
+	background-image:url(../image/glyph-remove.png);
+	background-position: center; 
+	width:20px;
+	height:17px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;
+}
+.input-button-submit{
+	background-image:url(../image/glyph-check.png);
+	background-position: center; 
+	width:22px;
+	height:16px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;	
+}
+.input-button-guolv{
+	background-image:url(../image/search.png);
+	background-position: center; 
+	background-size: cover;
+	width:20px;
+	height:21px;
+	border:0px;
+	cursor:pointer;
+	background-color:transparent;	
+}
+.input-button-resetguolv{
+	background-image:url(../image/search-remove.png);
+	background-position: center;
+	background-size: cover;
+	cursor:pointer;
+	width:20px;
+	height:21px;
+	border:0px;
+	background-color:transparent;	
+}
+.input-button-refresh{
+	cursor:pointer;
+	background-image:url(../image/refresh.png);
+	background-position: center; 
+	background-size: cover;
+	width:17px;
+	height:21px;
+	border:0px;
+	background-color:transparent;	
+}
+.input-button-contral{
+	cursor:pointer;
+	background-image:url(../image/users.png);
+	background-position: center; 
+	background-size: cover;
+	width:24px;
+	height:21px;
+	border:0px;
+	background-color:transparent;	
+}
+.input-button-user{
+	cursor:pointer;
+	background-image:url(../image/user.png);
+	background-position: center; 
+	background-size:cover ;
+	width:20px;
+	height:21px;
+	border:0px;
+	background-color:transparent;	
+}
+.input-button-wirte{
+	cursor:pointer;
+	background-image:url(../image/folder.png);
+	background-position:center; 
+	background-size:cover;
+	width:22px;
+	height:21px;
+	border:0px;
+	background-color:transparent;	
+}
+.input-button-yes{
+	width:60px;
+	height: 30px;
+	font-weight: bold;
+	line-height: 30px;
+	border: 1px solid #50BFFC;
+    -moz-box-shadow: inset 2px 1px 5px #50BFFC;
+    -webkit-box-shadow: inset 2px 1px 5px #50BFFC;
+    -o-box-shadow: inset 2px 1px 5px #50BFFC;
+    box-shadow: inset 2px 1px 5px #50BFFC;
+    background: #5FBFF5;
+    border-radius:3px;
+    color: #fff;
+}
+.input-button-no{
+	color: #fff;
+	width:60px;
+	height: 30px;
+	font-weight: bold;
+	line-height: 30px;
+	border: 1px solid #FFb19E;
+    -moz-box-shadow: inset 2px 1px 5px #FFc19E;
+    -webkit-box-shadow: inset 2px 1px 5px #FFc19E;
+    -o-box-shadow: inset 2px 1px 5px #FFc19E;
+    box-shadow: inset 2px 1px 5px #FFc19E;
+    background: #FFA19E;
+    border-radius:3px;
+}
+
+
+.select{
+	width:150px;
+	height:30px;
+	 -moz-box-shadow: inset 2px 1px 5px #CBC9C9;
+    -webkit-box-shadow: inset 2px 1px 5px #CBC9C9;
+    -o-box-shadow: inset 2px 1px 5px #CBC9C9;
+    border: 1px solid #DDDCDC;
+    border-radius:3px;
+	border: 1px solid #DDDCDC;
+	vertical-align: center;
+	padding-left: 8px;
+}
+.textarea{
+	border: 1px solid #DDDCDC;
+    -moz-box-shadow: inset 2px 1px 5px #CBC9C9;
+    -webkit-box-shadow: inset 2px 1px 5px #CBC9C9;
+    -o-box-shadow: inset 2px 1px 5px #CBC9C9;
+    box-shadow: inset 2px 1px 5px #CBC9C9;
+    background:transparent;
+    width:98%;
+    max-width: 96%;
+	padding:1% 0px;
+    height:100px;
+    display: block;
+    margin: 0 auto;
+    resize:vertical;
+}
+
+
+.button-bottom{
+	width:100%;
+	height:36px;
+	margin: 5px auto;
+	box-sizing:border-box;
+	border: 1px solid #DDDCDC;
+	background: #fff;
+	line-height: 36px;
+
+}
+.button-bottom .select{
+	width:60px;
+	float: left;
+	margin:2px 10px ;
+}
+.button-bottom input{
+	float: left;
+	margin: 10px 10px;
+}
+.button-bottom .input-text{
+	width:20px;
+	margin: 1px 0px ;
+}
+.di{
+	float: left;
+	margin-left: 5px;
+	letter-spacing: 5px;
+}
+.button-bottom .daxiao{
+	margin:7px 5px; 
+}
+
+/*信息提示*/
+.success{
+	width:100%;
+	height:auto;
+	border: 1px solid #95B630 !important;
+    color: #2E640A;
+    box-sizing:border-box;
+    padding: 15px 10px 15px 40px;
+    background: #E9FBB4 url(../image/button-white-check.png) no-repeat 5px center;
+   	border-radius: 8px;
+   	box-shadow: 0px 2px 3px #AFAEAE;
+   	position: relative;
+   	vertical-align:center;
+
+}
+.faild{
+	width:100%;
+	height:auto;
+    border: 1px solid #C21C1C;
+    color: #C21C1C;
+    box-sizing:border-box;
+    padding: 15px 10px 15px 40px;
+    background: #FBB4B4 url(../image/stop.png) no-repeat 5px center;
+   	border-radius: 8px;
+   	box-shadow: 0px 2px 3px #AFAEAE;
+   	position: relative;
+   	
+}
+.waring{
+	width:100%;
+	height:auto;
+    border: 1px solid #656310;
+    color: #656310;
+    box-sizing:border-box;
+    padding: 15px 10px 15px 40px;
+    background: #F2EDB7 url(../image/warning.png) no-repeat 5px center;
+   	border-radius: 8px;
+   	box-shadow: 0px 2px 3px #AFAEAE;
+   	position: relative;
+}
+.information{
+	width:100%;
+	height:auto;
+    border: 1px solid #0B809F;
+    color: #0B809F;
+    box-sizing:border-box;
+    padding: 15px 10px 15px 40px;
+    background: #F2EDB7 url(../image/button-info.png) no-repeat 5px center;
+   	border-radius: 8px;
+   	box-shadow: 0px 2px 3px #AFAEAE;
+   	position: relative;
+}
+.close{
+	position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 12px;
+    height: 13px;
+    display: block;
+    background: url(../image/close.png);
+}
+.small{
+	width:18px;
+	height:14px;
+	margin:0 3px;
+	background-size:auto 100%;
+
+	background-repeat: no-repeat;
+}
+/*时间*/
+#beginTime{
+	padding-left:0;
+	padding-right:0;
+	margin-right: 0;
+}
+#endTime{
+	padding-left:0;
+	padding-right:0;
+	margin-left: 0;
+}
+/*日期*/
+/**
+ * rome - Customizable date (and time) picker. Opt-in UI, no jQuery!
+ * @version v1.1.2
+ * @link https://github.com/bevacqua/rome
+ * @license MIT
+ */
+.rd-container {
+  display: inline-block;
+  border: 1px solid #333;
+  background-color: #fff;
+  padding: 10px;
+  text-align: center;
+  z-index: 10;
+}
+.rd-container td,th{
+	padding:3px 4px;
+}
+.rd-container-attachment {
+  position: absolute;
+}
+.rd-month {
+  display: inline-block;
+  margin-right: 25px;
+}
+.rd-month:last-child {
+  margin-right: 0;
+}
+.rd-back,
+.rd-next {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+.rd-back[disabled],
+.rd-next[disabled] {
+  cursor: default;
+}
+.rd-back {
+  float: left;
+}
+.rd-next {
+  float: right;
+}
+.rd-back:before {
+  display: block;
+  content: '\2190';
+}
+.rd-next:before {
+  display: block;
+  content: '\2192';
+}
+.rd-day-body {
+  cursor: pointer;
+  text-align: center;
+}
+.rd-day-selected,
+.rd-time-selected,
+.rd-time-option:hover {
+  cursor: pointer;
+  background-color: #333;
+  color: #fff;
+}
+.rd-day-prev-month,
+.rd-day-next-month {
+  color: #999;
+}
+.rd-day-disabled {
+  cursor: default;
+  color: #fcc;
+}
+.rd-time {
+  position: relative;
+  display: inline-block;
+  margin-top: 5px;
+  min-width: 80px;
+}
+.rd-time-list {
+  display: none;
+  position: absolute;
+  overflow-y: scroll;
+  max-height: 160px;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  color: #333;
+}
+.rd-time-selected {
+  padding: 5px;
+}
+.rd-time-option {
+  padding: 5px;
+}
+.rd-day-concealed {
+  visibility: hidden;
+}

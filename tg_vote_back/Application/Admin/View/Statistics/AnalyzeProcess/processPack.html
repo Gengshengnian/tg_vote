@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>图形展示</title>
+</head>
+<body>
+ 
+<div class="detail-section">
+    <div id="canvas">
+ 
+    </div>
+</div>
+ 
+<script src="/tg_crm_sx_job/Public/bui/Common/assets/js/acharts-min.js"></script>
+<!-- https://g.alicdn.com/bui/acharts/1.0.29/acharts-min.js -->
+ 
+ 
+ 
+  <script type="text/javascript">
+        var chart = new AChart({
+          id : 'canvas',
+          width : 950,
+          height : 500,
+          legend : null ,//不显示图例
+          seriesOptions : { //设置多个序列共同的属性
+            pieCfg : {
+              allowPointSelect : true,
+              labels : {
+                distance : 40,
+                label : {
+                  //文本信息可以在此配置
+                },
+                renderer : function(value,item){ //格式化文本
+                  return value + ' ' + (item.point.percent * 100).toFixed(2)  + '%';
+                }
+              }
+            }
+          },
+          tooltip : {
+            pointRenderer : function(point){
+              return (point.percent * 100).toFixed(2)+ '%';
+            }
+          },
+          series : [{
+              type: 'pie',
+              name: 'Browser share',
+              data: [
+                ['第二题',   65.0],
+                {
+                    name: '第一题',
+                    y: 35.0,
+                    sliced: true,
+                    selected: true
+                }
+              ]
+          }]
+        });
+ 
+        chart.render();
+      </script>
+ 
+</body>
+</html>

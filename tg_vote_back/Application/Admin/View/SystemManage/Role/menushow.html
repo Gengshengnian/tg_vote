@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<TITLE> ZTREE DEMO - checkbox</TITLE>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="__PUBLIC__/css/demoa.css" type="text/css">
+	<link rel="stylesheet" href="__PUBLIC__/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.ztree.core.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.ztree.excheck.js"></script>
+	<!--
+	<script type="text/javascript" src="../../../js/jquery.ztree.exedit.js"></script>
+	-->
+	<SCRIPT type="text/javascript">
+		<!--
+		var setting = {
+			check: {
+				enable: true
+			},
+			data: {
+				simpleData: {
+					enable: true
+				}
+			}
+		};
+		
+		
+    
+		 
+		var zNodes ={$menus};
+		
+        
+         var  menuId="{$menuid}";
+         var menuId_arr = menuId.split(",");
+		function AssignCheck() {
+			
+	        var treeObj = $.fn.zTree.getZTreeObj("tree");
+	        //console.log(menuId_arr);
+	        $.each(menuId_arr,function(key,value){
+	        	var node = treeObj.getNodeByParam("tId","tree_"+value);
+	        	treeObj.checkNode(node, true, true);
+	        	//console.log(value);
+	        })
+	       
+	    }
+		
+	    
+		var code;
+		
+		function setCheck() {
+			var zTree = $.fn.zTree.getZTreeObj("tree"),
+			py = $("#py").attr("checked")? "p":"",
+			sy = $("#sy").attr("checked")? "s":"",
+			pn = $("#pn").attr("checked")? "p":"",
+			sn = $("#sn").attr("checked")? "s":"",
+			type = { "Y":py + sy, "N":pn + sn};
+			zTree.setting.check.chkboxType = type;
+			showCode('setting.check.chkboxType = { "Y" : "' + type.Y + '", "N" : "' + type.N + '" };');
+		}
+		function showCode(str) {
+			if (!code) code = $("#code");
+			code.empty();
+			code.append("<li>"+str+"</li>");
+		}
+		
+		$(document).ready(function(){
+			$.fn.zTree.init($("#tree"), setting, zNodes);
+			setCheck();
+			//console.log(roleid);
+			$("#py").bind("change", setCheck);
+			$("#sy").bind("change", setCheck);
+			$("#pn").bind("change", setCheck);
+			$("#sn").bind("change", setCheck);
+			
+		   
+				AssignCheck();
+			$('#tijiao').click(function (){
+				window.close();
+		   })
+		});
+		
+		//-->
+	</SCRIPT>
+</HEAD>
+
+<BODY>
+
+
+<div class="content_wrap">
+	<div class="zTreeDemoBackground">
+		<ul id="tree" class="ztree"></ul>
+	</div>
+	<input type="submit" id="tijiao"  value="关闭">
+	
+</div>
+</BODY>
+</HTML>

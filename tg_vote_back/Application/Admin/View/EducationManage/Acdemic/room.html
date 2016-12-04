@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="__PUBLIC__/common/common.css">
+	<script src="__PUBLIC__/js/jquery.js"></script>
+	<script src="__PUBLIC__/js/table+.js"></script>
+</head>
+<body class="content-box">
+      <div class="header">
+      	 <div class="header-title">输入区域</div>
+      	 <div class="header-content">
+      	 	<label>
+      	 		方向<select name="" id="" class="select"></select>
+      	 	</label>
+      	 	<label>
+      	 		项目室名<select name="" id="" class="select"></select>
+      	 	</label>
+      	 	<label>
+      	 		过滤<input type="button" class="input-button-guolv">
+      	 	</label>
+      	 	<label>
+      	 		重置过滤<input type="button" class="input-button-resetguolv">
+      	 	</label>
+      	 	<br>
+      	 	<label>
+      	 	<!-- 添加数据按钮  需增加类名 add-table -->
+      	 	    添加<input type="button" class="input-button-fileadd add-table" urls='http://127.0.0.1/add.jsp'>
+      	 	</label>
+      	 	<label>
+      	 	    导入<input type="button" class="input-button-down">
+      	 	</label>
+      	 	<label>
+      	 	    导出<input type="button" class="input-button-update">
+      	    </label>
+      	 </div>
+      </div>
+   <div class="content">
+      	<div class="header-title">表格</div>
+      	<div class="header-content">
+	      	 <!-- 表格部分 开始-->
+	      	 <div class="table-content">
+	      	 	<table class="table text-l">
+	      	 		<thead>
+		      	 	<!-- 表头部分 结束-->
+			  	 		<tr class="table-header">
+							<th class="table-number">&nbsp;</th>
+							<th data-role="bh">编号</th>
+							<th data-role="nd">项目室名称</th>
+							<th data-role="tm">是否空闲</th>
+							<th data-role="ym">开始时间</th>
+							<th data-role="tm">预计结束时间</th>
+							<th data-role="zs">班级</th>
+							<th data-role="zsd">可容纳人数</th>
+							<th data-role="sst">现有电脑</th>
+							<th data-role="sskc">现有工位</th>
+							<th data-role="sskc">现有人数</th>
+							<th>操作</th>
+						</tr>
+			      	</thead>	
+					<!-- 表头部分 结束-->
+		      	 	<!-- 第1行 开始 -->
+		      	 	<tbody>
+		      	 		<volist name="room" id="vo">
+		      	 			<tr>
+								<td class="table-number">1</td> <!--编号-->
+								<td>{$vo.id}</td>
+								<td>{$vo.name}</td>
+								<td>{$vo.status}</td>
+								<td>{$vo.start}</td>
+								<td>{$vo.pre_end}</td>
+								<td>{$vo.t5}</td>
+								<td>{$vo.num}</td>
+								<td>{$vo.computer_num}</td>
+								<td>{$vo.station}</td>
+								<td>{$vo.t4}</td>
+								<td>
+							<!--
+								编辑功能 添加类名 edit
+								查看功能 添加类名 view
+								删除功能 添加类名 delete
+							-->
+							<input type="button" class="input-button-guolv small view">
+							<input type="button" class="input-button-wirte small edit"  urls='http://127.0.0.1/edit.jsp'>
+							<input type="button" class="input-button-fileremove small delete"  urls='http://127.0.0.1/delete.jsp'>
+						</td>
+					</tr>
+		      	 		</volist>
+		      	 	
+		      	 	</tbody>	
+					
+					<!-- 第1行 结束 -->
+
+				</table>
+	      	</div>
+      		<!-- 表格部分 结束-->
+			<!-- 翻页部分 开始-->
+			<div class="table-footer">
+				<div class="button-bottom">
+					<select name="" id="" class="select">
+						<option value="">10</option>
+						<option value="">20</option>
+						<option value="">30</option>
+					</select>
+					<input type="button" class="input-button-prev">
+					<span class="di">第</span>
+					<input type="text"class="input-text">
+					<span class="di">页</span>
+					<span class="di">共3页</span>
+					<input type="button" class="input-button-next">
+					<input type="button" class="input-button-refresh daxiao" value="">
+				</div>
+			</div>
+			<!-- 翻页部分 结束-->
+      	</div>
+    </div> 
+
+
+
+      <!-- 弹窗 页面-->
+      <div class="alert-box header">
+      	 <div class="header-title">弹出窗口</div>
+      	 <div class="header-content">
+      	 	<!--content 在此-->
+      	 	<table class="tables text-l">
+      	 	<!--内容 js读写-->
+			</table>
+      	 </div>
+      	 <div class="alert-btn">
+      	 	<!--
+      	 		button 在此
+      	 		urls ajax 提交后台地址
+      	 	-->
+      	 	<input type="button" class="input-button-yes" value="确定">
+			<input type="button" class="input-button-no" value="取消">
+	
+      	 </div>	 
+    	</div>
+</body>
+</html>

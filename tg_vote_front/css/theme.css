@@ -1,0 +1,27 @@
+
+.top{
+   width: 60%;
+   height: auto;
+}
+.tpsj{
+	width: 100%;
+	height: auto;
+	background: rgba(255,255,255,0.5);
+	border-radius: 5px;
+	margin-top: 2%;
+    font-size: 1em;
+    padding: 2% 1%;
+}
+.con{
+	width: 100%;
+	height: auto;
+	background: rgba(255,255,255,0.5);
+	border-radius: 5px;
+    font-size: 1em;
+    padding: 2% 1%;
+    margin: 1% 0;
+}
+.ewm{
+	width: 35%;
+	margin: 5% auto 0; 
+}

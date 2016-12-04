@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+	<TITLE> ZTREE DEMO - checkbox</TITLE>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<link rel="stylesheet" href="__PUBLIC__/css/demoa.css" type="text/css">
+	<link rel="stylesheet" href="__PUBLIC__/css/zTreeStyle/zTreeStyle.css" type="text/css">
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.ztree.core.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.ztree.excheck.js"></script>
+	<!--
+	<script type="text/javascript" src="../../../js/jquery.ztree.exedit.js"></script>
+	-->
+	<SCRIPT type="text/javascript">
+		<!--
+		var setting = {
+			check: {
+				enable: true
+			},
+			data: {
+				simpleData: {
+					enable: true
+				}
+			}
+		};
+		
+		
+    
+
+		var zNodes ={$menus};
+		var roleid = {$roleid};
+		
+		function GetCheckedAll() {
+	        var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
+	        var nodes = treeObj.getCheckedNodes(true);
+	      
+	        var menuIds = '';
+	        for (var i = 0; i < nodes.length; i++) {
+	        	if(i==nodes.length-1){
+	        	menuIds +=nodes[i].tId;
+	        	}else{
+	        		menuIds +=nodes[i].tId+",";
+	        	}
+	        }
+
+	       $.ajax({
+				url:'__URL__/bindMenus',
+				type:'post',
+				data:"roleId="+roleid+"&menudIds="+menuIds,
+				success:function(msg){
+					//关闭子页面
+					alert('添加成功');
+					window.close();
+					
+				}
+			})
+	    }    
+	    
+		var code;
+		
+		function setCheck() {
+			var zTree = $.fn.zTree.getZTreeObj("treeDemo"),
+			py = $("#py").attr("checked")? "p":"",
+			sy = $("#sy").attr("checked")? "s":"",
+			pn = $("#pn").attr("checked")? "p":"",
+			sn = $("#sn").attr("checked")? "s":"",
+			type = { "Y":py + sy, "N":pn + sn};
+			zTree.setting.check.chkboxType = type;
+			showCode('setting.check.chkboxType = { "Y" : "' + type.Y + '", "N" : "' + type.N + '" };');
+		}
+		function showCode(str) {
+			if (!code) code = $("#code");
+			code.empty();
+			code.append("<li>"+str+"</li>");
+		}
+		
+		$(document).ready(function(){
+			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
+			setCheck();
+			//console.log(roleid);
+			$("#py").bind("change", setCheck);
+			$("#sy").bind("change", setCheck);
+			$("#pn").bind("change", setCheck);
+			$("#sn").bind("change", setCheck);
+			$('#tijiao').click(function (){
+		   
+				GetCheckedAll()
+		
+		   })
+		});
+		
+		//-->
+	</SCRIPT>
+</HEAD>
+
+<BODY>
+
+
+<div class="content_wrap">
+	<div class="zTreeDemoBackground">
+		<ul id="treeDemo" class="ztree"></ul>
+	</div>
+	<input type="submit" id="tijiao"  value="确认提交">
+	
+</div>
+</BODY>
+</HTML>

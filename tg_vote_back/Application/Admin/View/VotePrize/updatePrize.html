@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title></title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <link href="__PUBLIC__/bui/Common/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
+   <link href="__PUBLIC__/bui/Common/assets/css/prettify.css" rel="stylesheet" type="text/css" />
+   <style type="text/css">
+    code {
+      padding: 0px 4px;
+      color: #d14;
+      background-color: #f7f7f9;
+      border: 1px solid #e1e1e8;
+    }
+   </style>
+   
+ </head>
+ <body>
+  <div class="container">
+    
+  <div id="editContent" >
+
+    <form id="J_Form" class="form-horizontal" method="post" action="{:U('updateStudent')}" onsubmit="check()">
+    <input type="hidden" name='id'>
+      <h3>基本信息</h3>
+       <div class="row">
+        <div class="control-group span8">
+          <label class="control-label"><s>*</s>奖品名：</label>
+          <div class="controls">
+            <input name="prize_name" value="{$clients[0]['prize_name']}" type="text" class="control-text" data-rules="{required:true}" readonly>
+            <input name="id" value="{$client_id}" type="hidden">
+          </div>
+        </div>
+
+        <div class="control-group span24">
+          <label class="control-label">备注：</label>
+          <div class="controls control-row4">
+            <textarea name="comment" class="span8 span-width"></textarea><span>(200字内)</span>
+          </div>
+        </div>
+
+      </div>
+  </div>
+      <hr/>
+     
+      <form id="J_Form" class="form-horizontal" method="post">
+      <br><br><br>
+      <div class="row">
+        <div class="form-actions offset3">
+          <button type="submit" class="button button-primary">保存</button>
+          <button type="reset" class="button">重置</button>
+        </div>
+      </div>
+ 
+    </form>
+    
+ 
+  <script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+  <script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+  <script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+ 
+<!-- script s
+tart --> 
+    <script type="text/javascript">
+ 
+    function planFormat(value){
+      return value + '转换';
+    }
+      BUI.use(['bui/grid','bui/data','bui/form'],function (Grid,Data,Form) {
+      
+       var columns = [
+        {title : '联系人姓名',dataIndex :'linkman_name',editor : {xtype : 'text',rules:{required:true}}},
+        {title : '关系',dataIndex :'relation',editor : {xtype : 'select',rules:{required:true},
+
+        items : [
+              {text:'父亲',value:'父亲',value2:'1'},
+              {text:'母亲',value:'母亲',value2:'2'},
+              {text:'兄弟',value:'兄弟',value2:'3'},
+              {text:'姐妹',value:'姐妹',value2:'4'},
+              {text:'朋友',value:'朋友',value2:'5'},
+              {text:'爷爷',value:'爷爷',value2:'6'},
+              {text:'奶奶',value:'奶奶',value2:'7'}
+            
+            ], 
+            valueField:'hide',
+            render:'#s1'
+
+        }
+
+        },
+            
+            {title : '联系方式',dataIndex :'telephone',editor : {xtype : 'text',rules:{required:true,number:true,maxlength:11,minlength:11,regexp:/^1[3578][0-9]{9}$/},validator : function(value,obj){
+              
+            }},renderer : Grid.Format.dateRenderer},
+            
+            
+          ],
+      //默认的数据
+      data = <?php echo $info;?>,
+        store = new Data.Store({
+        data:data
+      }),
+      editing = new Grid.Plugins.CellEditing(),
+      grid = new Grid.Grid({
+        render : '#grid',
+        columns : columns,
+        width : 700,
+        forceFit : true,
+        store : store,
+        plugins : [Grid.Plugins.CheckSelection,editing],
+        tbar:{
+            items : [{
+              btnCls : 'button button-small',
+              text : '<i class="icon-plus"></i>添加',
+              listeners : {
+                'click' : addFunction
+              }
+            },
+            {
+              btnCls : 'button button-small',
+              text : '<i class="icon-remove"></i>删除',
+              listeners : {
+                'click' : delFunction
+              }
+            }]
+        }
+ 
+      });
+    grid.render(); 
+    function addFunction(){
+      var newData = {school :'请输入学校名称'};
+      store.add(newData);
+      editing.edit(newData,'school'); //添加记录后，直接编辑
+    }
+ 
+    function delFunction(){
+      var selections = grid.getSelection();
+      store.remove(selections);
+    }
+ 
+    var form = new Form.HForm({
+      srcNode : '#J_Form'
+    });
+    form.render();
+ 
+    form.on('beforesubmit',function(){
+      if(!editing.isValid()){
+ 
+        return false;
+      }
+      var str = BUI.JSON.stringify(store.getResult());// 提交前将grid的数据存储到隐藏域，一起提交
+      // str = str.replace("[", "");
+      // str = str.replace("]", "");
+      // var str_temp = eval("("+str+")");
+      // form.getField('linkman_name').set('value',str_temp.linkman_name);
+      // form.getField('relation').set('value',str_temp.relation);
+      // form.getField('telephone').set('value',str_temp.telephone);
+      form.getField('linkman_data').set('value',str);
+      
+
+
+    });
+ 
+      
+  });  
+      
+</script>
+  
+ </form>
+
+
+<body>
+</html>

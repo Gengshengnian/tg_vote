@@ -1,0 +1,699 @@
+[ 2016-09-29T11:11:59+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/Login/login
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_privilege_user` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `tg_privilege_user` WHERE `username` = '姚亚楠5' AND `password` = '96e79218965eb72c92a549dd5a330112' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tg_organization_employee` [ RunTime:0.0000s ]
+SQL: select id,position_id from tg_organization_employee where user_id = 52 [ RunTime:0.0000s ]
+
+[ 2016-09-29T11:11:59+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/Login/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_privilege_user_role` [ RunTime:0.0000s ]
+SQL: SELECT DISTINCT  tp.id id,name text FROM tg_privilege_user_role tru left JOIN tg_privilege_role_menu tpr ON tpr.role_id=tru.role_id left JOIN tg_privilege_menu tp ON tp.id=tpr.menu_id  WHERE ( user_id=52 and parent_id is null ) ORDER BY id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:11:59+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/Login/getMenus
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_privilege_user_role` [ RunTime:0.0000s ]
+SQL: SELECT DISTINCT  tp.id id,name text,target_href href,tp.parent_id pid FROM tg_privilege_user_role tru left JOIN tg_privilege_role_menu tpr ON tpr.role_id=tru.role_id left JOIN tg_privilege_menu tp ON tp.id=tpr.menu_id  WHERE ( tru.user_id=52 ) ORDER BY tp.id asc  [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:12:00+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:12:16+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/INDEX.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_privilege_user` [ RunTime:0.0000s ]
+SQL: SELECT
+        	t1.username,
+            t2.id as student_id,
+        	t8.id,
+        	t3. NAME,
+		    t3.id cid,
+        	t9.date,
+		    t8.id knid,
+        	t8. NAME k
+        FROM
+        	tg_privilege_user t1
+        LEFT JOIN tg_acdemic_students t2 ON t2.user_id = t1.id
+        LEFT JOIN tg_acdemic_class t3 ON t3.id = t2.class_id
+        LEFT JOIN tg_acdemic_direction t4 ON t4.id = t3.dire_id
+        LEFT JOIN tg_acdemic_stage t5 ON t5.direction_id = t4.id
+        LEFT JOIN tg_acdemic_course t6 ON t6.stage_id = t5.id
+        LEFT JOIN tg_acdemic_days t7 ON t7.course_id = t6.id
+        LEFT JOIN tg_acdemic_knowledge t8 ON t8.day_id = t7.id
+        LEFT JOIN tg_acdemic_course_table t9 ON t9.course_days_id = t8.day_id
+        WHERE
+        	(t1.id = 52)
+        AND t9.date = '2016-09-29' [ RunTime:0.0000s ]
+SQL: SELECT
+            	t1.username,
+            	t8.id,
+            	t3. NAME,
+            	t9.date,
+		        t8.id knid,
+            	t8.NAME k
+            FROM
+            	tg_privilege_user t1
+            LEFT JOIN tg_acdemic_students t2 ON t2.user_id = t1.id
+            LEFT JOIN tg_acdemic_class t3 ON t3.id = t2.class_id
+            LEFT JOIN tg_acdemic_direction t4 ON t4.id = t3.dire_id
+            LEFT JOIN tg_acdemic_stage t5 ON t5.direction_id = t4.id
+            LEFT JOIN tg_acdemic_course t6 ON t6.stage_id = t5.id
+            LEFT JOIN tg_acdemic_days t7 ON t7.course_id = t6.id
+            LEFT JOIN tg_acdemic_knowledge t8 ON t8.day_id = t7.id
+            LEFT JOIN tg_acdemic_course_table t9 ON t9.course_days_id = t8.day_id
+            WHERE
+            	(t1.id = 52)
+            AND t9.date = '2016-09-30' [ RunTime:0.0156s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.015600s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015600s ]
+
+[ 2016-09-29T11:14:23+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_daily_stu` [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: validate D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\ThinkPHP\Library\Think\Model.class.php 第 1186 行.
+NOTIC: [8] Undefined index: auto D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\ThinkPHP\Library\Think\Model.class.php 第 1129 行.
+SQL: INSERT INTO `tg_daily_stu` (`date`,`stu_id`,`class`,`motto`,`mood`,`advice`,`laterdate`) VALUES ('2016-09-29','33','17','','','','2016-09-29') [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tg_daily_knowledge` [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('1','0','在这里写遇到的问题1','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('2','0','在这里写遇到的问题2','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('3','0','在这里写遇到的问题3','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('4','0','在这里写遇到的问题4','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('5','1','在这里写遇到的问题5','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('6','1','在这里写遇到的问题6','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('7','2','在这里写遇到的问题7','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('8','2','在这里写遇到的问题8','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('9','2','在这里写遇到的问题9','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('10','2','在这里写遇到的问题10','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('16','2','在这里写遇到的问题11','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('17','2','在这里写遇到的问题12','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('18','0','在这里写遇到的问题13','','3') [ RunTime:0.0000s ]
+NOTIC: [8] Use of undefined constant problem_ - assumed 'problem_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 135 行.
+NOTIC: [8] Use of undefined constant comment_ - assumed 'comment_' D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 136 行.
+SQL: INSERT INTO `tg_daily_knowledge` (`knowledge_id`,`master_level`,`problem`,`comment`,`daily_report_id`) VALUES ('19','0','在这里写遇到的问题14','','3') [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:14:24+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_privilege_user` [ RunTime:0.0000s ]
+SQL: SELECT
+        	t1.username,
+            t2.id as student_id,
+        	t8.id,
+        	t3. NAME,
+		    t3.id cid,
+        	t9.date,
+		    t8.id knid,
+        	t8. NAME k
+        FROM
+        	tg_privilege_user t1
+        LEFT JOIN tg_acdemic_students t2 ON t2.user_id = t1.id
+        LEFT JOIN tg_acdemic_class t3 ON t3.id = t2.class_id
+        LEFT JOIN tg_acdemic_direction t4 ON t4.id = t3.dire_id
+        LEFT JOIN tg_acdemic_stage t5 ON t5.direction_id = t4.id
+        LEFT JOIN tg_acdemic_course t6 ON t6.stage_id = t5.id
+        LEFT JOIN tg_acdemic_days t7 ON t7.course_id = t6.id
+        LEFT JOIN tg_acdemic_knowledge t8 ON t8.day_id = t7.id
+        LEFT JOIN tg_acdemic_course_table t9 ON t9.course_days_id = t8.day_id
+        WHERE
+        	(t1.id = 52)
+        AND t9.date = '2016-09-29' [ RunTime:0.0156s ]
+SQL: SELECT
+            	t1.username,
+            	t8.id,
+            	t3. NAME,
+            	t9.date,
+		        t8.id knid,
+            	t8.NAME k
+            FROM
+            	tg_privilege_user t1
+            LEFT JOIN tg_acdemic_students t2 ON t2.user_id = t1.id
+            LEFT JOIN tg_acdemic_class t3 ON t3.id = t2.class_id
+            LEFT JOIN tg_acdemic_direction t4 ON t4.id = t3.dire_id
+            LEFT JOIN tg_acdemic_stage t5 ON t5.direction_id = t4.id
+            LEFT JOIN tg_acdemic_course t6 ON t6.stage_id = t5.id
+            LEFT JOIN tg_acdemic_days t7 ON t7.course_id = t6.id
+            LEFT JOIN tg_acdemic_knowledge t8 ON t8.day_id = t7.id
+            LEFT JOIN tg_acdemic_course_table t9 ON t9.course_days_id = t8.day_id
+            WHERE
+            	(t1.id = 52)
+            AND t9.date = '2016-09-30' [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:14:28+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/lookstudent.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:14:28+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/getdata.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `tg_daily_stu` [ RunTime:0.0000s ]
+SQL: SELECT t1.id id,c.name class_name,t1.date,s.name student_name,t1.stu_id FROM tg_daily_stu t1 left JOIN tg_acdemic_class c on c.id= t1.class left JOIN tg_acdemic_students s ON s.id = t1.stu_id left JOIN tg_acdemic_students s1 on s1.class_id= c.id left JOIN tg_privilege_user u on u.id= s.user_id left JOIN tg_daily_knowledge k on k.daily_report_id= t1.id  GROUP BY t1.id LIMIT 0,10   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tg_daily_stu` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:14:40+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/studentdetails/id/33
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_daily_stu` [ RunTime:0.0000s ]
+SQL: 
+    		    SELECT
+                	t1.date,t1.laterdate,t1.mood,t1.advice,t1.motto,
+                	t2.*,
+                	t3.name as knowledge_name,
+                	t4.name as student_name,t4.id stu_id,
+                	t5.name as class_name,t5.id class_id
+                FROM
+                	tg_daily_stu t1
+                LEFT JOIN tg_daily_knowledge t2 ON t1.id = t2.daily_report_id
+                LEFT JOIN tg_acdemic_knowledge t3 ON t2.knowledge_id = t3.id
+                LEFT JOIN tg_acdemic_students t4 ON t1.stu_id = t4.id
+                LEFT JOIN tg_acdemic_class t5 ON t4.class_id = t5.id
+                where t1.stu_id = 33
+    		     [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:14:47+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/studentdetails/id/26
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_daily_stu` [ RunTime:0.0000s ]
+SQL: 
+    		    SELECT
+                	t1.date,t1.laterdate,t1.mood,t1.advice,t1.motto,
+                	t2.*,
+                	t3.name as knowledge_name,
+                	t4.name as student_name,t4.id stu_id,
+                	t5.name as class_name,t5.id class_id
+                FROM
+                	tg_daily_stu t1
+                LEFT JOIN tg_daily_knowledge t2 ON t1.id = t2.daily_report_id
+                LEFT JOIN tg_acdemic_knowledge t3 ON t2.knowledge_id = t3.id
+                LEFT JOIN tg_acdemic_students t4 ON t1.stu_id = t4.id
+                LEFT JOIN tg_acdemic_class t5 ON t4.class_id = t5.id
+                where t1.stu_id = 26
+    		     [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.015600s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:14:58+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/problemselect.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:14:59+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/selproblem
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_daily_knowledge` [ RunTime:0.0000s ]
+SQL: SELECT t1.*,t2.date,t2.stu_id,t4.id as class_id,t4.name as class_name,t5.name as knowledge_name,GROUP_CONCAT(t3.id,t1.master_level),SUM(IF(t1.master_level = 0,1,0)) mastert,SUM(IF(t1.master_level =1,1,0)) general,SUM(IF(t1.master_level =2,1,0)) no_master FROM tg_daily_knowledge t1 left JOIN tg_daily_stu t2 ON t1.daily_report_id = t2.id left JOIN tg_acdemic_students t3 ON t2.stu_id = t3.id left JOIN tg_acdemic_class t4 ON t3.class_id = t4.id left JOIN tg_acdemic_knowledge t5 ON t1.knowledge_id = t5.id  GROUP BY t1.knowledge_id,t3.id LIMIT 0,5   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tg_daily_knowledge` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:15:23+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/problem_ui.html?date=2016-09-27&class_id=14&knowledge_id=1&master_level=0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:15:23+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/problem_detail?date=2016-09-27&class_id=14&knowledge_id=1&master_level=0
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_daily_knowledge` [ RunTime:0.0000s ]
+SQL: SELECT t2.date,t4.name as class_name,t5.name as knowledge_name,t3.name as student_name,t1.problem,t1.comment,t2.stu_id FROM tg_daily_knowledge t1 left JOIN tg_daily_stu t2 ON t1.daily_report_id = t2.id left JOIN tg_acdemic_students t3 ON t2.stu_id = t3.id left JOIN tg_acdemic_class t4 ON t3.class_id = t4.id left JOIN tg_acdemic_knowledge t5 ON t1.knowledge_id = t5.id  WHERE t3.class_id = '14' AND t1.knowledge_id = '1' AND t1.master_level = '0' LIMIT 0,5   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tg_daily_knowledge` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:15:39+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/noreport.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:15:40+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/getnoreport
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_students` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tg_daily_stu` [ RunTime:0.0000s ]
+SQL: SELECT `stu_id`,`date` FROM `tg_daily_stu`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `tg_acdemic_students` [ RunTime:0.0156s ]
+SQL: SELECT t1.id stu_id,t1.name,t2.name class,t4.date,t5.id uid FROM tg_acdemic_students t1 left JOIN tg_acdemic_class t2 on t2.id=t1.class_id left JOIN tg_acdemic_course_table t3 on t3.class_id=t2.id left JOIN tg_daily_stu t4 on t4.stu_id=t1.id left JOIN tg_privilege_user t5 on t5.id=t1.user_id  WHERE ( t1.id not in(25,26,33) ) GROUP BY t1.id LIMIT 0,5   [ RunTime:0.0000s ]
+NOTIC: [8] Undefined variable: dates D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 482 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `tg_acdemic_students` LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:15:43+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/later/id/24
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_privilege_user` [ RunTime:0.0000s ]
+SQL: SELECT
+        	t1.username,
+            t2.id as student_id,
+        	t8.id,
+        	t3. NAME,
+		    t3.id cid,
+        	t9.date,
+		    t8.id knid,
+        	t8. NAME k
+		    
+        FROM
+        	tg_privilege_user t1
+        LEFT JOIN tg_acdemic_students t2 ON t2.user_id = t1.id
+        LEFT JOIN tg_acdemic_class t3 ON t3.id = t2.class_id
+        LEFT JOIN tg_acdemic_direction t4 ON t4.id = t3.dire_id
+        LEFT JOIN tg_acdemic_stage t5 ON t5.direction_id = t4.id
+        LEFT JOIN tg_acdemic_course t6 ON t6.stage_id = t5.id
+        LEFT JOIN tg_acdemic_days t7 ON t7.course_id = t6.id
+        LEFT JOIN tg_acdemic_knowledge t8 ON t8.day_id = t7.id
+        LEFT JOIN tg_acdemic_course_table t9 ON t9.course_days_id = t8.day_id
+        WHERE
+        	(t1.id = 24)
+        AND t9.date = '2016-05-09' [ RunTime:0.0000s ]
+SQL: SELECT
+            	t1.username,
+            	t8.id,
+            	t3. NAME,
+            	t9.date,
+		        t8.id knid,
+            	t8.NAME k
+            FROM
+            	tg_privilege_user t1
+            LEFT JOIN tg_acdemic_students t2 ON t2.user_id = t1.id
+            LEFT JOIN tg_acdemic_class t3 ON t3.id = t2.class_id
+            LEFT JOIN tg_acdemic_direction t4 ON t4.id = t3.dire_id
+            LEFT JOIN tg_acdemic_stage t5 ON t5.direction_id = t4.id
+            LEFT JOIN tg_acdemic_course t6 ON t6.stage_id = t5.id
+            LEFT JOIN tg_acdemic_days t7 ON t7.course_id = t6.id
+            LEFT JOIN tg_acdemic_knowledge t8 ON t8.day_id = t7.id
+            LEFT JOIN tg_acdemic_course_table t9 ON t9.course_days_id = t8.day_id
+            WHERE
+            	(t1.id = 24)
+            AND t9.date = '2016-05-10' [ RunTime:0.0156s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:16:06+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/laterselect.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.015601s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-09-29T11:16:07+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/getlater.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_daily_stu` [ RunTime:0.0000s ]
+NOTIC: [8] Undefined index: t1.date D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 644 行.
+NOTIC: [8] Undefined index: t1.laterdate D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 644 行.
+SQL: SHOW COLUMNS FROM `tg_daily_stu` [ RunTime:0.0000s ]
+SQL: SELECT t1.date,t1.laterdate,t1.motto,t1.advice,t2.id,t2.name sname,t3.name cname,t4.problem,t4.master_level FROM tg_daily_stu t1 left JOIN tg_acdemic_students t2 on t2.id=t1.stu_id left JOIN tg_acdemic_class t3 on t3.id=t2.class_id left JOIN tg_daily_knowledge t4 on t4.daily_report_id=t1.id  GROUP BY t1.id LIMIT 0,5   [ RunTime:0.0000s ]
+NOTIC: [2] count() expects at least 1 parameter, 0 given D:\phpStudy\WWW\projects\tg_oa\src\tg_oa_crm\Application\Admin\Controller\StudentReportController.class.php 第 659 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.015600s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015600s ]
+
+[ 2016-09-29T11:16:07+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/TeacherReport/INDEX.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_privilege_user` [ RunTime:0.0468s ]
+ERR: 1054:Unknown column 't5.direction_id' in 'on clause'
+ [ SQL语句 ] : SELECT
+            t2.name tname,
+            t2.id as teacher_id,
+        	t10.id,
+        	t4. NAME,
+		    t4.id cid,
+        	t11.date,
+		    t10.id knid,
+        	t10. NAME k
+        FROM
+        	tg_privilege_user t1
+        LEFT JOIN tg_organization_employee t2 ON t2.user_id = t1.id
+        LEFT JOIN tg_organization_position t3 ON t3.id = t2.position_id 
+        LEFT JOIN tg_acdemic_class t4 ON t4.class_teacher_id = t2.id
+        LEFT JOIN tg_acdemic_course_table t5 ON t5.class_id = t4.id
+        LEFT JOIN tg_acdemic_direction t6 ON t6.id = t5.direction_id
+        LEFT JOIN tg_acdemic_stage t7 ON t7.direction_id = t6.id
+        LEFT JOIN tg_acdemic_course t8 ON t8.stage_id = t7.id
+        LEFT JOIN tg_acdemic_days t9 ON t9.course_id = t8.id
+        LEFT JOIN tg_acdemic_knowledge t10 ON t10.day_id = t9.id
+        LEFT JOIN tg_acdemic_course_table t11 ON t11.course_days_id = t10.day_id
+        WHERE
+        	(t3.name = '讲师' and t1.id=52)
+        AND t11.date = '2016-05-09'
+        GROUP BY t10.id
+         
+ERR: 1054:Unknown column 't5.direction_id' in 'on clause'
+ [ SQL语句 ] : SELECT
+            t2.name tname,
+            t2.id as teacher_id,
+        	t10.id,
+        	t4. NAME,
+		    t4.id cid,
+        	t11.date,
+		    t10.id knid,
+        	t10. NAME k
+        FROM
+        	tg_privilege_user t1
+        LEFT JOIN tg_organization_employee t2 ON t2.user_id = t1.id
+        LEFT JOIN tg_organization_position t3 ON t3.id = t2.position_id 
+        LEFT JOIN tg_acdemic_class t4 ON t4.class_teacher_id = t2.id
+        LEFT JOIN tg_acdemic_course_table t5 ON t5.class_id = t4.id
+        LEFT JOIN tg_acdemic_direction t6 ON t6.id = t5.direction_id
+        LEFT JOIN tg_acdemic_stage t7 ON t7.direction_id = t6.id
+        LEFT JOIN tg_acdemic_course t8 ON t8.stage_id = t7.id
+        LEFT JOIN tg_acdemic_days t9 ON t9.course_id = t8.id
+        LEFT JOIN tg_acdemic_knowledge t10 ON t10.day_id = t9.id
+        LEFT JOIN tg_acdemic_course_table t11 ON t11.course_days_id = t10.day_id
+        WHERE
+        	(t3.name = '讲师' and t1.id=52)
+        AND t11.date = '2016-05-09'
+        GROUP BY t10.id
+         
+
+[ 2016-09-29T11:16:09+08:00 ] 127.0.0.1 /projects/tg_oa/src/tg_oa_crm/index.php/Admin/StudentReport/INDEX.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000000s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `tg_privilege_user` [ RunTime:0.0000s ]
+SQL: SELECT
+        	t1.username,
+            t2.id as student_id,
+        	t8.id,
+        	t3. NAME,
+		    t3.id cid,
+        	t9.date,
+		    t8.id knid,
+        	t8. NAME k
+        FROM
+        	tg_privilege_user t1
+        LEFT JOIN tg_acdemic_students t2 ON t2.user_id = t1.id
+        LEFT JOIN tg_acdemic_class t3 ON t3.id = t2.class_id
+        LEFT JOIN tg_acdemic_direction t4 ON t4.id = t3.dire_id
+        LEFT JOIN tg_acdemic_stage t5 ON t5.direction_id = t4.id
+        LEFT JOIN tg_acdemic_course t6 ON t6.stage_id = t5.id
+        LEFT JOIN tg_acdemic_days t7 ON t7.course_id = t6.id
+        LEFT JOIN tg_acdemic_knowledge t8 ON t8.day_id = t7.id
+        LEFT JOIN tg_acdemic_course_table t9 ON t9.course_days_id = t8.day_id
+        WHERE
+        	(t1.id = 52)
+        AND t9.date = '2016-09-29' [ RunTime:0.0000s ]
+SQL: SELECT
+            	t1.username,
+            	t8.id,
+            	t3. NAME,
+            	t9.date,
+		        t8.id knid,
+            	t8.NAME k
+            FROM
+            	tg_privilege_user t1
+            LEFT JOIN tg_acdemic_students t2 ON t2.user_id = t1.id
+            LEFT JOIN tg_acdemic_class t3 ON t3.id = t2.class_id
+            LEFT JOIN tg_acdemic_direction t4 ON t4.id = t3.dire_id
+            LEFT JOIN tg_acdemic_stage t5 ON t5.direction_id = t4.id
+            LEFT JOIN tg_acdemic_course t6 ON t6.stage_id = t5.id
+            LEFT JOIN tg_acdemic_days t7 ON t7.course_id = t6.id
+            LEFT JOIN tg_acdemic_knowledge t8 ON t8.day_id = t7.id
+            LEFT JOIN tg_acdemic_course_table t9 ON t9.course_days_id = t8.day_id
+            WHERE
+            	(t1.id = 52)
+            AND t9.date = '2016-09-30' [ RunTime:0.0156s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+

@@ -1,0 +1,59 @@
+	<div class="header-title">表格</div>
+		<div class="header-content" style="height: 360px;">
+			<!-- 表格部分 开始-->
+			<div class="table-content" style="height: 310px;">
+				<table class="table text-l">
+					<!-- 表头部分 结束-->
+					<tr class="table-header">
+						<th >选择</th>
+						<th data-hid='true'>id</th>
+						<th data-role='name'>名字</th>
+						<th data-role='duty'>岗位职责</th>
+						<th data-role='department_id' class="options" data-id='organization_department' data-oc='true'>部门</th>
+						<th data-role='parent_id' class="options" data-id='organization_position' data-oc='true'>上级职位</th>
+						<th >操作</th>
+					</tr>
+
+					<!-- 表头部分 结束-->
+					<!-- 第1行 开始 -->
+					<tr>
+						<volist name="list" id="vo">
+
+						<tr>
+							<td><input type="checkbox"></td>
+							<td data-hid='true'>{$vo.id}</td>
+							<td data-role='name'>{$vo.name}</td>
+							<td data-role='duty'>{$vo.duty}</td>
+							<td data-role='department_id'>{$vo.department_id}</td>
+							<td data-role='parent_id'>{$vo.parent_id}</td>
+							<td><input type="button"
+								class="input-button-guolv small view"> <input
+								type="button" class="input-button-wirte small edit"
+								urls='__URL__/updateInput/id/{$vo.id}'> <input
+								type="button" class="input-button-fileremove small delete"
+								urls='__URL__/delete/id/{$vo.id}'></td>
+						</tr>
+
+						</volist>
+
+					</tr>
+
+					<!-- 第1行 结束 -->
+
+				</table>
+			</div>
+			<!-- 表格部分 结束-->
+			<!-- 翻页部分 开始-->
+			<div class="table-footer">
+				<div class="button-bottom">
+					<select name="" id="" class="select">
+						<option value="">10</option>
+						<option value="">20</option>
+						<option value="">30</option>
+					</select>
+					<span id="pageStr">{$pagestr}</span>
+				</div>
+			</div>
+			<!-- 翻页部分 结束-->
+		</div>
+		<script src="__PUBLIC__/js/table+.js?ver=110"></script>

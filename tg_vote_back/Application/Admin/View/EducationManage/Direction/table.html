@@ -1,0 +1,61 @@
+
+	<!-- -----表格部分复制开始--------- -->
+	<div class="content">
+		<div class="header-title">方向</div>
+		<div class="header-content">
+			<!-- 表格部分 开始-->
+			<div class="table-content">
+				<table class="table text-l">
+					<!-- 表头部分 结束-->
+					<tr class="table-header">
+						<th >选择</th>
+						<th >id</th>
+						<th data-role='name'>方向名字</th>
+						<th data-role='target_href'>方向介绍</th>
+						<th data-role='parent_id'>方向状态</th>
+						<th >操作</th>
+					</tr>
+
+					<!-- 表头部分 结束-->
+					<!-- 第1行 开始 -->
+					<tr>
+						<volist name="list" id="vo">
+
+						<tr>
+							<td><input type="checkbox"></td>
+							<td>{$vo.id}</td>
+							<td>{$vo.name}</td>
+							<td>{$vo.about}</td>
+							<td>{$vo.status}
+							<td><input type="button"
+								class="input-button-guolv small view"> <input
+								type="button" class="input-button-wirte small edit"
+								urls='__URL__/updateInput/id/{$vo.id}'> <input
+								type="button" class="input-button-fileremove small delete"
+								urls='__URL__/delete/id/{$vo.id}'></td>
+						</tr>
+
+						</volist>
+
+					</tr>
+
+					<!-- 第1行 结束 -->
+
+				</table>
+			</div>
+			<!-- 表格部分 结束-->
+			<!-- 翻页部分 开始-->
+			<div class="table-footer">
+				<div class="button-bottom">
+					<select name="" id="" class="select">
+						<option value="">10</option>
+						<option value="">20</option>
+						<option value="">30</option>
+					</select> {$pagestr}
+				</div>
+			</div>
+			<!-- 翻页部分 结束-->
+		</div>
+	</div>
+
+

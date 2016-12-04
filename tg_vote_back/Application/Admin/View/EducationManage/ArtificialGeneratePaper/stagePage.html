@@ -1,0 +1,160 @@
+
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title> 搜索表单</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+              <link href="__PUBLIC__/bui/Common/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/page-min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="__PUBLIC__/css/0-login.css"> 
+   <link href="__PUBLIC__/bui/Common/assets/css/prettify.css" rel="stylesheet" type="text/css" />
+   <style type="text/css">
+    code {
+      padding: 0px 4px;
+      color: #d14;
+      background-color: #f7f7f9;
+      border: 1px solid #e1e1e8;
+    }
+    h2{
+		text-align:center;
+    }
+   </style>
+ </head>
+ <body>
+  
+  <div class="container">
+  	 <h2>阶段测试试卷</h2>
+  	 <hr>
+    <div class="row">
+      <form method="post" class="form-horizontal span24" action="{:U('ArtificialGeneratePaper/add')}">
+        <div class="row">
+          <div class="control-group span9">
+           <!--试卷编号  -->
+            <input type="hidden" class="control-text" name="type" value='stage'>
+            <label class="control-label">考试时间：</label>
+            <div class="controls">
+              <input type="text" class=" calendar" name="tep_addtime">
+            </div>
+          </div>
+          <div class="control-group span7">
+            <label class="control-label"><s>*</s>班级：</label>
+            <div class="controls" >
+              <select name="class_id" data-rules="{required:true}">
+                <option value="">-请选择-</option>
+                <foreach name='cla' item='c'>
+                	<option value="{$c['id']}">{$c['name']}</option>
+                </foreach>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+		<div class="detail-page">
+			{$dxt}:
+			<volist name="single" id="vo">
+				<div class="detail-section">  
+					<div class="row detail-row">
+						<div class="span24">
+							<input type='checkbox' value="{$vo['title_id']}" name='title[]'>
+							{$i}.{$vo.tet_content}<br>
+						</div>
+					</div>
+				</div>
+			</volist>
+		</div>
+		<div class="detail-page">
+			{$sxt}:
+			<volist name="options" id="vo">
+				<div class="detail-section">  
+					<div class="row detail-row">
+						<div class="span24">
+						<input type='checkbox' value="{$vo['title_id']}" name='title[]'>
+							{$i}.{$vo.tet_content}<br>
+						</div>
+					</div>
+				</div>
+			</volist>
+		</div>
+		<div class="detail-page">
+			{$tkt}:
+			<volist name="completion" id="vo">
+				<div class="detail-section">  
+					<div class="row detail-row">
+						<div class="span24">
+						<input type='checkbox' value="{$vo['title_id']}" name='title[]'>
+							{$i}.{$vo.tet_content}<br>
+						</div>
+					</div>
+				</div>
+			</volist>
+		</div>
+		<div class="detail-page">
+			{$pdt}:
+			<volist name="check" id="vo">
+				<div class="detail-section">  
+					<div class="row detail-row">
+						<div class="span24">
+						<input type='checkbox' value="{$vo['title_id']}" name='title[]'>
+							{$i}.{$vo.tet_content}<br>
+						</div>
+					</div>
+				</div>
+			</volist>
+		</div>
+		<div class="detail-page">
+			{$jdt}:
+			<volist name="jianda" id="vo">
+				<div class="detail-section">  
+					<div class="row detail-row">
+						<div class="span24">
+						<input type='checkbox' value="{$vo['title_id']}" name='title[]'>
+							{$i}.{$vo.tet_content}<br>
+						</div>
+					</div>
+				</div>
+			</volist>
+		</div>
+		<div class="content">
+			 <!--登录按钮-->
+			 <span align='center'>
+				 <input class="wlh-submit wlh-login" type="submit" value="提&nbsp;&nbsp;交">
+		         <!--注册按钮-->
+		         <input class="wlh-submit wlh-register" type="reset" value="取&nbsp;&nbsp;消">
+			 </span>
+	         
+		</div>
+	</div> 
+    
+ </form>
+    </div>
+    <div class="search-grid-container">
+      <div id="grid"></div>
+    </div>
+  </div>
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/bui-min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/config-min.js"></script>
+  <script type="text/javascript">
+  function load(){
+		var crews = document.getElementsByName("crew");
+		var crewname = document.getElementsByName("span");
+		//console.dir(crewname);
+		var str = [];
+		var stb = [];
+		for(i=0;i<crews.length;i++){
+			if(crews[i].checked){
+				str +=crews[i].value+',';
+				stb +=crewname[i].innerText+',';
+			}
+		}
+		
+		$("#shuchu").text(stb);
+		
+	}
+  </script>
+  
+
+
+<body>
+</html>  

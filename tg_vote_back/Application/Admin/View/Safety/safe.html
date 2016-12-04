@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>安全问题设置</title>
+<!-- 此文件为了显示Demo样式，项目中不需要引入 -->
+ 
+  <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/dpl.css" rel="stylesheet">
+  <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/bui.css" rel="stylesheet">
+ 
+</head>
+<body>
+  <div class="demo-content">
+ 
+    <form class="form-horizontal" action="<{:U('Safety/question')}>" method="post">
+    	<input name="u_id" type="hidden" class="control-text" value="<?php echo session('user')['id']?>">
+        <div class="row">
+          <div class="control-group span8">
+            <label class="control-label">安全问题一：</label>
+            <div class="controls">
+            	<select  name="ques1">
+		              <option value="">请选择</option>
+		              <option value="1">您母亲的姓名是？</option>
+		              <option value="2">您配偶的生日是？</option>
+		              <option value="3">您的学号（或工号）是？</option>
+		              <option value="4">您母亲的生日是？</option>
+		              <option value="5">您高中班主任的名字是？</option>
+		              <option value="6">您父亲的姓名是？</option>
+		              <option value="7">您小学班主任的名字是？</option>
+		              <option value="8">您父亲的生日是？</option>
+		              <option value="9">您配偶的姓名是？</option>
+		              <option value="10">您初中班主任的名字是？</option>
+		              <option value="11">您最熟悉的学校宿舍室友名字是？</option>
+		              <option value="12">对您影响最大的人名字是？</option>
+		              <option value="13">您最熟悉的童年好友名字是？</option>
+            	</select>
+            </div>
+            <label class="control-label">答案：</label>
+            <div class="controls">
+              <input name="answer1"  type="text" class="input-normal control-text">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="control-group span8">
+            <label class="control-label">安全问题二：</label>
+            <div class="controls">
+            	<select  name="ques2">
+		             <option value="">请选择</option>
+		              <option value="1">您母亲的姓名是？</option>
+		              <option value="2">您配偶的生日是？</option>
+		              <option value="3">您的学号（或工号）是？</option>
+		              <option value="4">您母亲的生日是？</option>
+		              <option value="5">您高中班主任的名字是？</option>
+		              <option value="6">您父亲的姓名是？</option>
+		              <option value="7">您小学班主任的名字是？</option>
+		              <option value="8">您父亲的生日是？</option>
+		              <option value="9">您配偶的姓名是？</option>
+		              <option value="10">您初中班主任的名字是？</option>
+		              <option value="11">您最熟悉的学校宿舍室友名字是？</option>
+		              <option value="12">对您影响最大的人名字是？</option>
+		              <option value="13">您最熟悉的童年好友名字是？</option>
+            	</select>
+            </div>
+            <label class="control-label">答案：</label>
+            <div class="controls">
+              <input name="answer2"  type="text" class="input-normal control-text">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="control-group span8">
+            <label class="control-label">安全问题三：</label>
+            <div class="controls">
+            	<select  name="ques3">
+               		  <option value="">请选择</option>
+		              <option value="1">您母亲的姓名是？</option>
+		              <option value="2">您配偶的生日是？</option>
+		              <option value="3">您的学号（或工号）是？</option>
+		              <option value="4">您母亲的生日是？</option>
+		              <option value="5">您高中班主任的名字是？</option>
+		              <option value="6">您父亲的姓名是？</option>
+		              <option value="7">您小学班主任的名字是？</option>
+		              <option value="8">您父亲的生日是？</option>
+		              <option value="9">您配偶的姓名是？</option>
+		              <option value="10">您初中班主任的名字是？</option>
+		              <option value="11">您最熟悉的学校宿舍室友名字是？</option>
+		              <option value="12">对您影响最大的人名字是？</option>
+		              <option value="13">您最熟悉的童年好友名字是？</option>
+            	</select>
+            </div>
+            <label class="control-label">答案：</label>
+            <div class="controls">
+              <input name="answer3"  type="text" class="input-normal control-text">
+            </div>
+          </div>
+        </div>
+        <div class="row form-actions actions-bar">
+            <div class="span13 offset3 ">
+              <button type="submit" class="button button-primary">保存</button>
+              <button type="reset" class="button">重置</button>
+            </div>
+        </div>
+    </form>
+</div> 
+  <script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+  <script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+  <script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+ 
+<!-- script start --> 
+    <script type="text/javascript">
+       BUI.use('bui/calendar',function(Calendar){
+          var datepicker = new Calendar.DatePicker({
+            trigger:'.calendar',
+            autoRender : true
+          });
+ 
+      });
+    </script>
+<!-- script end -->
+  </div>
+</body>
+</html> 
+
+
+

@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title></title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <link href="__PUBLIC__/bui/Common/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
+   <link href="__PUBLIC__/bui/Common/assets/css/prettify.css" rel="stylesheet" type="text/css" />
+   <style type="text/css">
+    code {
+      padding: 0px 4px;
+      color: #d14;
+      background-color: #f7f7f9;
+      border: 1px solid #e1e1e8;
+    }
+   </style>
+ </head>
+ <body>
+  <div class="container">
+    <form id="searchForm" class="form-horizontal" tabindex="0" style="outline: none;">
+              <div class="row">
+              
+              	<div class="control-group span8">
+                  <label class="control-label">试卷编号：</label>
+                  <div class="controls">
+                    <input type="text" name="a" class="control-text">
+                  </div>
+                </div>
+              
+                <div class="control-group span8">
+                  <label class="control-label">所属方向：</label>
+                  <div class="controls">
+                   		<select name="campus">
+			              <option value="1">PHP</option>
+			              <option value="2">Web前端</option>
+			              <option value="3">UI设计</option>
+			            </select>
+                  </div>
+                </div>
+                <div class="control-group span8">
+                  <label class="control-label">班级：</label>
+                  <div class="controls">
+                    	<select name="campus">
+			              <option value="1">PHP1512</option>
+			              <option value="2">Web前端1123</option>
+			              <option value="3">UI设计1234</option>
+			            </select>
+                  </div>
+                </div>
+                
+           </div>
+           
+           
+              <div class="row">
+                <div class="control-group span10">
+	                  <label class="control-label">均分：</label>
+	                  <div class="controls bui-form-group" data-rules="{dateRange : true}">
+	                    	<select name="campus">
+				              <option value="1">大于</option>
+				              <option value="2">大于等于</option>
+				              <option value="3">小于</option>
+				              <option value="3">小于等于</option>
+				              <option value="3">等于</option>
+				            </select>
+	                  </div>
+                </div>
+                
+                <div class="form-actions span5">
+                 	 <input type="text" name="a" class="control-text" placeholder="请输入均分">
+                </div>
+                
+                <div class="form-actions span5">
+                  <button id="btnSearch" type="submit" class="button button-primary">搜索</button>
+                </div>
+              </div>
+              
+            </form>
+
+    <div class="search-grid-container">
+      <div id="grid"></div>
+    </div>
+  </div>
+
+  
+
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/bui-min.js"></script>
+
+
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/config-min.js"></script>
+  <script type="text/javascript">
+    BUI.use('common/page');
+  </script>
+  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/prettify.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      prettyPrint();
+    });
+  </script>
+
+<script type="text/javascript"> 
+BUI.use(['bui/grid','bui/data'],function (Grid,Data) {
+
+	  var columns = [
+					{title:'试卷编号',dataIndex:'a',width:60},
+					{title:'日期',dataIndex:'b',width:60},
+					{title:'班级',dataIndex:'c',width:70},
+					{title:'方向',dataIndex:'d',width:100},
+					{title:'课程',dataIndex:'e',width:100},
+					{title:'阶段',dataIndex:'f',width:100},
+					{title:'班级平均分',dataIndex:'g',width:100},
+					{title:'及格率',dataIndex:'h',width:100},
+					{title:'统计图',dataIndex:'i',width:100,renderer : function(){
+						return '<a href="/tg_crm_sx_job/Application/Admin/View/HisScores/HisScoresPack.html">查看</a>';
+					}}
+					],
+	           //默认的数据
+	           data = [
+			   {'a':'1','b':'151201','c':'110','d':'php','e':'html','f':'男','g':'汉','h':'八一小学'},
+			   {'a':'1','b':'151201','c':'119','d':'php','e':'html','f':'男','g':'汉','h':'八一小学'},
+			   {'a':'1','b':'151201','c':'120','d':'php','e':'html','f':'男','g':'汉','h':'八一小学'}
+	           ],
+      store = new Data.Store({
+        data:data
+      }),
+      editing = new Grid.Plugins.DialogEditing({
+        contentId : 'content',
+        triggerCls : 'btn-edit'
+      }),
+      grid = new Grid.Grid({
+        render : '#grid',
+        columns : columns,
+        width : 1000,
+        forceFit : true,
+        store : store,
+        plugins : [Grid.Plugins.CheckSelection,editing],
+        tbar:{
+          items : [
+         
+          ]
+        }
+
+      });
+    grid.render();
+
+    function addFunction(){
+      var newData = {school :'请输入课程名称'};
+      editing.add(newData); //添加记录后，直接编辑
+    }
+
+    function delFunction(){
+      var selections = grid.getSelection();
+      store.remove(selections);
+    }
+    var logEl = $('#log');
+    $('#btnSave').on('click',function(){
+
+      var records = store.getResult();
+      logEl.text(BUI.JSON.stringify(records));
+    });
+  });
+  
+</script>
+<body>
+</html>

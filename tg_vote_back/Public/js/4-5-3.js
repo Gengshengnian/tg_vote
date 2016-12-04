@@ -1,0 +1,9 @@
+$(function(){
+				//去除边距
+		  $("#beginTime1").parent().css({"margin-right":"0","padding-right":"0"});
+		  $("#endTime1").parent().css({"margin-left":"0","padding-left":"0"});
+		   $("#beginTime2").parent().css({"margin-right":"0","padding-right":"0"});
+		  $("#endTime2").parent().css({"margin-left":"0","padding-left":"0"});
+		  rome(beginTime453);
+		  rome(endTime453);
+}) 

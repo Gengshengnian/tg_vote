@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>随时练习</title>
+<link rel="stylesheet" href="__PUBLIC__/common/common.css">
+	<script src="__PUBLIC__/js/jquery.js"></script>
+	<script src="__PUBLIC__/js/table+.js?ver=110"></script>
+	<script type="text/javascript">
+		$(function($) {
+			selected();
+		});
+		//默认选中
+		function selected(){
+			$.ajax({
+				type:"post",
+				url:"__URL__/getajaxID",
+				success:function(msg){
+					//console.log(msg);
+					var direction_val = msg.direction_id;
+					var stage_val = msg.stage_id;
+					var course_val = msg.course_id;
+					var days_val = msg.days_id;
+					$("#direction").val(direction_val);
+					$("#stage").val(stage_val);
+					$("#course").val(course_val);
+					$("#days").val(days_val);
+				}
+			});
+		}
+		
+		function getStages(obj,firstLevelName,secondLevelName){
+			
+			//清除第三代以后所有数据
+			initHD(firstLevelName);
+			
+			$.ajax({
+				type:"post",
+				url:"__URL__/getSecondLevelResourses",
+				data:"id="+obj.value+"&"+"firstLevelName="+firstLevelName+"&"+"secondLevelName="+secondLevelName,
+				success:function(msg)
+				{
+					//console.log(msg);
+					var len = msg.length;
+					
+					//给直接后代绑定数据
+					for(var i=0;i<len;i++)
+					{
+						var id = msg[i].id;
+						var name = msg[i].name;
+						$("#"+secondLevelName).append("<option value='"+id+"'>"+name+"</option>");
+					} 
+				}
+			});
+		}
+		
+		function initHD(selfLevelName){  
+			
+			//知识点肯定删除
+			$("#knowledge option").remove(":gt(0)");
+			
+			if( selfLevelName == "direction" || selfLevelName == "stage" || selfLevelName == "course"  )
+			{
+				$("#days option").remove(":gt(0)");
+			}
+			
+			if(selfLevelName == "direction" || selfLevelName == "stage")
+			{
+				$("#course option").remove(":gt(0)");
+			}
+			
+			if(selfLevelName == "direction")
+			{
+				$("#stage option").remove(":gt(0)");
+			}
+			
+		} 
+		
+		//显示答案
+		function showAnswer(obj)
+		{
+			$(obj).next().toggle();
+			if($(obj).val() == '显示答案'){
+				$(obj).val('隐藏答案');
+			}else{
+				$(obj).val('显示答案');
+			}
+		}
+		
+		//查找的筛选条件
+		function load(){
+			var direction = $("#direction option:selected").val();
+			var stage = $("#stage option:selected").val();
+			var course = $("#course option:selected").val();
+			var days = $("#days option:selected").val();
+			var knowledge = $("#knowledge option:selected").val();
+			var level = $("#level option:selected").val();
+			var category = $("#category option:selected").val();
+			
+			$.ajax({
+				type:"post",
+				url: "getD",
+				data:"direction="+direction+"&"+"stage="+stage+"&"+"course="+course+"&"+"days="+days+"&"+"knowledgeId="+knowledge+"&"+"levelId="+level+"&"+"category="+category,
+				success: function(msg){
+					var len = msg.length;
+					var o=0;
+					var str=0;
+					for(var i=0;i < len; i++ )
+					{   
+						var tet_category = msg[i].tet_category;
+						console.log(tet_category);
+						var tet_content = msg[i].tet_content;
+						var tet_answer = (msg[i].tet_answer == ('' || 0 ) ) ? "暂无答案" : msg[i].tet_answer; 
+						if(o==0){str+="<tr>";}
+						str+="<td style='height:100px;width:700px;'>"+"<h3>"+(i+1)+"."+tet_content+"</h3>"+"<br/><input type='button' onclick='showAnswer(this);' value='显示答案'"+">"+"<p style='display: none'>"+tet_answer+"</p>"+"</td>";
+						o++;
+						if(o==1){str+="</tr>";o=0;}
+					} 
+					if(str == 0){ 
+						str = "暂无加入试题";
+					}
+					$(".result").html(str);
+				}
+			})
+		}
+	</script>
+</head>
+<body class="content-box">
+<input type="hidden" value="{$v.id}" id="php">
+      <div class="header">
+      	 <div class="header-title">输入区域</div>
+      	 <div class="header-content">
+      	 	<label>
+      	 		方　向
+      	 		<select id="direction" name="directionId" id="vo" class="select" onchange="getStages(this,'direction','stage')">
+      	 			<option value="0">请选择方向</option>
+      	 			<volist name="direction" id="vo">
+      	 			<option value="{$vo.id}">{$vo.name}</option>
+      	 			</volist>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		阶段
+      	 		<select id="stage" name="stageId" class="select" onchange="getStages(this,'stage','course')" >
+      	 			<option value="0">请选择阶段</option>
+      	 			<volist name="stagename" id="vo">
+      	 			<option value="{$vo.id}">{$vo.name}</option>
+      	 			</volist>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		课程
+      	 		<select id="course" name="courseId" class="select" onchange="getStages(this,'course','days')" >
+      	 			<option value="0">请选择课程</option>
+      	 			<volist name="coursename" id="vo">
+      	 			<option value="{$vo.id}">{$vo.name}</option>
+      	 			</volist>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		属天
+      	 		<select id="days" name="daysId" class="select" onchange="getStages(this,'day','knowledge')">
+      	 			<option value="0">请选择天</option>
+      	 			<volist name="daysname" id="vo">
+      	 			<option value="{$vo.id}">{$vo.name}</option>
+      	 			</volist>
+      	 		</select> 
+      	 	</label> 
+      	 	<label>
+      	 		知识点
+      	 		<select id="knowledge" name="knowledgeId" class="select" >
+      	 			<option value="0">选择知识点</option>
+      	 			<volist name="knowledgename" id="vo">
+      	 			<option value="{$vo.id}">{$vo.name}</option>
+      	 			</volist>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		题型
+      	 		<select id="category" name="category" class="select">
+      	 			<option value="0">请选择题型</option>
+      	 			<option value="1">单选题</option>
+      	 			<option value="2">多选题</option>
+      	 			<option value="3">判断题</option>
+      	 			<option value="4">填空题</option>
+      	 			<option value="5">简答题</option>
+      	 			<option value="6">画图题</option>
+      	 			<option value="7">程序题</option>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		难度
+      	 		<select id="level" name="levelId" class="select">
+      	 			<option value="0">请选择难度</option>
+      	 			<option value="1">★</option>
+      	 			<option value="2">★★</option>
+      	 			<option value="3">★★★</option>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		查找<input type="button" class="input-button-guolv" onclick="load()">
+      	 	</label>
+      	 	</div>
+      </div>
+      <!-- -----表格部分复制开始--------- -->
+    <div class="content">
+      	<div class="header-title">表格</div>
+      	<div class="header-content">
+	      	 <!-- 表格部分 开始-->
+	      	 <div class="table-content result">
+	      	      <volist name="result" id="vo">
+	      	      <tr>
+	      	 			<td style="height:100px;width:700px;">
+	      	 				<h3>{$i}.{$vo.tet_content}</h3><br/><br/>
+	      	 				<input type='button' onclick='showAnswer(this);' value='显示答案'>
+	      	 				<p style='display: none'>{$vo.tet_answer}</p><hr/>
+	      	 			</td>
+      	 		  </tr>
+      	 		  </volist>
+	      	      
+      	 	 </div>
+</body>
+</html>

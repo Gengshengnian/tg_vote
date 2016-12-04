@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="__PUBLIC__/common/common.css">
+	<script src="__PUBLIC__/js/jquery.js"></script>
+	<script src="__PUBLIC__/js/table+.js"></script>
+	<style>
+	.btn-group{
+		width: 60px;
+	    height: 30px;
+	    font-weight: bold;
+	    line-height: 30px;
+	    border: 1px solid #50BFFC;
+	    -moz-box-shadow: inset 2px 1px 5px #50BFFC;
+	    -webkit-box-shadow: inset 2px 1px 5px #50BFFC;
+	    -o-box-shadow: inset 2px 1px 5px #50BFFC;
+	    box-shadow: inset 2px 1px 5px #50BFFC;
+	    background: #5FBFF5;
+	    border-radius: 3px;
+	    color: #fff;
+		width:80px;
+	}
+	</style>
+	
+</head>
+<body class="content-box">
+     
+<!-- -----表格部分复制开始--------- -->
+    <div class="content">
+      	<div class="header-title">每日成绩</div>
+      	<div class="header-content">
+	      	 <!-- 表格部分 开始-->
+	      	 <div class="table-content">
+	      	 	<table class="table text-l">
+		      	 	<!-- 表头部分 结束-->
+		  	 		<tr class="table-header">
+						<th class="table-number">&nbsp;</th>
+						<th data-role="nd">考试时间</th>
+						<th data-role="tm">试卷编号</th>
+						<th data-role="ym">客观成绩</th>
+						<th data-role="zs">主观成绩</th>
+						<th data-role="zsd">总成绩</th>
+					</tr>
+			      	 	
+					<!-- 表头部分 结束-->
+		      	 	<!-- 第1行 开始 -->	
+		      	 	<volist name = "grade" id = "g">
+						<tr>
+							<td class="table-number">{$i}</td> <!--编号-->
+							<td>{$g.tes_date}</td>
+							<td>{$g.tep_code}</td>
+							<td>{$g.tes_obj}</td>
+							<td>{$g.tes_sub}</td>
+							<td>{$g.zongfen}</td>
+						</tr>
+					</volist>
+					<!-- 第1行 结束 -->
+				</table>
+					
+      	</div>
+    </div>
+<!-- -----表格部分复制结束--------- -->
+      <div class="content" style = "position:relative;top:-400px;">
+      	<div class="header-title" >历史每日成绩</div>
+		<div class="header-content">
+			<div class="header">
+				 <div class="header-content">
+					<label>
+						方向
+						<select name="timu" class="select">
+							<option value="">PHP</option>
+							<option value="">HTML</option>
+							<option value="">JAVA</option>	
+						</select>
+					</label>
+					<label>
+						阶段
+						<select name="timu" class="select">
+							<option value="">HTML标签</option>
+							<option value="">选择题</option>
+							<option value="">选择题</option>	
+						</select>
+					</label>
+					<label>
+						课程
+						<select name="timu" class="select">
+							<option value="">PHP</option>
+							<option value="">选择题</option>
+							<option value="">选择题</option>	
+						</select>
+					</label>
+					<label>
+						考试时间
+						<select name="timu" class="select">
+							<option value="">2016-01-21</option>
+							<option value="">选择题</option>
+							<option value="">选择题</option>	
+						</select>
+					</label><br>
+					<!--<label>
+						知识点
+						<select name="timu" class="select">
+							<option value="">选择题</option>
+							<option value="">选择题</option>
+							<option value="">选择题</option>	
+						</select>
+					</label>
+					<label>
+						题型
+						<select name="timu" class="select">
+							<option value="">选择题</option>
+							<option value="">选择题</option>
+							<option value="">选择题</option>	
+						</select>
+					</label>
+					<label>
+						难度
+						<select name="timu" class="select">
+							<option value="">选择题</option>
+							<option value="">选择题</option>
+							<option value="">选择题</option>	
+						</select>
+					</label>-->
+					<label>
+						<input type="button"  value="搜索" class="btn-group"> 
+					</label>
+				 </div>
+			  </div>
+		
+		</div>
+      </div>
+
+	
+	</div>
+    <!-- 弹窗 页面-->
+    <div class="alert-box header">
+      	 <div class="header-title">弹出窗口</div>
+      	 <div class="header-content">
+      	 	<!--content 在此-->
+      	 	<table class="tables text-l">
+      	 	<!--内容 js读写-->
+			</table>
+      	 </div>
+      	 <div class="alert-btn">
+      	 	<!--
+      	 		button 在此
+      	 		urls ajax 提交后台地址
+      	 	-->
+      	 	<input type="button" class="input-button-yes" value="确定">
+			<input type="button" class="input-button-no" value="取消">
+	
+      	 </div>	 
+    </div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="../common/common.css">
+  <script src="../js/jquery.js"></script>
+  <script src="../js/table+.js"></script>
+  <style>
+  .btn-group{
+    width: 60px;
+      height: 30px;
+      font-weight: bold;
+      line-height: 30px;
+      border: 1px solid #50BFFC;
+      -moz-box-shadow: inset 2px 1px 5px #50BFFC;
+      -webkit-box-shadow: inset 2px 1px 5px #50BFFC;
+      -o-box-shadow: inset 2px 1px 5px #50BFFC;
+      box-shadow: inset 2px 1px 5px #50BFFC;
+      background: #5FBFF5;
+      border-radius: 3px;
+      color: #fff;
+  }
+  </style>
+</head>
+<body class="content-box">
+      <div class="header">
+         <div class="header-title">输入区域</div>
+         <div class="header-content">
+          <label>
+            方向
+            <select name="timu" class="select">
+              <option value="">前端</option>
+              <option value="">后台</option>
+              <option value="">UI</option>  
+            </select>
+          </label>
+          <label>
+            课程
+            <select name="timu" class="select">
+              <option value="">HTML</option>
+              <option value="">CSS</option>
+              <option value="">javascript</option>
+              <option value="">jQuery</option>
+              <option value="">PHP</option>
+              <option value="">Mysql</option> 
+            </select>
+          </label>
+          <label>
+            阶段
+            <select name="stage" class="select">
+              <option value="">HTML标签</option>
+              <option value="">HTML媒体</option>
+              <option value="">PHP初级</option>
+              <option value="">PHP中级</option>
+              <option value="">PHP高级</option>
+            </select>
+          </label>
+          <label>
+            考试时间
+            <select name="stage" class="select">
+              <option value="">2016-01-20</option>
+              <option value="">2016-01-19</option>
+              <option value="">2016-01-18</option>
+              <option value="">2016-01-17</option>
+              <option value="">2016-01-16</option>
+            </select>
+          </label>
+          <label>
+            <input type="button"  value="搜索" class="btn-group"> 
+          </label>
+         </div>
+      </div>
+<!-- -----表格部分复制开始--------- -->
+    <div class="content">
+        <div class="header-title">错题记录</div>
+        <div class="header-content">
+           <!-- 表格部分 开始-->
+           <div class="table-content">
+            <table class="table text-l">
+              <!-- 表头部分 结束-->
+            <tr class="table-header">
+            <!-- <th class="table-number">&nbsp;</th> -->
+            <th data-role="bh">编号</th>
+            <th data-role="nd">难度</th>
+            <th data-role="tm">题目</th>
+            <th data-role="ym">源码</th>
+            <th data-role="zs">注释</th>
+            <th data-role="zsd">所属知识点</th>
+            <th data-role="sst">所属天</th>
+            <th data-role="sskc">所属课程</th>
+            <th data-role="ssjd">所属阶段</th>
+            <th data-role="ssfx">所属方向</th>
+			<th data-role="ssfx">答错次数</th>
+            <th>操作</th>
+            <th></th>
+          </tr>
+                
+          <!-- 表头部分 结束-->
+              <!-- 第1行 开始 --> 
+          <tr>
+            <!-- <td class="table-number">1</td> --> <!--编号-->
+            <td>2fde-3489-erer-opkf-001</td>
+            <td>2</td>
+            <td>html</td>
+            <td>101</td>
+            <td>注释内容</td>
+            <td>html标签</td>
+            <td>html第7天</td>
+            <td>html标记语言</td>
+            <td>布局</td>
+            <td>前端</td>
+			<td>5</td>
+            <td>
+              <!--
+                编辑功能 添加类名 edit
+                查看功能 添加类名 view
+                删除功能 添加类名 delete
+              -->
+              <input type="button" class="input-button-guolv small view">
+              <input type="button" class="input-button-wirte small edit"  urls='http://127.0.0.1/edit.jsp'>
+              <input type="button" class="input-button-fileremove small delete"  urls='http://127.0.0.1/delete.jsp'>
+            </td>
+            <td><input type = "button" value = "查看试题"/></td>
+          </tr>
+          <!-- 第1行 结束 -->
+
+          <!-- 第2行 开始 --> 
+          <tr>
+            <!-- <td class="table-number">2</td> --> <!--编号-->
+            <td>2fde-3489-erer-opkf-002</td>
+            <td>2</td>
+            <td>html</td>
+            <td>101</td>
+            <td>注释内容</td>
+            <td>html标签</td>
+            <td>html第7天</td>
+            <td>html标记语言</td>
+            <td>布局</td>
+            <td>前端</td>
+			<td>10</td>
+            <td>
+              <!--
+                编辑功能 添加类名 edit
+                查看功能 添加类名 view
+                删除功能 添加类名 delete
+              -->
+              <input type="button" class="input-button-guolv small view">
+              <input type="button" class="input-button-wirte small edit"  urls='http://127.0.0.1/edit.jsp'>
+              <input type="button" class="input-button-fileremove small delete"  urls='http://127.0.0.1/delete.jsp'>
+            </td>
+            <td><input type = "button" value = "查看试题"/></td>
+          </tr>
+		   <tr>
+            <!-- <td class="table-number">2</td>  --><!--编号-->
+            <td>2fde-3489-erer-opkf-002</td>
+            <td>2</td>
+            <td>html</td>
+            <td>101</td>
+            <td>注释内容</td>
+            <td>html标签</td>
+            <td>html第7天</td>
+            <td>html标记语言</td>
+            <td>布局</td>
+            <td>前端</td>
+			<td>10</td>
+            <td>
+              <!--
+                编辑功能 添加类名 edit
+                查看功能 添加类名 view
+                删除功能 添加类名 delete
+              -->
+              <input type="button" class="input-button-guolv small view">
+              <input type="button" class="input-button-wirte small edit"  urls='http://127.0.0.1/edit.jsp'>
+              <input type="button" class="input-button-fileremove small delete"  urls='http://127.0.0.1/delete.jsp'>
+            </td>
+            <td><input type = "button" value = "查看试题"/></td>
+          </tr>
+		   <tr>
+            <!-- <td class="table-number">2</td> --> <!--编号-->
+            <td>2fde-3489-erer-opkf-002</td>
+            <td>2</td>
+            <td>html</td>
+            <td>101</td>
+            <td>注释内容</td>
+            <td>html标签</td>
+            <td>html第7天</td>
+            <td>html标记语言</td>
+            <td>布局</td>
+            <td>前端</td>
+			<td>10</td>
+            <td>
+              <!--
+                编辑功能 添加类名 edit
+                查看功能 添加类名 view
+                删除功能 添加类名 delete
+              -->
+              <input type="button" class="input-button-guolv small view">
+              <input type="button" class="input-button-wirte small edit"  urls='http://127.0.0.1/edit.jsp'>
+              <input type="button" class="input-button-fileremove small delete"  urls='http://127.0.0.1/delete.jsp'>
+            </td>
+            <td><input type = "button" value = "查看试题"/></td>
+          </tr>
+          <!-- 第2行 结束 -->
+          <!-- <tr>
+            <td class="table-number">3</td> 编号
+            <td>2fde-3489-erer-opkf-003</td>
+            <td>2</td>
+            <td>html</td>
+            <td>101</td>
+            <td>注释内容</td>
+            <td>html标签</td>
+            <td>html第7天</td>
+            <td>html标记语言</td>
+            <td>布局</td>
+            <td>前端</td>
+            <td>
+              编辑功能 添加类名 edit
+                查看功能 添加类名 view
+                删除功能 添加类名 delete
+              <input type="button" class="input-button-guolv small view">
+              <input type="button" class="input-button-wirte small edit"  urls='http://127.0.0.1/edit.jsp'>
+              <input type="button" class="input-button-fileremove small delete"  urls='http://127.0.0.1/delete.jsp'>
+            </td>
+          </tr>
+          
+          <tr>
+            <td class="table-number">4</td> 编号
+            <td>2fde-3489-erer-opkf-004</td>
+            <td>2</td>
+            <td>html</td>
+            <td>101</td>
+            <td>注释内容</td>
+            <td>html标签</td>
+            <td>html第7天</td>
+            <td>html标记语言</td>
+            <td>布局</td>
+            <td>前端</td>
+            <td>
+              编辑功能 添加类名 edit
+                查看功能 添加类名 view
+                删除功能 添加类名 delete
+              <input type="button" class="input-button-guolv small view">
+              <input type="button" class="input-button-wirte small edit"  urls='http://127.0.0.1/edit.jsp'>
+              <input type="button" class="input-button-fileremove small delete"  urls='http://127.0.0.1/delete.jsp'>
+            </td>
+          </tr>
+          
+          <tr>
+            <td class="table-number">5</td> 编号
+            <td>2fde-3489-erer-opkf-005</td>
+            <td>2</td>
+            <td>html</td>
+            <td>101</td>
+            <td>注释内容</td>
+            <td>html标签</td>
+            <td>html第7天</td>
+            <td>html标记语言</td>
+            <td>布局</td>
+            <td>前端</td>
+            <td>
+              编辑功能 添加类名 edit
+                查看功能 添加类名 view
+                删除功能 添加类名 delete
+              <input type="button" class="input-button-guolv small view">
+              <input type="button" class="input-button-wirte small edit"  urls='http://127.0.0.1/edit.jsp'>
+              <input type="button" class="input-button-fileremove small delete"  urls='http://127.0.0.1/delete.jsp'>
+            </td>
+          </tr> -->
+        </table>
+          </div>
+          <!-- 表格部分 结束-->
+      <!-- 翻页部分 开始-->
+      <div class="table-footer">
+        <div class="button-bottom">
+          <select name="" id="" class="select">
+            <option value="">10</option>
+            <option value="">20</option>
+            <option value="">30</option>
+          </select>
+          <input type="button" class="input-button-prev">
+          <span class="di">第</span>
+          <input type="text"class="input-text">
+          <span class="di">页</span>
+          <span class="di">共3页</span>
+          <input type="button" class="input-button-next">
+          <input type="button" class="input-button-refresh daxiao" value="">
+        </div>
+      </div>
+      <!-- 翻页部分 结束-->
+        </div>
+    </div>
+<!-- -----表格部分复制结束--------- -->
+      </div>
+
+
+
+      <!-- 弹窗 页面-->
+      <div class="alert-box header">
+         <div class="header-title">弹出窗口</div>
+         <div class="header-content">
+          <!--content 在此-->
+          <table class="tables text-l">
+          <!--内容 js读写-->
+      </table>
+         </div>
+         <div class="alert-btn">
+          <!--
+            button 在此
+            urls ajax 提交后台地址
+          -->
+          <input type="button" class="input-button-yes" value="确定">
+      <input type="button" class="input-button-no" value="取消">
+  
+         </div>  
+      </div>
+</body>
+</html>

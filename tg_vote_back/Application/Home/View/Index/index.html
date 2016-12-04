@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>index</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/base1.css"/>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/Home/css/index.css"/>
+    <script src="__PUBLIC__/Home/js/zepto.js"></script>
+    <script src="__PUBLIC__/Home/js/z_touch1.js" type="text/javascript" charset="utf-8"></script>
+    <script src="__PUBLIC__/Home/js/bottom.js"></script>
+</head>
+<body >
+	<div class="bg">
+		<img src="__PUBLIC__/Home/img/hdzt.png"/>
+	</div>
+	<volist name = 'data' id='vo'>
+	<div class="zbdw">
+		主办单位: <em  class="zbName">{$vo.zbf} </em>
+	</div>
+	<div class="zzdw">
+		赞助单位: <em class="zzName">{$vo.zzf1}</em>
+	</div>
+	</volist>
+		<a href="{:U('theme')}" class="wxBottom"><img src="__PUBLIC__/Home/img/xsjt.png"/></a>
+</body>
+</html>

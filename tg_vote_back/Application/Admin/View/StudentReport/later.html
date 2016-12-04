@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生日报</title>
+	<!-- <link href="__PUBLIC__/css/demo.css" rel="stylesheet"> -->
+	<!-- <link href="__PUBLIC__/public/bui/common/assets/js/jquery-2.0.3.js" rel="stylesheet"> -->
+
+	<style>
+		div{
+			margin-top:20px;
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<form action="{:U('latereport')}" method="POST">
+			<table width="800" border="1" cellpadding="0" cellspacing="0">
+				<caption>
+						<h3>
+							工作日报
+						</h3>
+						<hr>
+						<h4>
+							实交日期：<input type="date" name="date" value="{$todayKnowkedges[0]['date']}" readonly />　　　
+							应交日期：<input type="date" name="laterdate" value=""/>
+							学生姓名：<input type="text" name="name" value="{$todayKnowkedges[0]['username']}" readonly />
+
+							<input type="hidden" name="stu_id" value="{$todayKnowkedges[0]['student_id']}" />
+						</h4>
+						<h4>
+							班级：<input type="text" name="class" value="{$todayKnowkedges[0]['name']}" readonly />
+							<input type="hidden" name="class" value="{$todayKnowkedges[0]['cid']}"/>　　　
+							座右铭：<input type="text" name="motto" value=""/>
+						</h4>
+					</caption>
+				<thead>
+					<tr>
+						<th width="50">序号</th>
+						<th width="250">知识点</th>
+						<th width="200">掌握情况</th>
+						<th width="150">遇到问题</th>
+						<th width="120">其他</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td colspan=5>今日总结</td></tr>
+					<volist name='todayKnowkedges' id='vo'>
+						<tr>
+							<td >{$i}</td>
+							<td ><input type="hidden" name="kid[]" value="{$vo.knid}"/>{$vo.k}</td>
+							<td >
+								掌握<input type="radio" checked="checked" name="master_level_{$vo.id}" value="0" />
+		            			一般<input type="radio" name="master_level_{$vo.id}" value="1" />
+		            			不理解<input type="radio" name="master_level_{$vo.id}" value="2" />
+		            		</td>
+		            		<td ><input type="text" name="problem_{$vo.id}" value="在这里写遇到的问题{$i}"></td>
+							<td ><input type="text" name="comment_{$vo.id}" value=""></td>
+						</tr>
+					</volist>
+					<tr><td colspan=5>明日任务</td></tr>
+					<volist name='tomorroWKnowkedges' id='vo'>
+						<tr>
+							<td >{$i}</td>
+							<td colspan=4>{$vo.k}</td>
+						</tr>
+					</volist>
+					<tr><td colspan=5>心情杂语</td></tr>
+					<tr><td colspan=5><textarea name="mood" cols="115" rows="3"></textarea></td></tr>
+					<tr><td colspan=5>建议意见</td></tr>
+					<tr><td colspan=5><textarea name="advice" cols="115" rows="3"></textarea></td></tr>
+					<tr align="right"><td colspan=5><input type="submit" value="提交日报"/></td></tr>
+				</tbody>
+				<tfoot></tfoot>
+			</table>
+		</form>
+	</center>
+</body>
+</html>

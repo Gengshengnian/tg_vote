@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>手机验证</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" href="css/base.css"/>
+	<link rel="stylesheet" href="css/yanzheng.css"/>
+	<script src="js/jquery-1.7.2.js"></script>
+	<script src="js/jquery.validate.js"></script>
+	<script src="js/jquery.metadata.js"></script>
+<script>
+
+/*
+jQuery.extend(jQuery.validator.messages,{required: "这项是必填的.",
+		remote: "Please fix this field.",
+		email: "Please enter a valid email address.",
+		url: "Please enter a valid URL.",
+		date: "Please enter a valid date.",
+		dateISO: "Please enter a valid date (ISO).",
+		number: "Please enter a valid number.",
+		digits: "Please enter only digits.",
+		creditcard: "Please enter a valid credit card number.",
+		equalTo: "Please enter the same value again.",
+		maxlength: $.validator.format("Please enter no more than {0} characters."),
+		minlength: $.validator.format("Please enter at least {0} characters."),
+		rangelength: $.validator.format("Please enter a value between {0} and {1} characters long."),
+		range: $.validator.format("Please enter a value between {0} and {1}."),
+		max: $.validator.format("Please enter a value less than or equal to {0}."),
+		min: $.validator.format("Please enter a value greater than or equal to {0}.")
+    }
+);
+*/
+
+$.metadata.setType("attr", "aa");
+jQuery.validator.addMethod("tel", function(value, element) {
+var tel=
+/^(130|131|132|133|134|135|136|137|138|139|150|153|157|158|159|180|186|187|188|189)\d{8}$/;
+return tel.test(value) || this.optional(element);
+}, "请输入正确的手机号码");
+$(function(){
+$("form").validate();
+})
+</script>
+</head>
+<body>
+	<div class="top">
+			<img src="img/wx_top.png"/>
+	</div>
+	<!--登录-->
+	<div class="dl">
+		<img src="img/dl.png" alt="会员登录" />
+		<span>已登陆</span>
+	</div>
+	<div class="container register" style="margin-top: 15%;">
+		<form action="" method="post" onsubmit="return formcheck(this);">
+			<div class="panel">
+				<div class="panel-heading"><span>***</span>,您好</div>
+				<div class="panel-body">
+					<div class="form-group">
+						<span class="icon mobile-icon"></span>
+						<input name="mobile" type="text" value="" class="mobile text" placeholder="请输入手机号码（作为账号）" aa="{required:true,tel:true,messages:{required:'必填项'}}"/>
+					</div>
+					<div class="form-group">
+						<span class="icon qq-icon yzm-icon"></span>
+						<input name="school" type="text" value="" class="school text" placeholder="请输入验证码" aa="{required:true,minlength:6,messages:{required:'必填项',minlength:'不得少于六位'}}"/>
+					</div>
+					<!--验证码-->
+					<div class="form-group yzm">
+						<input name="major" type="text" value="" class="major text yzm_con"/>
+						<span></span>
+					</div>
+					<div class="form-group submit mobile_xyb">
+						<a href="Reset password.html"><input type="submit" class="btn-register btn-tj" value="提交"></a>
+					</div>
+				</div>
+			</div>
+		</form>		
+		<!--主办单位-->
+	<div class="danwei1">
+		主办单位:山西农大信息学院艺术系;赞助单位:山西优逸客科技有限公司
+	</div>
+	     <!--向上箭头-->
+	<a href="Reset password.html" class="wxBottom"><img src="img/xsjt.png" /></a>
+	</div>
+	<!--返回排行榜按钮-->
+</body>
+<script type="text/javascript">
+	$(function(){
+		var h = document.documentElement.clientHeight;
+		$('.container').css('min-height', 10%*h);
+	})
+	function tips(msg){
+		var modalobj = $('#tips-container');
+		if(modalobj.length == 0) {
+			$(".container").append('<div id="tips-container" class="text-center"><div id="tips-panel" class="text-center"></div></div>');
+			modalobj = $('#tips-container');
+		}
+		modalobj.hide().find('#tips-panel').html(msg);
+		$('#tips-container').fadeIn();
+		$('#tips-container .confirm').click(function(){$("#tips-container").fadeOut();});
+	}
+	function formcheck(form){
+		if ($.trim(form['mobile'].value) == '') {
+			tips('<p><span class="icon-gray"></span>请输入您的手机号码！</p><div class="text-center"><a class="confirm" href="javascript:;">确定</a></div>');
+			form['mobile'].focus();
+			return false;
+		}
+		if (!/^1\d{10}$/.test($.trim(form['mobile'].value))) {
+			tips('<p><span class="icon-gray"></span>请输入正确的手机号码！</p><div class="text-center"><a class="confirm" href="javascript:;">确定</a></div>');
+			form['mobile'].focus();
+			return false;
+		}
+		if ($.trim(form['password'].value) == '') {
+			tips('<p><span class="icon-gray"></span>请输入您的密码！</p><div class="text-center"><a class="confirm" href="javascript:;">确定</a></div>');
+			form['mobile'].focus();
+			return false;
+		}
+		if ($.trim(form['idcard'].value) == '') {
+			tips('<p><span class="icon-gray"></span>请输入您的身份证号码！</p><div class="text-center"><a class="confirm" href="javascript:;">确定</a></div>');
+			form['idcard'].focus();
+			return false;
+		}
+		if (!/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/.test($.trim(form['idcard'].value))) {
+			tips('<p><span class="icon-gray"></span>请输入正确的身份证号码！</p><div class="text-center"><a class="confirm" href="javascript:;">确定</a></div>');
+			form['idcard'].focus();
+			return false;
+		}
+		return;
+	}
+</script>
+</html>

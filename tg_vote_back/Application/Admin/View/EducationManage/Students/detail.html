@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title> 学生详情页</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <link href="__PUBLIC__/bui/Common/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
+   <link href="__PUBLIC__/bui/Common/assets/css/prettify.css" rel="stylesheet" type="text/css" />
+   <style type="text/css">
+    code {
+      padding: 0px 4px;
+      color: #d14;
+      background-color: #f7f7f9;
+      border: 1px solid #e1e1e8;
+    }
+   </style>
+ </head>
+ <body>
+
+  <div class="container">
+    <div class="detail-page">
+      <div class="detail-section">
+        <h3>基本信息</h3>
+        <div class="row detail-row">
+          <div class="span8">
+            <label>姓名：</label><span class="detail-text">{$student.name}</span>
+          </div>
+          <div class="span8">
+            <label>学生编号：</label><span class="detail-text">{$student.student_number}</span>
+          </div>
+           <div class="span8">
+            <label>项目组：</label><span class="detail-text">{$student.project_team_name}</span>
+          </div>
+        </div>
+        <div class="row detail-row">
+          <div class="span8">
+            <label>状态：</label><span class="detail-text">{$student.status}</span>
+          </div>
+          <div class="span8">
+            <label>性别：</label><span class="detail-text">{$student.gender}</span>
+          </div>
+           <div class="span8">
+            <label>民族：</label><span class="detail-text">{$student.nation}</span>
+          </div>
+        </div>
+        <div class="row detail-row">
+          <div class="span8">
+            <label>学校：</label><span class="detail-text">{$student.school}</span>
+          </div>
+          <div class="span8">
+            <label>专业：</label><span class="detail-text">{$student.major}</span>
+          </div>
+           <div class="span8">
+            <label>毕业日期：</label><span class="detail-text">{$student.gradution_time}</span>
+          </div>
+        </div>
+        <div class="row detail-row">
+          <div class="span8">
+            <label>学历：</label><span class="detail-text">{$student.education}</span>
+          </div>
+          <div class="span8">
+            <label>工作异常：</label><span class="detail-text">{$student.work_exception}</span>
+          </div>
+           <div class="span8">
+            <label>生日：</label><span class="detail-text">{$student.birthday}</span>
+          </div>
+        </div>
+        <div class="row detail-row">
+          <div class="span8">
+            <label>婚姻状态：</label><span class="detail-text">{$student.married}</span>
+          </div>
+          <div class="span8">
+            <label>政治面貌：</label><span class="detail-text">{$student.politics_status}</span>
+          </div>
+           <div class="span8">
+            <label>地址：</label><span class="detail-text">{$student.address}</span>
+          </div>
+        </div>
+        <div class="row detail-row">
+          <div class="span8">
+            <label>籍贯：</label><span class="detail-text">{$student.cen_register}</span>
+          </div>
+          <div class="span8">
+            <label>联系电话：</label><span class="detail-text">{$student.f_tel}</span>
+          </div>
+          <div class="span8">
+            <label>手机号：</label><span class="detail-text">{$student.phone}</span>
+          </div>
+        </div>
+        <div class="row detail-row">
+          <div class="span8">
+            <label>qq：</label><span class="detail-text">{$student.qq}</span>
+          </div>
+        </div>
+      </div>
+
+        <div class="row detail-row">
+          <div class="span8">
+            <label>email：</label><span class="detail-text">{$student.email}</span>
+          </div>
+          <div class="span8">
+            <label>身份证：</label><span class="detail-text">{$student.IDcard}</span>
+          </div>
+          <div class="span8">
+            <label>班级：</label><span class="detail-text">{$student.class_name}</span>
+          </div>
+        </div>
+        <div class="row detail-row">
+          <div class="span8">
+            <label>登录用户：</label><span class="detail-text">{$student.username}</span>
+          </div>
+          <div class="span8">
+            <label>登记客户：</label><span class="detail-text">{$student.client_name}</span>
+          </div>
+        </div>
+      <div class="detail-section">
+        <h3>相关联系人</h3>
+        <div class="row detail-row">
+          <div class="span24">
+            <div id="grid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/bui-min.js"></script>
+
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/config-min.js"></script>
+  <script type="text/javascript">
+    BUI.use('common/page');
+  </script>
+
+  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/prettify.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      prettyPrint();
+    });
+  </script>
+<script type="text/javascript">
+  BUI.use('bui/grid',function (Grid) {
+	var state = {"1":"父亲","2":"母亲","3":"兄弟","1":"姐妹"};
+    var data = [
+                {name:'{$student.linkman_one_name}',rel:'{$student.linkman_one_rel}',tel:'{$student.linkman_one_tel}'},
+                {name:'{$student.linkman_two_name}',rel:'{$student.linkman_two_rel}',tel:'{$student.linkman_two_tel}'},
+                {name:'{$student.linkman_three_name}',rel:'{$student.linkman_three_rel}',tel:'{$student.linkman_three_tel}'}
+               ],
+        grid = new Grid.SimpleGrid({
+          render : '#grid', //显示Grid到此处
+          width : 950,      //设置宽度
+          columns : [
+            {title:'紧急联系人',dataIndex:'urgency',width:80},
+            {title:'关系',dataIndex:'relation',width:100,renderer:BUI.Grid.Format.enumRenderer(state)},
+            {title:'电话',dataIndex:'u_tel',width:100}
+          ]
+        });
+      grid.render();
+      grid.showData(data);
+  });
+</script>
+
+<body>
+</html>

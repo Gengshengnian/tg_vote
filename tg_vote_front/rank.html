@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name ="viewport" content ="width=device-width,
+initial-scale=1, maximum-scale=1, minimum-scale=1,
+user-scalable=no">
+		<title>theme</title>
+		<link rel="stylesheet" type="text/css" href="css/base1.css"/>
+		<link rel="stylesheet" type="text/css" href="css/rank.css"/>
+	</head>
+	<body>
+		<div class="top">
+			<img src="img/wx_top.png"/>
+			<div class="touxiang">
+				<img src="img/touxiang.png"/>
+				
+				<div class="zhuangtai">
+					会员已登录
+				</div>
+			</div>
+		</div>
+	<!--content-->
+		<!--活动介绍-->
+		<div class="intro con">
+			100000人已经参加，您已投100票
+			投票进行中，将于10月27日公布结果
+		</div> 
+		<div class="content">
+		<?php 
+			for($i=0;$i<count($list);$i++){
+		?>
+			<!--person-->
+			<div class="person">
+				<div class="perLeft">
+					<img src="<?php echo $list[$i]['head_img'];?>" class="perShow"/>
+					<div class="xuanshou div">
+						<div class="xuanshouTop head">
+							<?php echo $i+1?>
+						</div>
+						<div class="xuanshouBot foot">
+							选手
+						</div>
+					</div>
+					<div class="xsName div">
+					     <div class="xsNameTop head">
+					     	<?php echo $list[$i]['player_name'];?>
+					     </div>
+					     <div class="xsNameBot foot">
+					     	设计主题:<?php echo $list[$i]['production_introduction'];?>
+					     </div>
+					</div>
+					<div class="piaoNum div">
+						<div class="piaoNumTop head">
+							<?php echo $list[$i]['vote_num'];?>
+						</div>
+						<div class="piaoNumBot foot">
+							当前票数
+						</div>
+					</div>
+					
+				<div style="clear: both;"></div>
+				</div>
+				<div class="perRight">
+					<a href="index.php?a=toupiao_Details&Playerid=<?php echo $list[$i]['id'];?>&openid=<?echo $openid?>">查看</a>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			<!--person end-->
+		<?php
+			}
+		?>
+			
+			<!--主办单位-->
+		</div>
+		<div style="font-size: 0.5em;	text-align:center;	margin: 17% auto 3%;	width:100%;;">
+			主办单位:山西农大信息学院艺术系;赞助单位:山西优逸客科技有限公司
+		</div>
+<!--content end-->		
+		
+	     
+	   
+
+	</body>
+</html>

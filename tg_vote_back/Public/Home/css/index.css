@@ -1,0 +1,30 @@
+.bg{
+	width: 40%;
+	height: auto;
+	margin: 10% auto;
+
+}
+.zbdw,.zzdw{
+	width: 100%;
+    margin:  auto;    
+    font-size: 1em;
+    padding: 0 3%;
+    text-align: center;
+}
+.zbdw{
+	margin:40% auto 0;
+}
+.zbName,.zzName{
+	font-size: 1em;
+	font-style:normal;
+}
+.wxBottom{
+	display: block;
+	width: 10%;
+	height: auto;
+    position: fixed;
+    bottom: 5%;
+    left: 45%;
+  
+	
+}

@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="__PUBLIC__/common/common.css">
+	<script src="__PUBLIC__/js/jquery.js"></script>
+	<script src="__PUBLIC__/js/table+.js"></script>
+	<script type="text/javascript">
+		function getStages(obj,firstLevelName,secondLevelName){
+			
+			//清除第三代以后所有数据
+			initHD(firstLevelName);
+			
+			$.ajax({
+				type:"post",
+				url:"__URL__/getSecondLevelResourses",
+				data:"id="+obj.value+"&"+"firstLevelName="+firstLevelName+"&"+"secondLevelName="+secondLevelName,
+				success:function(msg)
+				{
+					var len = msg.length;
+					
+					//给直接后代绑定数据
+					for(var i=0;i<len;i++)
+					{
+						var id = msg[i].id;
+						var name = msg[i].name;
+						$("#"+secondLevelName).append("<option value='"+id+"'>"+name+"</option>");
+					} 
+				}
+			});
+	}
+	function initHD(selfLevelName){  
+			
+		
+			$("#class option").remove(":gt(0)");
+			
+			if( selfLevelName == "status")
+			{
+				$("#name option").remove(":gt(0)");
+			}
+			
+			
+		}
+	function load(){
+		var name = $("#name option:selected").val();
+		var classname = $("#class option:selected").val();
+		var id = $("#status option:selected").val();
+		$.ajax({
+			type:"post",
+			url: "getSearch",
+			data:"id="+id+"&"+"nameId="+name+"&"+"classId="+classname,
+			success: function(msg){
+				var len = msg.length;
+				var o=0;
+				var str=0;
+				for(var i=0;i < len;i++)
+				{   
+					var name = msg[i].name;
+					var status = (msg[i].cname == '') ? "空闲" : "带班"; 
+					var cname = msg[i].cname;
+					var start = msg[i].start;
+					var pre_end = msg[i].pre_end;
+					
+					//$("#answer"+i).show()
+					if(o==0){str+="<tr>";}
+					str+="<td>"+"<input type='checkbox'/>"+"</td>"+"<td>"+name+"</td>"+"<td>"+'13233242080'+"</td>"+"<td>"+'12902345611'+"</td>"+"<td>"+status+"</td>"+"<td>"+cname+"</td>"+"<td>"+start+"</td>"+"<td>"+pre_end+"</td>"+"<td>"+"<input type='button' class='input-button-guolv small view'>"+"</td>";
+					o++;
+					if(o==1){str+="</tr>";o=0;}
+				} 
+				//console.log(name);
+				if(str == 0){ 
+					str = "暂无查询记录";
+				}
+				$(".ss").html(str);
+			}
+		});
+	}
+</script>
+</head>
+<body class="content-box">
+      <div class="header">
+      	 <div class="header-title">输入区域</div>
+      	 <div class="header-content">
+      	 	<label>
+      	 		状态
+      	 		<select id="status" name="statusId" id="vo" class="select" onchange="getStages(this,'status','name')">
+      	 			<option value="2">请选择状态</option>
+      	 			<option value="1">带班</option>
+      	 			<option value="0">空闲</option>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		姓名
+      	 		<select id="name" name="nameId" id="vo" class="select" onchange="getStages(this,'name','class')">
+      	 			<option value="0">请选择班主任姓名</option>
+      	 		</select>
+      	 	</label>
+			<label>
+      	 		班级
+      	 		<select id="class" name="classId" id="vo" class="select">
+      	 			<option value="0">请选择班级</option>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 		过滤<input type="button" class="input-button-guolv" onclick="load()">
+      	 	</label>
+      	 	<br>
+      	 </div>
+      </div>
+     <div class="content">
+      	<div class="header-title">表格</div>
+      	<div class="header-content">
+	      	 <!-- 表格部分 开始-->
+	      	 <div class="table-content">
+	      	 	<table class="table text-l">
+		      	 	<!-- 表头部分 结束-->
+		  	 		<tr class="table-header">
+						<th class="table-number">&nbsp;</th>
+						<th data-role="name">姓名</th>
+						<th data-role="status">状态</th>
+						<th data-role="bj">班级</th>
+						<th data-role="start">开始时间</th>
+						<th data-role="end">预计结束时间</th>
+						<th>操作</th>
+					</tr>
+					<tbody class="ss">
+			      		
+					<!-- 表头部分 结束-->
+		      	 	<!-- 第1行 开始 -->
+			      	 	<volist name="a" id="v">
+			      	 		<tr>
+			      	 			<td><input type="checkbox"/></td>
+			      	 			<td>{$v.name}</td>
+								<td>
+									<if condition = "$v.cname eq null">空闲
+									<else />带班
+									</if>
+								</td>
+								<td>{$v.cname}</td>
+								<td>{$v.start}</td>
+								<td>{$v.pre_end}</td>
+								<td>
+								
+								<input type="button" class="input-button-guolv small view">
+								</td>
+			      	 		</tr>
+	
+			      	 	</volist></tbody>	
+				</table>
+	      	</div>
+      		<!-- 表格部分 结束-->
+			<!-- 翻页部分 开始-->
+			<div class="table-footer">
+				<div class="button-bottom">
+					<select name="" id="" class="select">
+						<option value="">10</option>
+						<option value="">20</option>
+						<option value="">30</option>
+					</select>
+					<input type="button" class="input-button-prev">
+					<span class="di">第</span>
+					<input type="text"class="input-text">
+					<span class="di">页</span>
+					<span class="di">共3页</span>
+					<input type="button" class="input-button-next">
+					<input type="button" class="input-button-refresh daxiao" value="">
+				</div>
+			</div>
+			<!-- 翻页部分 结束-->
+      	</div>
+    </div> 
+
+
+      <!-- 弹窗 页面-->
+      <div class="alert-box header">
+      	 <div class="header-title">弹出窗口</div>
+      	 <div class="header-content">
+      	 	<!--content 在此-->
+      	 	<table class="tables text-l">
+      	 	<!--内容 js读写-->
+			</table>
+      	 </div>
+      	 <div class="alert-btn">
+      	 	<!--
+      	 		button 在此
+      	 		urls ajax 提交后台地址
+      	 	-->
+      	 	<input type="button" class="input-button-yes" value="确定">
+			<input type="button" class="input-button-no" value="取消">
+	
+      	 </div>	 
+    	</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>学生日报</title>
+	<!-- <link href="__PUBLIC__/css/demo.css" rel="stylesheet"> -->
+	<!-- <link href="__PUBLIC__/public/bui/common/assets/js/jquery-2.0.3.js" rel="stylesheet"> -->
+
+	<style>
+		div{
+			margin-top:20px;
+		}
+	</style>
+</head>
+<body>
+	<center>
+		<!-- <form action="{:U('add')}" method="POST"> -->
+			<table width="800" border="1" cellpadding="0" cellspacing="0">
+				<caption>
+						<h3>
+							工作日报
+						</h3>
+						<hr>
+						<h4>
+							
+							学生姓名：<input type="text" name="name" value="{$result[0]['student_name']}" readonly />
+							班级：<input type="text" name="class" value="{$result[0]['class_name']}" readonly />
+							座右铭：<input type="text" name="motto" value="{$result[0]['motto']}"/>
+						</h4>
+						<h4>
+							应交日期：<input type="date" name="date" value="{$result[0]['date']}" readonly />
+							实交日期：<input type="date" name="laterdate" value="{$result[0]['laterdate']}" readonly />　　
+						</h4>
+					</caption>
+				<thead>
+					<tr>
+						<th width="50">序号</th>
+						<th width="250">知识点</th>
+						<th width="200">掌握情况</th>
+						<th width="150">遇到问题</th>
+						<th width="120">其他</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td colspan=5>今日总结</td></tr>
+					<volist name='result' id='vo'>
+						<tr>
+							<td >{$i}</td>
+							<td ><input type="hidden" name="kid[]" value="{$vo.knid}"/>{$vo.knowledge_name}</td>
+							<td >
+								掌握<input type="radio" name="master_level_{$vo.id}" <?php if($vo['master_level'] == '0'){ echo 'checked' ;} ?>  />
+		            			一般<input type="radio" name="master_level_{$vo.id}"  <?php if($vo['master_level'] == '1'){ echo 'checked' ;} ?>  />
+		            			不理解<input type="radio" name="master_level_{$vo.id}" <?php if($vo['master_level'] == '2'){ echo 'checked' ;} ?> />
+		            		</td>
+		            		<td ><input type="text" name="problem_{$vo.id}" value="{$vo['problem']}"></td>
+							<td ><input type="text" name="comment_{$vo.id}" value="{$vo['comment']}"></td>
+						</tr>
+					</volist>
+					<tr><td colspan=5>心情杂语</td></tr>
+					<tr><td colspan=5><textarea name="mood" cols="115" rows="3"><?php echo $vo['mood']; ?></textarea></td></tr>
+					<tr><td colspan=5>建议意见</td></tr>
+					<tr><td colspan=5><textarea name="advice" cols="115" rows="3"><?php echo $vo['advice']; ?></textarea></td></tr>
+				</tbody>
+				<tfoot></tfoot>
+			</table>
+		<!-- </form> -->
+	</center>
+</body>
+</html>

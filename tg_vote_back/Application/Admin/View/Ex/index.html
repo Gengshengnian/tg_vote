@@ -1,0 +1,161 @@
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <title>表格多选</title>
+    <!-- 此文件为了显示Demo样式，项目中不需要引入 -->
+    
+     
+      <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/dpl.css" rel="stylesheet">
+      <link href="http://g.alicdn.com/bui/bui/1.1.21/css/bs3/bui.css" rel="stylesheet">
+     
+    </head>
+        <style>
+      /**
+       * bs3的新样式存在bug，后期修正
+       */
+      .bui-grid-group-header .bui-grid-hd-empty {
+        display: none;
+      }
+    </style>
+    <body>
+
+        <div class="class="container">
+        <div class ='row'>
+        	 <div class="span3 offset2">
+          <button  type="button" id="btnSearch" class="button button-primary">搜索</button>
+        	</div>
+        </div>
+        <div class ='row'>
+            <div id="grid">
+              
+            </div>
+          </div>
+        </div>
+       
+     
+      <script src="http://g.tbcdn.cn/fi/bui/jquery-1.8.1.min.js"></script>
+      <script src="http://g.alicdn.com/bui/seajs/2.3.0/sea.js"></script>
+      <script src="http://g.alicdn.com/bui/bui/1.1.21/config.js"></script>
+     
+    <!-- script start --> 
+        <script type="text/javascript">
+            BUI.use(['bui/grid','bui/data'],function(Grid,Data){
+               
+            	 var
+            	 Grid = Grid;
+            	 Store = Data.Store,
+              columns = [{title : '姓名',dataIndex :'name',width:200},
+                         {title : '早',dataIndex :'1z'},
+                         {title : '晚',dataIndex :'1w'}, 
+                         {title : '早',dataIndex : '2z'},
+                         {title : '晚',dataIndex : '2w'},
+                         {title : '早',dataIndex : '3z'},
+                         {title : '晚',dataIndex : '3w'},
+                         {title : '早',dataIndex : '4z'},
+                         {title : '晚',dataIndex : '4w'},
+                         {title : '早',dataIndex : '5z'},
+                         {title : '晚',dataIndex : '5w'},
+                         {title : '早',dataIndex : '6z'},
+                         {title : '晚',dataIndex :'6w'}, 
+                         {title : '早',dataIndex : '7z'},
+                         {title : '晚',dataIndex : '7w'},
+                         {title : '早',dataIndex : '8z'},
+                         {title : '晚',dataIndex : '8w'},
+                         {title : '早',dataIndex : '9z'},
+                         {title : '晚',dataIndex : '9w'},
+                         {title : '早',dataIndex : '10z'},
+                         {title : '晚',dataIndex : '10w'},
+                         {title : '早',dataIndex : '11z'},
+                         {title : '晚',dataIndex :'11w'}, 
+                         {title : '早',dataIndex : '12z'},
+                         {title : '晚',dataIndex : '12w'},
+                         {title : '早',dataIndex : '13z'},
+                         {title : '晚',dataIndex : '13w'},
+                         {title : '早',dataIndex : '14z'},
+                         {title : '晚',dataIndex : '14w'},
+                         {title : '早',dataIndex : '15z'},
+                         {title : '晚',dataIndex : '15w'},
+                         {title : '早',dataIndex : '16z'},
+                         {title : '晚',dataIndex :'16w'}, 
+                         {title : '早',dataIndex : '17z'},
+                         {title : '晚',dataIndex : '17w'},
+                         {title : '早',dataIndex : '18z'},
+                         {title : '晚',dataIndex : '18w'},
+                         {title : '早',dataIndex : '19z'},
+                         {title : '晚',dataIndex : '19w'},
+                         {title : '早',dataIndex : '20z'},
+                         {title : '晚',dataIndex : '20w'},
+                         {title : '早',dataIndex : '21z'},
+                         {title : '晚',dataIndex :'21w'}, 
+                         {title : '早',dataIndex : '22z'},
+                         {title : '晚',dataIndex : '22w'},
+                         {title : '早',dataIndex : '23z'},
+                         {title : '晚',dataIndex : '23w'},
+                         {title : '早',dataIndex : '24z'},
+                         {title : '晚',dataIndex : '24w'},
+                         {title : '早',dataIndex : '25z'},
+                         {title : '晚',dataIndex : '25w'},
+                         {title : '早',dataIndex : '26z'},
+                         {title : '晚',dataIndex :'26w'}, 
+                         {title : '早',dataIndex : '27z'},
+                         {title : '晚',dataIndex : '27w'},
+                         {title : '早',dataIndex : '28z'},
+                         {title : '晚',dataIndex : '28w'},
+                         {title : '早',dataIndex : '29z'},
+                         {title : '晚',dataIndex : '29w'},
+                         {title : '早',dataIndex : '30z'},
+                         {title : '晚',dataIndex : '30w'},
+                         {title : '早',dataIndex : '31'},
+                         {title : '晚',dataIndex : '31'},
+               ],   
+               //由于设置了数据跟状态的对应关系，此时状态会反映到Html上面
+               //disabled的字段无法被选中
+             
+     
+              //表头分组注意事项：
+              //1. 需要标明分组的 from to
+              //2. 不要交叉
+              //3. 注意其他插件增加列后的 索引值
+              //4. 表格必须使用forceFit : true,同时不能设置高度
+              
+             colGroup = new Grid.Plugins.ColumnGroup({
+                groups : [{title : '1',from : 2,to : 3},{title : '2',from : 4,to : 5},{title : '3',from : 6,to : 7},{title : '4',from : 8,to : 9},{title : '5',from : 10,to : 11},
+                          {title : '6',from : 12,to : 13},{title : '7',from : 14,to : 15},{title : '8',from : 16,to : 17},{title : '9',from : 18,to : 19},{title : '10',from : 20,to : 21},
+                          {title : '11',from : 22,to : 23},{title : '12',from : 24,to : 25},{title : '13',from : 26,to : 27},{title : '14',from : 28,to : 29},{title : '15',from : 30,to : 31},
+                          {title : '16',from : 32,to : 33},{title : '17',from : 34,to : 35},{title : '18',from : 36,to : 37},{title : '19',from : 38,to : 39},{title : '20',from : 40,to : 41},
+                          {title : '21',from : 42,to : 43},{title : '22',from : 44,to : 45},{title : '23',from : 46,to : 47},{title : '24',from : 48,to : 49},{title : '25',from : 50,to : 51},
+                          {title : '26',from : 52,to : 53},{title : '27',from : 54,to : 55},{title : '28',from : 56,to : 57},{title : '29',from : 58,to : 59},{title : '30',from : 60,to : 61},
+                          {title : '31',from : 62,to : 63}
+                          ]
+              }),
+              store = new Store({
+                url : 'getdata',
+                autoLoad:true, //自动加载数据
+                
+                pageSize:3	// 配置分页数目
+              
+              }),
+              grid = new Grid.Grid({
+                render:'#grid',
+               
+                
+                columns : columns,
+                forceFit : true,
+                store : store,
+                bbar:{
+                    // pagingBar:表明包含分页栏
+                    pagingBar:true
+                },
+                plugins : [Grid.Plugins.CheckSelection,colGroup] // 插件形式引入多选表格
+              });
+     
+            grid.render();
+     
+            
+          });
+        </script>
+    <!-- script end -->
+      </div>
+    </body>
+    </html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+  <a href="{:U('CrmClient/downloads')}">下载模板</a>
+  <hr>
+  <form action="{:U('CrmClient/importFile')}" method="post" enctype="multipart/form-data">
+		<input type="file" name='file'/>
+		<input type="submit" value='导入'/>
+  </form>
+  </div>
+</body>
+</html>

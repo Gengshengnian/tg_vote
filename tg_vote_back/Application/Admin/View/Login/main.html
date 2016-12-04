@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OA</title>
+<link rel="stylesheet" href="__PUBLIC__/common/common.css">
+<link rel="stylesheet" href="__PUBLIC__/css/index.css">
+</head>
+<body>
+	<div class="top">
+		<div class="pic">
+			<a href="#" class="picture"><img src="__PUBLIC__/image/huser.png"
+				alt=""></a> Hi <a href="0信息页面/0-message.html" target="mains">{$username[0]['username']}</a>
+			<a href="__URL__/logout">退出登录</a>
+		</div>
+	</div>
+	<!--列表部分-->
+	<div class="left">
+		<ul>
+			<li><a href="__URL__/welcome" class="first" target="mains">
+					<img src="__PUBLIC__/image/flag.png" alt="" /> 首页
+			</a></li>
+			<!--1系统管理-->
+			<volist name="menus" id="menu">
+				<empty name="menu.parent_id">
+					<li>
+						<a href="javascript:void(0)">
+							<img src="__PUBLIC__/image/layout.png" alt="" /> {$menu.name}
+						</a>
+						<ul>
+							<li>
+								<volist name="subMenus" id="subMenu">
+									<eq name="subMenu.parent_id" value="$menu.id">
+
+										<empty name="subMenu.target_href">
+											<a href="javascript:void(0)">{$subMenu.name}</a>
+										</empty>
+										<notempty name="subMenu.target_href">
+											<a href="__MODULE__/{$subMenu.target_href}" target="main"> {$subMenu.name}</a>
+										</notempty>
+										<ul>
+											<volist name="subSubMenus" id="subSubMenu">
+												<eq name="subSubMenu.parent_id" value="$subMenu.id">
+													<li><a href="__MODULE__/{$subSubMenu.target_href}" target="main"> {$subSubMenu.name}</a></li>
+												</eq>
+											</volist>
+										</ul>
+									</eq>
+								</volist>
+							</li>
+						</ul>
+					</li>
+				</empty>
+			</volist>
+
+
+		</ul>
+	</div>
+	<!--右侧内容展示-->
+	<div class="right">
+		<div class="righttop">
+			<div class="righttopinner">
+				<div class="righttopbut butactive">
+					首页
+					<div class="rrrclosebtn spebtn" style="display: none;"></div>
+				</div>
+			</div>
+			<div class="righttopdir">
+				<div class="dirleft">&lt;</div>
+				<div class="dirright">&gt;</div>
+			</div>
+		</div>
+		<div class="rightbottom">
+			<div class="item sitem">
+				<iframe src="__URL__/welcome" name="mains"></iframe>
+			</div>
+		</div>
+	</div>
+</body>
+<script src="__PUBLIC__/js/jquery.js"></script>
+<script src="__PUBLIC__/js/index.js"></script>
+</html>

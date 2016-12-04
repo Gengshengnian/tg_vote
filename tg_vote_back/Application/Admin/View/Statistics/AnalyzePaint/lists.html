@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>画图题分析</title>
+	<link rel="stylesheet" href="__PUBLIC__/common/common.css">
+	<!-- <link rel="stylesheet" href="../css/demo.css">
+	<link rel="stylesheet" href="../common/table.css">
+	<link rel="stylesheet" href="../css/form.css">
+	<link rel="stylesheet" href="../css/alert.css"> -->
+	<script src="__PUBLIC__/js/jquery.js"></script>
+	<script src="__PUBLIC__/js/table+.js?ver=110"></script>
+	<style>
+	.btn-group{
+		width: 60px;
+	    height: 30px;
+	    font-weight: bold;
+	    line-height: 30px;
+	    border: 1px solid #50BFFC;
+	    -moz-box-shadow: inset 2px 1px 5px #50BFFC;
+	    -webkit-box-shadow: inset 2px 1px 5px #50BFFC;
+	    -o-box-shadow: inset 2px 1px 5px #50BFFC;
+	    box-shadow: inset 2px 1px 5px #50BFFC;
+	    background: #5FBFF5;
+	    border-radius: 3px;
+	    color: #fff;
+	}
+	</style>
+</head>
+<body class="content-box">
+      <div class="header">
+      	 <div class="header-title">画图题分析</div>
+      	 <div class="header-content">
+      	 	<form action="__URL__/search" method="post">
+      	 	<label>
+      	 		试卷编号<input type="text" name = "code" class="input-text">
+      	 	</label>
+      	 	<!-- <label>
+      	 		题目类型<input type="text" name = "cate" class="input-text">
+      	 	</label> -->
+			<label>
+      	 		题目关键字<input type="text" name = "content" class="input-text">
+      	 	</label>
+      	 	<label>
+      	 		均分
+      	 		<select name="fha" id="fha" class="select select-small">
+					<option value=">" selected>大于</option>
+      	 			<option value=">=">大于等于</option>
+      	 			<option value="=">等于</option>
+      	 			<option value="<=">小于等于</option>
+      	 			<option value="<">小于</option>
+				</select>
+      	 	</label>
+      	 	<label>
+      	 		<input type="text" name = "avg" placeholder = "请输入均分" class="input-text">
+      	 	</label>
+      	 	<label>
+      	 		题　目ID<input type="text" name = "tiid" class="input-text">
+      	 	</label>      	
+      	 	<label>
+      	 		过滤<input type="submit" class="input-button-guolv" value="" urls='__URL__/search'>
+      	 	</label>
+      	 	<label>
+      	 		重置过滤<input type="reset" value="" class="input-button-resetguolv">
+      	 	</label>
+      	 	<br/>
+      	 	</form>
+      	 	<label>
+      	 	    <a href="__URL__/export">导出<input type="button" class="input-button-update" ></a>
+      	    </label>
+			<label>
+      	 	    <a href="__URL__/printp"><input type="button" value="打印" class="btn-group" ></a>
+      	    </label>
+      	 </div>
+      </div>
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+说明：统计在试卷一样的情况下，每题得的平均分
+<!-- -----表格部分复制开始--------- -->
+    <div class="content">
+      	<div class="header-title">画图题分析</div>
+      	<div class="header-content">
+	      	 <!-- 表格部分 开始-->
+	      	 <div class="table-content">
+	      	 	<table class="table text-l">
+		      	 	<!-- 表头部分 结束-->
+		  	 		<tr class="table-header">
+						<th class="table-number">&nbsp;</th>
+						<th data-role="bh">试卷编号</th>
+						<th data-role="nd">题目类型</th>
+						<th data-role="tm">题目</th>
+						<th data-role="ym">得分率</th>
+						<th data-role="ym">平均分<!-- <a href = "__URL__/lists/order/,avg">升序</a><a href = "__URL__/lists/order/,avg desc">降序</a> --></th>
+						
+						<th data-role="tjt">统计图</th>
+						<th data-role="tet_id">主观题ID</th>
+					</tr>
+			      	 	
+					<!-- 表头部分 结束-->
+		      	 	<!-- 第1行 开始 -->	
+					<volist name="list" id="vo">
+					<tr>
+						<td>{$i}</td> <!--编号-->
+						<td>{$vo.tep_code}</td>
+						<td><switch name="vo.tet_category">    
+						<case value="1">单选题</case>    
+						<case value="2">多选题</case>
+						<case value="3">判断题</case>
+						<case value="4">填空题</case>
+						<case value="5">简答题</case>
+						<case value="6">画图题</case>
+						<case value="7">程序题</case>    
+						<default /></switch></td>
+						<td>{$vo.tet_content}</td>
+						<td><?php echo round(empty($list[$i-1]['errors']) ? 0 : $list[$i-1]['errors']/$list[$i-1]['num']*100,1).'%';?></td>
+						<!-- {$jige[$i-1]['jige']/$num[$i-1]['num']*100} 没有及格人数的补0-->
+						<td><empty name="vo.avg">0<else /> {$vo.avg}</empty> </td>
+						
+						<td><a href ="__URL__/tjta/tep_id/{$vo.tep_id}">查看</a></td>
+						<td>{$vo.id}</td>
+					</tr>
+					</volist>
+					<!-- 第1行 结束 -->
+
+					
+				</table>
+	      	</div>
+      		<!-- 表格部分 结束-->
+			<!-- 翻页部分 开始-->
+			<div class="table-footer">
+				<div class="button-bottom">
+					<select name="" id="" class="select">
+						<option value="">10</option>
+						<option value="">20</option>
+						<option value="">30</option>
+					</select>
+					<span id="pageStr">总记录数：{$recordcount}</span>
+				</div>
+			</div>
+			<!-- 翻页部分 结束-->
+      	</div>
+    </div>
+<!-- -----表格部分复制结束--------- -->
+
+
+<!-- @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ -->
+
+
+      </div>
+      <!-- 弹窗 页面-->
+      <div class="alert-box header">
+      	 <div class="header-title">弹出窗口</div>
+      	 <div class="header-content">
+      	 	<!--content 在此-->
+      	 	<table class="tables text-l">
+      	 	<!--内容 js读写-->
+			</table>
+      	 </div>
+      	 <div class="alert-btn">
+      	 	<!--
+      	 		button 在此
+      	 		urls ajax 提交后台地址
+      	 	-->
+      	 	<input type="button" class="input-button-yes" value="确定">
+			<input type="button" class="input-button-no" value="取消">
+	
+      	 </div>	 
+    	</div>
+</body>
+</html>

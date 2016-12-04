@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<title>主观题显示</title>
+		<script src="__PUBLIC__/js/jquery.js"></script>
+	</head>
+	<body class="content-box" style = "text-align:center">
+	
+		<form action = "__URL__/subScores" method = "post">
+			
+			<span style = "font-size:20px;" >五、简答题</span><span style = "color:red;">(每题5分，评分不可以超过分数范围)</span><br/>
+			<volist name = "jianda" id = "vo" >
+			
+				<input type = "hidden" name = "tep_id" value = "{$vo.pager_id}" />
+				<input type = "hidden" name = "studentid" value = "{$vo.student_id}" />
+				
+				{$i}<input type = "hidden" name = "tet_id[]" value = "{$vo.title_id}" />
+				.{$vo.tet_content}<br/>
+				答：{$vo.student_anwser}<br/>
+				<!-- 正确答案：{$vo.tet_answer}<br/> -->
+				<!-- 解析：{$vo.tet_analyze}<br/> -->
+				<input type = "button" value = "正确答案" class = "truanswer" onclick="answer()"/><span id = "truAnswer"></span>
+				<input type = "button" value = "解析" class = "analyze" onclick = "analyze()"/><span id = "Analyze"></span>
+				<div style = "text-align:right">
+					得分：<input type = "text" name = "grade[]" style = "width:50px" class = "score">
+						 <!-- <input type = "submit" value = "提交分数"/> -->
+				</div>
+			</volist>	
+			
+			<span style = "font-size:20px;" >六、画图题</span><span style = "color:red;">(每题5分，评分不可以超过分数范围)</span><br/>
+			<volist name = "paint" id = "vo">
+				<input type = "hidden" name = "tep_id" value = "{$vo.pager_id}" />
+				<input type = "hidden" name = "studentid" value = "{$vo.student_id}" />
+				
+				{$i}<input type = "hidden" name = "tet_id[]" value = "{$vo.title_id}">
+				.{$vo.tet_content}<br/>
+				答：{$vo.student_anwser}<br/>
+				<div style = "text-align:right">
+					得分：<input type = "text" name = "grade[]" style = "width:50px" class = "score">
+						 <!-- <input type = "submit" value = "提交分数"/> -->
+				</div>
+			</volist>
+			
+			<span style = "font-size:20px;" >七、程序题</span><span style = "color:red;">(每题10分，评分不可以超过分数范围)</span><br/>
+			<volist name = "process" id = "vo">
+				<input type = "hidden" name = "tep_id" value = "{$vo.pager_id}" />
+				<input type = "hidden" name = "studentid" value = "{$vo.student_id}" />
+			
+				{$i}<input type = "hidden" name = "tet_id[]" value = "{$vo.title_id}">
+				.{$vo.tet_content}<br/>
+				答：{$vo.student_anwser}<br/>
+				<div style = "text-align:right">
+					得分：<input type = "text" name = "grade[]" style = "width:50px" class = "score">
+						 <!-- <input type = "submit" value = "提交分数"/> -->
+				</div>
+			</volist>
+			<input type = "submit" value = "提交" onclick = "grade()"/>
+		</form>
+		
+		<script type="text/javascript">
+			function grade(){
+				
+				var score = $(".score");
+				//console.log(score);
+				
+				var a = parseInt(0);
+				var zf = parseInt(0);
+				
+				for(var i=0 ; i<score.length ; i++){
+					var a = parseInt(score.eq(i).val());
+					//console.log(a);
+					
+					zf = zf + a;
+					
+					zf = parseInt(zf);
+				}
+				
+				var p = window.opener;
+				
+				var pd = p.document.getElementById('bless');
+				
+				pd.innerHTML = zf;
+				
+				window.close();
+			}
+			
+			function answer(){
+				
+			}
+			
+			function analyze(){
+				
+			}
+		</script>
+	</body>
+</html>

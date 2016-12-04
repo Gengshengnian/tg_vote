@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>每日测试</title>
+       <link href="__PUBLIC__/bui/Common/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
+   <link href="__PUBLIC__/bui/Common/assets/css/prettify.css" rel="stylesheet" type="text/css" />
+<style>
+ input {
+	 border-left: 0;
+	 border-right: 0;
+	 border-top: 0;
+	 border-bottom: 1px solid #000000;
+}
+code {
+      padding: 0px 4px;
+      color: #d14;
+      background-color: #f7f7f9;
+      border: 1px solid #e1e1e8;
+    }
+</style>
+
+</head>
+<body>
+<div id="timer" style="color:red;position:fixed;left:700px;font-size:20px"></div>
+<br>
+     {$sjsm}<br>
+	<form action="__URL__/add" method="post" name="form1">
+	<div class="container">
+		<div class="detail-page">
+			<h2>{$dxt}</h2>
+			<volist name="single" id="vo">
+				<div class="detail-section">  
+					<div class="row detail-row">
+						<div class="span24">
+							{$i}<input type="hidden" name="tet_id[]" value="{$vo.title_id}">
+							<input type="hidden" name="pager_title_id[]" value="{$vo.pager_title_id}">
+					  		 .{$vo.tet_content}<br>
+					  		 {$dxda}：<input type="text" name="answer[]" value=""><br><br>
+						</div>
+					</div>
+				</div>
+			</volist>
+		</div>
+		<div class="detail-page">
+			<h2>{$tkt}</h2><span style="color:green">{$tktsm}</span></h5>
+			<volist name="completion" id="vo">
+				<div class="detail-section">  
+					<div class="row detail-row">
+						<div class="span24">
+							{$i}<input type="hidden" name="tet_id[]" value="{$vo.title_id}">
+							<input type="hidden" name="pager_title_id[]" value="{$vo.pager_title_id}">
+					  		 .{$vo.tet_content}<br>
+					  		 {$tkda}：<input type="text" name="answer[]" value=""><br><br>
+						</div>
+					</div>
+				</div>
+			</volist>
+		</div>
+		<div class="detail-page">
+			<h2>{$pdt}</h2><span style="color:green">{$pdtsm}</span></h5>
+			<volist name="check" id="vo">
+				<div class="detail-section">  
+					<div class="row detail-row">
+						<div class="span24">
+							{$i}<input type="hidden" name="tet_id[]" value="{$vo.title_id}">
+							<input type="hidden" name="pager_title_id[]" value="{$vo.pager_title_id}">
+					  		 .{$vo.tet_content}<br>
+					  		 {$pdda}：<input type="text" name="answer[]" value=""><br><br>
+						</div>
+					</div>
+				</div>
+			</volist>
+		</div>
+		<div class="detail-page">
+			<h2>{$jdt}</h2>{$jdsmk}
+			<volist name="jianda" id="vo">
+				<div class="detail-section">  
+					<div class="row detail-row">
+						<div class="span24">
+							{$i}<input type="hidden" name="tet_id[]" value="{$vo.title_id}">
+							<input type="hidden" name="pager_title_id[]" value="{$vo.pager_title_id}">
+					  		 .{$vo.tet_content}<br>
+					  		 <textarea name="answer[]" style="width:300px;height:80px";></textarea><br>
+						</div>
+					</div>
+				</div>
+			</volist>
+		</div>
+	</div>
+	
+	</form>
+	  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/bui-min.js"></script>
+
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/config-min.js"></script>
+</body>
+<script>
+function stop(){
+
+return false;
+
+}
+
+document.oncontextmenu=stop;
+
+
+</script>
+</html>

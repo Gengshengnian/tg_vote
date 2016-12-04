@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="../common/common.css">
+	<link rel="stylesheet" href="../css/form.css">
+</head>
+<body>
+	<!-- 表单 200*30-->
+	<input type="text" class="input-text">
+	<!-- 下载 16*22-->
+	<input type="button" class="input-button-down">
+	<!-- 上传 16*22-->
+	<input type="button" class="input-button-update">
+	<!-- 下一个 22*16-->
+	<input type="button" class="input-button-next">
+	<!-- 上一个 22*16-->
+	<input type="button" class="input-button-prev">
+	<!-- 导入 20*17-->
+	<input type="button" class="input-button-fileadd">
+	<!-- 导出 20*17-->
+	<input type="button" class="input-button-fileremove">
+	<!-- 添加 17*22-->
+	<input type="button" class="input-button-add">
+	<!-- 提交 22*16-->
+	<input type="button" class="input-button-submit">
+	<!-- 提交 22*17-->
+	<input type="button" class="input-button-delete" value="">
+	<!-- 过滤 20*21 -->
+	<input type="button" class="input-button-guolv" value="">
+	<!-- 重置过滤 30*32-->
+	<input type="button" class="input-button-resetguolv" value="">
+	<!-- 重置过滤 26*32-->
+	<input type="button" class="input-button-refresh" value="">
+	<!-- 权限管理 24*21-->
+	<input type="button" class="input-button-contral" value="">
+	<!-- 个人中心 24*21-->
+	<input type="button" class="input-button-user" value="">
+	<input type="button" class="input-button-wirte" value="">
+	<!-- 确认 60*30-->
+	<input type="button" class="input-button-yes" value="确定">
+	<input type="button" class="input-button-no" value="取消">
+	<!-- 下拉 150*30-->
+	<select name="" id="" class="select">
+		<option value="">123</option>
+		<option value="">456</option>
+		<option value="">789</option>
+	</select>
+	<!-- 文本输入 98%*100px-->
+	<textarea name="" id="" class="textarea">
+	</textarea>
+	<!-- 文本输入 100%*38px-->
+	<div class="button-bottom">
+		<select name="" id="" class="select">
+		<option value="">123</option>
+		<option value="">456</option>
+		<option value="">789</option>
+		</select>
+		<input type="button" class="input-button-prev">
+		<span class="di">第</span>
+		<input type="text"class="input-text">
+		<span class="di">页</span>
+		<span class="di">共3页</span>
+		<input type="button" class="input-button-next">
+		<input type="button" class="input-button-refresh daxiao" value="">
+	</div>
+
+
+
+
+	<!-- 信息提示 -->
+		<div class="success">
+			<b>success</b>
+			 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+			 <a href="" class="close"></a> 
+		</div>
+		<div class="faild">
+			<b>faild</b>
+			 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+			 <a href="" class="close"></a> 
+		</div>
+		<div class="waring">
+			<b>faild</b>
+			 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+			 <a href="" class="close"></a> 
+		</div>
+		<div class="information">
+			<b>faild</b>
+			 Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+			 <a href="" class="close"></a>
+		</div>
+		<input type="button" class="input-button-fileadd small">
+		<!-- 导出 20*17-->
+		<input type="button" class="input-button-fileremove small">
+		<input type="button" class="input-button-wirte small" value="">
+
+
+
+<!-- 
+		使用时间插件和rome.js
+		调用使用
+		$(function(){
+				//去除边距
+		  $("#beginTime").parent().css({"margin-right":"0","padding-right":"0"});
+		  $("#endTime").parent().css({"margin-left":"0","padding-left":"0"});
+		  rome(beginTime);
+		  rome(endTime);
+		}) -->
+		<label>
+      	 		创建时间<input type="text" id="beginTime" class="input-text">
+      	 	</label><label><!-- 此处两个label必须挨着 -->
+      	 		--<input type="text" id="endTime" class="input-text">
+      	</label>
+</body>
+</html>

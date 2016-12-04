@@ -1,0 +1,35 @@
+.header{
+	background-color: #FFF;
+	overflow: hidden;
+	box-shadow: 0px 5px 10px #AFAEAE;
+}
+ .header-title{
+	background: transparent url("img/white-title.png") repeat scroll 0% 0%;
+	color: #2C2C2C;
+	text-shadow: 0px 1px #FFF;
+	font-weight: bold;
+	border: medium none;
+	height: 35px;
+	position: relative;
+	background: transparent url("../image/bloctitle.png") repeat scroll 0% 0%;
+	line-height: 34px;
+	padding: 0px 10px;
+	font-size: 15px;
+	font-weight: bold;
+	color: #808080;
+	text-shadow: 0px -1px 0px #000;
+}
+.header-content{
+	padding: 10px;
+    background-color: #FFF;
+}
+.header-content label{
+	display:inline-block;
+}
+.footer{
+	position: fixed;
+	left:0;bottom:0px;
+	height:38px;
+	text-shadow: 0px -1px 0px #000;
+	width:100%;
+}

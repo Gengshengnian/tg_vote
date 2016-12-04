@@ -1,0 +1,388 @@
+
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <title> 搜索表单</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <link href="__PUBLIC__/bui/Common/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="__PUBLIC__/bui/Common/assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
+   <link href="__PUBLIC__/bui/Common/assets/css/prettify.css" rel="stylesheet" type="text/css" />
+   <style type="text/css">
+    code {
+      padding: 0px 4px;
+      color: #d14;
+      background-color: #f7f7f9;
+      border: 1px solid #e1e1e8;
+    }
+    .one{
+	height:18px;
+    background:#ccc;
+    }
+    .test{
+	 margin-top:10px;
+    margin-left:15px;
+    }
+ .key{
+	 margin-top:10px;
+    margin-left:15px;
+    }
+   </style>
+ </head>
+ <body>
+  
+  <div class="container">
+    <div class="row">
+      <form id="searchForm" class="form-horizontal span24">
+        <div class="row">
+          <div class="control-group span8">
+            <label class="control-label">方向:</label>
+            <div class="controls" >
+              <select name="" id="" name="sex" value='请选择'>
+                <option>请选择方向</option>
+                <option value="">php</option>
+                <option value="">ul</option>
+                <option value="">wul</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group span8">
+            <label class="control-label">阶段:</label>
+            <div class="controls">
+              <select name="" id="" name="sex" value='请选择'>
+                <option>请选择阶段</option>
+                  <option>请选择阶段</option>
+                <option value="">php第一阶段</option>
+                <option value="">php第二阶段</option>
+                <option value="">php第三阶段</option>
+                <option value="">php第四阶段</option>
+              </select>
+            </div>
+          </div>
+          <div class="control-group span8">
+            <label class="control-label">课程:</label>
+            <div class="controls" >
+              <select name="" id="" name="sex">
+                <option>请选择课程</option>
+                <option value="">html</option>
+                <option value="">css</option>
+                <option value="">mysql</option>
+                <option value="">php的基础</option>
+                <option value="">php连接mysql</option>
+                <option value="">php面向对象</option>
+                <option value="">团队项目实战</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="control-group span8">
+            <label class="control-label">所属天:</label>
+            <div class="controls">
+                 <select name="" id="" name="sex">
+                <option>请选所属天</option>
+                <option value="">html第一天</option>
+                <option value="">html第二天</option>
+                <option value="">html第三天</option>
+                
+              </select>
+            </div>
+          </div>
+            <div class="control-group span8">
+            <label class="control-label">知识点:</label>
+            <div class="controls">
+                 <select name="" id="" name="sex">
+                <option>请选择知识点</option>
+                <option value="">框架</option>
+                <option value="">表格</option>
+                <option value="">表单</option>
+                
+              </select>
+            </div>
+          </div>
+          
+           <div class="control-group span8">
+            <label class="control-label">题型:</label>
+            <div class="controls">
+                 <select name="" id="" name="sex">
+                <option>请选题型</option>
+                <option value="">单选</option>
+                <option value="">多选</option>
+                <option value="">判断</option>
+                <option value="">填空</option>
+                <option value="">简单</option>
+                <option value="">画图</option>
+                <option value="">程序</option>
+                
+              </select>
+            </div>
+          </div>
+         
+        </div>
+         <div class="row">
+           <div class="control-group span8">
+            <label class="control-label">难度:</label>
+            <div class="controls">
+                 <select name="" id="" name="sex">
+                <option>请选择难度</option>
+                <option value="">★</option>
+                <option value="">★★</option>
+                <option value="">★★★</option>
+                <option value="">★★★★</option>
+                
+              </select>
+            </div>
+          </div>
+          
+           <div class="span3 offset2">
+            <button  type="button" id="btnSearch" class="button button-primary">搜索</button>
+          </div>
+         
+         
+         
+         </div>
+      </form>
+    </div>
+    
+    
+    <div class='one'>
+    <h2>练习题</h2>
+      <hr class='hr'>
+    </div>
+   
+   <div>
+   
+    
+    
+       
+       	<div class="header-content">
+	      	 <!-- 表格部分 开始-->
+	      	 <div class="table-content result">
+	      	      <tr>
+	      	 			<td style="height:100px;width:700px;">
+	      	 				<h3>1.在网页中插入背景图案（文件的路径及名称为/
+当前文件的img文件夹下bg.jpg）的语句是_____________。  </h3><br/><br/>
+	      	 				<input type='button' onclick='showAnswer(this);' value='显示答案'>
+	      	 				<p style='display: none'>&lt;body background=./img/bg.jpg&gt;</p><hr/>
+	      	 			</td>
+      	 		  </tr><tr>
+	      	 			<td style="height:100px;width:700px;">
+	      	 				<h3>2.若要产生一个4行30列的多行文本域，以下方法中，正确的是（）。
+<br/>A &lt;Input type=&rdquo;text&rdquo; Rows=&rdquo;4&rdquo; Cols=&rdquo;30&rdquo; Name=&rdquo;txtintrol&rdquo;&gt;
+<br/>B &lt;TextArea Rows=&rdquo;4&rdquo; Cols=&rdquo;30&rdquo; Name=&rdquo;txtintro&rdquo;&gt;
+<br/>C &lt;TextArea Rows=&rdquo;4&rdquo; Cols=&rdquo;30&rdquo; Name=&rdquo;txtintro&rdquo;&gt;&lt;/TextArea&gt;
+<br/>D &lt;TextArea Rows=&rdquo;30&rdquo; Cols=&rdquo;4&rdquo; Name=&rdquo;       txtintro&rdquo;&gt;&lt;/TextArea&gt;</h3><br/><br/>
+	      	 				<input type='button' onclick='showAnswer(this);' value='显示答案'>
+	      	 				<p style='display: none'>C</p><hr/>
+	      	 			</td>
+      	 		  </tr><tr>
+	      	 			<td style="height:100px;width:700px;">
+	      	 				<h3>3.使用表格简单编写一个登录界面，其中包含用户名、密码、提交按钮、重置按钮</h3><br/><br/>
+	      	 				<input type='button' onclick='showAnswer(this);' value='显示答案'>
+	      	 				<p style='display: none'>&lt;html&gt;
+ &lt;head&gt;&lt;/head&gt;
+ &lt;body&gt;
+  &lt;table border=&quot;1&quot;&gt;
+   &lt;tr&gt;
+     &lt;td&gt;用户名：&lt;/td&gt;
+     &lt;td&gt;&lt;input type=&quot;text&quot; value=&quot;请输入你的大名&quot;/&gt;&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;密码：&lt;/td&gt;
+    &lt;td&gt;&lt;input type=&quot;password&quot; /&gt;&lt;/td&gt;
+   &lt;/tr&gt;
+   &lt;tr&gt;
+    &lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;重置&quot;/&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;注册&quot;/&gt;&lt;/td&gt;
+   &lt;/tr&gt;
+  &lt;/table&gt;
+ &lt;/body&gt;
+&lt;/html&gt;</p><hr/>
+	      	 			</td>
+      	 		  </tr><tr>
+	      	 			<td style="height:100px;width:700px;">
+	      	 				<h3>4.以下标记符中，没有对应的结束标记的是（）
+<br/>A.&lt;body&gt;&nbsp; 
+<br/>B.&lt;br&gt;&nbsp;&nbsp; 
+<br/>C.&lt;html&gt;&nbsp; 
+<br/>D.&lt;title&gt;</h3><br/><br/>
+	      	 				<input type='button' onclick='showAnswer(this);' value='显示答案'>
+	      	 				<p style='display: none'>B</p><hr/>
+	      	 			</td>
+      	 		  </tr><tr>
+	      	 			<td style="height:100px;width:700px;">
+	      	 				<h3>5.在HTML中，(  )不是链接的目标属性。
+<br/>A.self  
+<br/>B．new  
+<br/>C．blank  
+<br/>D．top  E.left</h3><br/><br/>
+	      	 				<input type='button' onclick='showAnswer(this);' value='显示答案'>
+	      	 				<p style='display: none'>D<br/>E</p><hr/>
+	      	 			</td>
+      	 		  </tr>
+      	 		  
+      	 		  <tr>
+	      	 			<td style="height:100px;width:700px;">
+	      	 				<h3>6.在HTML中，(  )不是链接的目标属性。
+<br/>A.self  
+<br/>B．new  
+<br/>C．blank  
+<br/>D．top  E.left</h3><br/><br/>
+	      	 				<input type='button' onclick='showAnswer(this);' value='显示答案'>
+	      	 				<p style='display: none'>D<br/>E</p><hr/>
+	      	 			</td>
+      	 		  </tr>	      	      
+      	 	 </div>
+       
+       
+    
+    <div class="search-grid-container">
+      <div id="grid"></div>
+    </div>
+  </div>
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/bui-min.js"></script>
+
+
+  <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/config-min.js"></script>
+
+
+
+  <script type="text/javascript">
+    BUI.use('common/page');
+  </script>
+  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
+    <script type="text/javascript" src="__PUBLIC__/bui/Common/assets/js/prettify.js"></script>
+ 
+ 
+ 
+ <script type="text/javascript">
+		$(function($) {
+			selected();
+		});
+		//默认选中
+		function selected(){
+			$.ajax({
+				type:"post",
+				url:"/last/tg/index.php/Admin/EvaluateAnytimetest/getajaxID",
+				success:function(msg){
+					//console.log(msg);
+					var direction_val = msg.direction_id;
+					var stage_val = msg.stage_id;
+					var course_val = msg.course_id;
+					var days_val = msg.days_id;
+					$("#direction").val(direction_val);
+					$("#stage").val(stage_val);
+					$("#course").val(course_val);
+					$("#days").val(days_val);
+				}
+			});
+		}
+		
+		function getStages(obj,firstLevelName,secondLevelName){
+			
+			//清除第三代以后所有数据
+			initHD(firstLevelName);
+			
+			$.ajax({
+				type:"post",
+				url:"/last/tg/index.php/Admin/EvaluateAnytimetest/getSecondLevelResourses",
+				data:"id="+obj.value+"&"+"firstLevelName="+firstLevelName+"&"+"secondLevelName="+secondLevelName,
+				success:function(msg)
+				{
+					//console.log(msg);
+					var len = msg.length;
+					
+					//给直接后代绑定数据
+					for(var i=0;i<len;i++)
+					{
+						var id = msg[i].id;
+						var name = msg[i].name;
+						$("#"+secondLevelName).append("<option value='"+id+"'>"+name+"</option>");
+					} 
+				}
+			});
+		}
+		
+		function initHD(selfLevelName){  
+			
+			//知识点肯定删除
+			$("#knowledge option").remove(":gt(0)");
+			
+			if( selfLevelName == "direction" || selfLevelName == "stage" || selfLevelName == "course"  )
+			{
+				$("#days option").remove(":gt(0)");
+			}
+			
+			if(selfLevelName == "direction" || selfLevelName == "stage")
+			{
+				$("#course option").remove(":gt(0)");
+			}
+			
+			if(selfLevelName == "direction")
+			{
+				$("#stage option").remove(":gt(0)");
+			}
+			
+		} 
+		
+		//显示答案
+		function showAnswer(obj)
+		{
+			$(obj).next().toggle();
+			if($(obj).val() == '显示答案'){
+				$(obj).val('隐藏答案');
+			}else{
+				$(obj).val('显示答案');
+			}
+		}
+		
+		//查找的筛选条件
+		function load(){
+			var direction = $("#direction option:selected").val();
+			var stage = $("#stage option:selected").val();
+			var course = $("#course option:selected").val();
+			var days = $("#days option:selected").val();
+			var knowledge = $("#knowledge option:selected").val();
+			var level = $("#level option:selected").val();
+			var category = $("#category option:selected").val();
+			
+			$.ajax({
+				type:"post",
+				url: "getD",
+				data:"direction="+direction+"&"+"stage="+stage+"&"+"course="+course+"&"+"days="+days+"&"+"knowledgeId="+knowledge+"&"+"levelId="+level+"&"+"category="+category,
+				success: function(msg){
+					var len = msg.length;
+					var o=0;
+					var str=0;
+					for(var i=0;i < len; i++ )
+					{   
+						var tet_category = msg[i].tet_category;
+						console.log(tet_category);
+						var tet_content = msg[i].tet_content;
+						var tet_answer = (msg[i].tet_answer == ('' || 0 ) ) ? "暂无答案" : msg[i].tet_answer; 
+						if(o==0){str+="<tr>";}
+						str+="<td style='height:100px;width:700px;'>"+"<h3>"+(i+1)+"."+tet_content+"</h3>"+"<br/><input type='button' onclick='showAnswer(this);' value='显示答案'"+">"+"<p style='display: none'>"+tet_answer+"</p>"+"</td>";
+						o++;
+						if(o==1){str+="</tr>";o=0;}
+					} 
+					if(str == 0){ 
+						str = "暂无加入试题";
+					}
+					$(".result").html(str);
+				}
+			})
+		}
+	</script>
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+<body>
+</html>  

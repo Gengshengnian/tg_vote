@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>theme</title>
+		<link rel="stylesheet" type="text/css" href="css/base1.css"/>
+		<link rel="stylesheet" type="text/css" href="css/theme.css"/>
+	</head>
+	<body>
+		<div class="top">
+			<img src="<?php echo $actInfo[0]['logo_img']?>"/>
+		</div>
+		<!--投票时间-->
+		<div class="tpsj con">
+			投票时间
+		</div> 
+		<!--时间-->
+		<div class="time con">
+			<?php echo $actInfo[0]['start_time']?>——<?php echo $actInfo[0]['end_time']?>
+		</div>
+		<!--投票方法-->
+		<div class="tpff con">
+			投票方法
+		</div>
+		<!--具体细节-->
+		<div class="ffDetail con">
+			<?php echo $actInfo[0]['rule']?>
+		</div>
+		<!--二维码-->
+		<div class="ewm">
+			<img src="<?php echo $actInfo[0]['ewm_img']?>"/>
+		</div>
+		<!--主办单位-->
+		<div class="danwei">
+			主办单位:<?php echo $actInfo[0]['zbf']?>;赞助单位:<?php echo $actInfo[0]['zzf1']?>
+		</div>
+	     <!--向上箭头-->
+		  <a href="index.php?a=award&openid=<?php echo $openid?>" class="wxBottom"><img src="img/xsjt.png" /></a>
+	   
+
+	</body>
+</html>

@@ -1,0 +1,81 @@
+
+.top{
+   width: 60%;
+   height: auto;
+}
+.content{
+	width: 80%;
+	height: 410px;
+	background: rgba(255,255,255,0.5);
+	border-radius: 5px;
+	margin: 6% auto 26%;
+}
+.box{
+	width: 80%;
+	height: 50px;
+	margin: 0 auto 2%;
+}
+.box a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: black;
+}
+.spePower{
+	width: 100%;
+	height: 45px;
+	border-radius: 5px 5px 0 0;
+	background: #E5FC18;
+	text-align: center;
+	line-height: 45px;
+	margin-bottom: 3%;
+}
+.speList{
+	height: 32px;
+	line-height: 32px;
+    
+}
+.mianfei{
+	background:rgba(97,212,255,0.8);
+	border: 1px solid #FFFFFF;
+}
+.mianfei a{
+	color: #FFFFFF;
+}
+.shiting{
+	background:rgba(255,255,255,0.8);
+	border: 1px solid #FFFFFF;
+}
+.shiting a{
+	color: #0d4e9e;
+}
+.jifeng{
+	background:rgba(97,212,255,0.8);
+	border: 1px solid #FFFFFF;
+}
+.jifeng a{
+	color: #FFFFFF;
+}
+.speList a{
+	font-size: 0.8em;
+}
+.kefu{
+	background: #d30700;
+	text-align: center;
+}
+.kefu a{
+	color: #FFFFFF;
+	font-size: 0.9em;
+}
+.denglu{
+	background:#FFFFFF;
+	text-align: center;
+}
+.denglu a{
+	color: #000;
+	font-size: 0.9em;
+}
+.speLess{
+	height: 95px;
+	background: rgba(255,255,255,0);
+}

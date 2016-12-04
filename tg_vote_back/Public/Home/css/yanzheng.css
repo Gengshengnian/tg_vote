@@ -1,0 +1,91 @@
+*{padding: 0; margin: 0;}
+body{line-height: 1; font-family: MFShangHei_Noncommercial-Regular, arial, 'Microsoft Yahei', '微软雅黑', '宋体',  Tahoma, Arial, Helvetica, STHeiti;}
+a,a:hover,a:focus{text-decoration: none; cursor:pointer; /*background:transparent; */box-shadow:none; border:none; color:#333;}
+img{border:0; max-width: 100%;}
+ul,li{padding:0; margin:0; list-style: none;}
+.text-center{text-align: center;}
+.clearfix{overflow: hidden; clear:both;}
+/*tips*/
+#tips-container{z-index:1500; background:rgba(0,0,0,0.6); position:fixed; left:0; top:0; width:100%; height:100%;}
+#tips-panel{width:90%; position:absolute; left:5%; top:40%; background:#fff; border-radius:5px; font-size:18px; padding:5%; z-index:2000; -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);  -moz-box-shadow: 0 5px 15px rgba(0,0,0,.5); box-shadow: 0 5px 15px rgba(0,0,0,.5);}
+#tips-panel p { height:55px; line-height:55px; padding-left:60px; display:inline-block; position:relative;}
+#tips-panel .confirm{color:#fff; background:red; display:inline-block; width:100%; padding:12px 0; border-radius:4px; margin-top:15px; }
+#tips-panel .confirm-tp{color:#fff; background:red; display:inline-block; width:40%;margin:auto 5%;float: left; padding:12px 0; border-radius:4px; margin-top:2%; }
+#tips-container .icon-gray,#tips-container .icon-red{display:inline-block; position:absolute; left:0; top:0; width:50px; height:50px; margin-right:15px; background-repeat:no-repeat; background-size:contain; background-position:50% 50%;}
+#tips-container .icon-gray{background-image:url('../img/icon-gray.png');}
+#tips-container .icon-red{background-image:url('../img/icon-red.png');}
+
+.container{width:100%;  margin: 0 auto; position:relative;}
+/*.logo{width: 100%;}*/
+.panel{width:76%; margin:0 auto; background:rgba(255,255,255,0.2); border-radius:5px; overflow:hidden; -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.3);  -moz-box-shadow: 0 5px 15px rgba(0,0,0,.3); box-shadow: 0 5px 15px rgba(0,0,0,.3);}
+.panel-heading{width:100%; height:15.5%; text-align:center; background: rgba(225,225,225,0.7); font-weight:normal; font-size:24px; padding:5% 0; font-family:'Microsoft Yahei', '微软雅黑';}
+.panel-body{padding:6%;}
+.panel-body-tp{padding:3%;}
+.form-group{margin-bottom: 3%; text-align: center; position: relative;border: 1px dashed #ffffff; }
+.form-group .icon{position:absolute; left:2%; top:0; display:inline-block; height: 100%; margin-right: 5px; width:12%; background-repeat:no-repeat; background-size:contain; background-position:50% 50%;  }
+.form-group.submit{margin-bottom: 3%;border: none;outline: none;}
+::-webkit-input-placeholder { 
+    color: #fff; font-size: 16px;
+}
+:-moz-placeholder { 
+    color: #fff !important; font-size: 18px; font-family:MFShangHei_Noncommercial-Regular;
+}
+::-moz-placeholder { 
+    color: #fff !important; font-size: 18px; font-family:MFShangHei_Noncommercial-Regular;
+} /* for the future */
+:-ms-input-placeholder { 
+    color: #fff !important; font-size: 18px; font-family:MFShangHei_Noncommercial-Regular;
+}
+
+/*login   register  forget*/
+.login .logo img{width: 100%; margin: 17.5% 0 4% 0%;}
+.register .logo img,.forget .logo img{width: 100%; margin: 10% 0 4% 0;}
+input.text,input.text:focus{background: transparent; border: 0; padding: 4% 3% 4% 12%; width:100%; height:30px;}
+input.btn-login,input.btn-register,input.btn-forget{width: 100%; height:20%; color: #fff; font-size: 20px; padding:3.5% 0; border-radius:5px;}
+input.btn-register{background:#d30b04; border-color: #d30b04;text-align: center;}
+input.btn-forget{background:#cfc049; border-color: #cfc049;}
+.icon.mobile-icon{background-image:url(../img/shouji.png);}
+.icon.password-icon{background-image:url(../img/pas-icon.png)}
+.icon.user-icon{background-image:url(../img/user.png)}
+.icon.qq-icon{background-image:url(../img/qq.png)}
+.icon.major-icon{background-image:url(../img/mima.png)}
+.icon.idcard-icon{background-image:url(../img/idcard-icon.png)}
+.icon.yzmicon{background-image:url(../img/yzmicon.png)}
+.hytw_xq{width:100%;height:30%;background: #e4fb1c;padding: 4% 3% 4% 6%;text-align: left;border: none;}
+.login .footer{font-size: 20px;}
+.register.container,.forget.container{padding-bottom: 3%;}
+/*手机验证*/
+.mobile_xyb{background: #d30a04;color:#ffffff;}
+.mobile_yanzheng{text-decoration:underline;color:#d30a04;}
+.mobile_fasong{background: #f1f9fa;color:#d30a04;border:none;}
+.yzm{text-align: left;}
+.yzm_con{border: 1px red solid !important;width: 56% !important;}
+.icon.yzm-icon{background-image:url(../img/yzmicon.png)}
+input.btn-tj{letter-spacing: 20px;}
+@media screen and (min-width:351px){
+	.exchange .gift ul li{margin:0 1.5% 1.5% 0; width: 40.06%; float:left; background:rgba(255,255,255,0.4); border-radius: 8px; padding:15px 3%;}
+	.exchange .gift ul li:nth-child(2n){margin-right: 0;}
+	.exchange .gift ul li .info{width: 60%; padding-left: 40%; position: relative; clear:both; overflow: hidden;}
+	.exchange .gift ul li .info .gift-img{position: absolute; width: 37%; left: 0; top:0; overflow:hidden; height: 100%;}
+}
+@media screen and (max-width:350px){
+	.exchange .gift ul li{margin:0 0 1.5% 0; width: 87.62%; background:rgba(255,255,255,0.4); border-radius: 8px; padding:15px 3%;}
+	.exchange .gift ul li .info{width: 55%; padding-left: 45%; position: relative; clear:both; overflow: hidden;}
+	.exchange .gift ul li .info .gift-img{position: absolute; width: 40%; left: 0; top:0; overflow:hidden; height: 100%;}
+}
+#tips-container .tip{height:35px; line-height:35px;}
+#tips-container .tip span{display:inline-block; top:10px;}
+#tips-container .address{font-size: 12px; line-height: 1.5em;}
+/*登录*/
+.form-denglu{position: fixed;top:3%;right: 3%;}
+.danwei1{
+	font-size: 0.5em;
+	text-align:center;
+	position: fixed;
+	bottom: 8%;
+	left: 0;
+	width:100%;
+}
+
+
+

@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="__PUBLIC__/common/common.css">
+	<script src="__PUBLIC__/js/jquery.js"></script>
+	<script src="__PUBLIC__/js/table+.js?ver=110 "></script>
+</head>
+<body class="content-box">
+      <div class="header">
+      	 <div class="header-title">输入区域</div>
+      	 <div class="header-content">
+      	 	<form action="__URL__/searchs" method="post">
+      	 	 <label>
+      	 		姓名<input type="text" name="name"  class="input-text">
+      	 	</label>
+      	 	 <label>
+      	 		班级<select id="class" name="classId" id="vo" onchange="getStages(this,'direction','stage')">
+      	 			<option value="{$vo.id}">请选择班级</option>
+      	 			<volist name="class" id="vo">
+      	 			<option value="{$vo.id}">{$vo.name}</option>
+      	 			</volist>
+      	 		</select>
+      	 	</label>
+      	 	<label>
+      	 			过滤<input type="submit" class="input-button-guolv" value="" urls='__URL__/searchs'>
+      	 	</label>
+      	 	<label>
+      	 		重置过滤<input type="button" class="input-button-resetguolv">
+      	 	</label>
+      	 	<br>
+      	 	</label>
+      	 	 <label> 导入<input type="button" class="input-button-down">
+      	 	<label>
+      	 	   <a href="__URL__/export "style="color:black;">导出</a><input type="button" class="input-button-update">
+      	    </label>
+      	    </form>
+      	 </div>
+      	 </div>
+      </div>
+      <div class="content">
+      	<div class="header-title">表格</div>
+      	<div class="header-content">
+	      	 <!-- 表格部分 开始-->
+	      	 <div class="table-content">
+	      	 	<table class="table text-l">
+		      	 	<!-- 表头部分 结束-->
+		  	 		<tr class="table-header">
+		  	 			<th>编号</th>
+						<th data-role="name">真实姓名</th>
+						<th data-role="student_number">学生编号</th>
+						<th data-role="pro_team_id">虚拟企业</th>
+						<th data-role="status">状态</th>
+						<th data-role="gender">性别</th>
+						<th data-role="nation">民族</th>
+						<th data-role="school">毕业学校</th>
+						<th data-role="major">专业</th>
+						<th data-role="work_exception">工作经验</th>
+						<th data-role="birthday">出生日期</th>
+						<th data-role="married">婚否</th>
+						<th data-role="politics_status">政治面貌</th>
+						<th data-role="address">现住址</th>
+						<th data-role="cen_register">户籍地址</th>
+						<th data-role="f_tel">家庭电话</th>
+						<th data-role="phone">手机号</th>
+						<th data-role="IDcard">身份证号码</th>
+						<th data-role="urgency">紧急联系人</th>
+						<th data-role="relation">与本人关系</th>
+						<th data-role="u_tel">联系电话</th>
+						<th data-role="user_id">登录名</th>
+						<th data-role="class_id">实训班级</th>
+						<th>操作</th>
+					</tr>
+			      	 	
+					<!-- 表头部分 结束-->
+		      	 	
+					<!-- 第1行 结束 -->
+				
+						<volist name="list" id="vo">
+						<tr>
+						<td data-hid='true'>{$i}</td>
+						<td>{$vo.name}</td>
+						<td data-hid='true'>{$vo.student_number}</td>
+						<td data-hid='true'>{$vo.pname}</td>
+						<td data-hid='true'><if condition="($vo.status eq 1)">在学<else />休学</if></td>
+						<td data-hid='true'><if condition="($vo.gender eq 1)">男<else />女</if></td>
+						<td data-hid='true'>{$vo.nation}</td>
+						<td data-hid='true'>{$vo.school}</td>
+						<td data-hid='true'>{$vo.major}</td>
+						<td data-hid='true'>{$vo.gradution_time}</td>
+						<td data-hid='true'>{$vo.education}</td>
+						<td data-hid='true'><if condition="($vo.married eq 1)">已婚<else />未婚</if></td>
+						<td data-hid='true'>{$vo.politics_status}</td>
+						<td data-hid='true'>{$vo.address}</td>
+						<td data-hid='true'>{$vo.cen_register}</td>
+						<td data-hid='true'>{$vo.f_tel}</td>
+						<td data-hid='true'>{$vo.phone}</td>
+						<td data-hid='true'>{$vo.idcard}</td>
+						<td data-hid='true'>{$vo.urgency}</td>
+						<td data-hid='true'>{$vo.relation}</td>
+						<td data-hid='true'>{$vo.u_tel}</td>
+						<td data-hid='true'>{$vo.uname}</td>
+						<td>{$vo.cname}</td>
+						<td>
+							<!--
+								编辑功能 添加类名 edit
+								查看功能 添加类名 view
+								删除功能 添加类名 delete
+							-->
+							<input type="button" class="input-button-guolv small view">
+							<input type="button" class="input-button-wirte small edit"  urls='__URL__/update/id/{$vo.id}'>
+							<input type="button" class="input-button-fileremove small delete"  urls='__URL__/delete/id/{$vo.id}'>
+						</td>
+					</tr>		
+					</volist>
+					
+			</table>
+	      	</div>
+      		<!-- 表格部分 结束-->
+			<!-- 翻页部分 开始-->
+			<div class="table-footer">
+				<div class="button-bottom">
+					<select name="" id="" class="select">
+						<option value="">10</option>
+						<option value="">20</option>
+						<option value="">30</option>
+					</select>
+					<span id="pageStr">{$pagestr}</span>
+				</div>
+			</div>
+			<!-- 翻页部分 结束-->
+      	</div>
+    </div> 
+
+
+
+      <!-- 弹窗 页面-->
+      <div class="alert-box header">
+      	 <div class="header-title">弹出窗口</div>
+      	 <div class="header-content">
+      	 	<!--content 在此-->
+      	 	<table class="tables text-l">
+      	 	<!--内容 js读写-->
+			</table>
+      	 </div>
+      	 <div class="alert-btn">
+      	 	<!--
+      	 		button 在此
+      	 		urls ajax 提交后台地址
+      	 	-->
+      	 	<input type="button" class="input-button-yes" value="确定">
+			<input type="button" class="input-button-no" value="取消">
+	
+      	 </div>	 
+    	</div>
+</body>
+</html>

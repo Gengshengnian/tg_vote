@@ -1,0 +1,75 @@
+body,li,ul,ol,h1,h3,span,strong{
+    border:none;
+    padding:0;
+    list-style:none;
+    margin:0;
+    font-size:16px;
+    color: #031a6a;
+}
+*{
+	box-sizing: border-box;
+}
+@font-face{
+    font-family:"font";
+    src:url('../font/HIRAGINO SANS GB W3.OTF');
+}
+.font{
+    font-family:font!important;
+}
+input{
+    margin:0;padding:0;list-style:none;
+    outline: none;
+    border: none;
+    color: #FFFFFF;
+    background: none;
+    
+}
+::-webkit-input-placeholder{
+	color: #FFFFFF;
+}
+a{
+    text-decoration:none;
+}
+img{
+    border:0;margin:0;padding:0;
+    width: 100%;
+    height: auto;
+}
+body{
+    background-image:url(../img/bg.jpg);
+    background-size:cover;                                                                                                                                                                                                      JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+    background-repeat: no-repeat;
+    padding: 3% 3% 0; 
+}
+.danwei{
+	font-size: 0.5em;
+	text-align:center;
+	position: fixed;
+	bottom: 8%;
+	left: 0;
+	width:100%;
+}
+.wxBottom{
+	display: block;
+	width: 10%;
+	height: auto;
+    position: fixed;
+    bottom: 2%;
+    left: 45%;	
+    -moz-animation: bottom ease 1s infinite;
+	-webkit-animation: bottom ease 1s infinite;
+}
+@keyframes  bottom{
+	0%{
+		bottom: 3%;
+		transform: scale(1.2,1.2);
+	}
+	50%{
+		bottom: 2%;
+		transform: scale(1,1);
+	}
+	100%{
+		bottom: 3%;
+		transform: scale(1.2,1.2);
+	}
+}

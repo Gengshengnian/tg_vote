@@ -1,0 +1,193 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE HTML>
+<html>
+ <head>
+  <title>面试实例</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+       <link href="/projects/tg_oa/src/tg_oa_crm/Public/bui/Common/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="/projects/tg_oa/src/tg_oa_crm/Public/bui/Common/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="/projects/tg_oa/src/tg_oa_crm/Public/bui/Common/assets/css/page-min.css" rel="stylesheet" type="text/css" />   <!-- 下面的样式，仅是为了显示代码，而不应该在项目中使用-->
+   <link href="/projects/tg_oa/src/tg_oa_crm/Public/bui/Common/assets/css/prettify.css" rel="stylesheet" type="text/css" />
+   <style type="text/css">
+    code {
+      padding: 0px 4px;
+      color: #d14;
+      background-color: #f7f7f9;
+      border: 1px solid #e1e1e8;
+    }
+   </style>
+ </head>
+ <body>
+ 
+ <!-- 搜索 -->
+ 
+  <div class="container">
+    <form id="searchForm" class="form-horizontal">
+      <div class="row">
+        <div class="control-group span10">
+          <label class="control-label">面试结果：</label>
+          <div class="controls" >
+            <select name="direction">
+              <option value="">试用</option>
+              <option value="1">试岗</option>
+              <option value="2">入职</option>
+              <option value="3">失败</option>
+            </select>
+          </div>
+        </div>
+        <div class="control-group span7">
+          <label class="control-label">面试职位：</label>
+          <div class="controls">
+            <input name="position" type="text" class="control-text">
+          </div>
+        </div>
+        <div class="span3 offset2" >
+          <button  type="button" id="btnSearch" class="button button-primary">搜索</button>
+        </div>
+      </div>
+    </form>
+    <div class="search-grid-container">
+      <div id="grid"></div>
+    </div>
+  </div>
+  
+<!-- 新建 -->
+
+  <div id="content" class="hide">
+     <form id ="J_Form" class="form-horizontal" >
+		<div class="row">
+	      	<div class="control-group span10">
+	          <label class="control-label"><s>*</s>编号：</label>
+	          <div class="controls">
+	            <input data-rules="{required:true}" name="number" type="text" class="control-text" data-rules="{required:true}">
+	          </div>
+	        </div>
+	        <div class="control-group span10">
+	          <label class="control-label"><s>*</s>面试公司：</label>
+	          <div class="controls">
+	            <input data-rules="{required:true}" name="company" type="text" class="control-text" data-rules="{required:true}">
+	          </div>
+	        </div>
+		</div>
+      	<div class="row">
+	        <div class="control-group span10">
+	          <label class="control-label"><s>*</s>面试职位：</label>
+	          <div class="controls">
+	            <input data-rules="{required:true}" name="position" type="text" class="control-text" data-rules="{required:true}">
+	          </div>
+	        </div>
+	        <div class="control-group span10">
+	          <label class="control-label"><s>*</s>面试结果：</label>
+	          <div class="controls">
+	            <input data-rules="{required:true}" name="result" type="text" class="control-text" data-rules="{required:true}">
+	          </div>
+	        </div>
+	    </div>
+	    <div class="row">
+	        <div class="control-group span10">
+	          <label class="control-label"><s>*</s>面试总结：</label>
+	          <div class="controls">
+	            <input data-rules="{required:true}" name="summarize" type="text" class="control-text" data-rules="{required:true}">
+	          </div>
+	        </div>
+		</div>
+      </form>
+      </div>
+     
+  <script type="text/javascript" src="/projects/tg_oa/src/tg_oa_crm/Public/bui/Common/assets/js/jquery-1.8.1.min.js"></script>
+  <script type="text/javascript" src="/projects/tg_oa/src/tg_oa_crm/Public/bui/Common/assets/js/bui-min.js"></script>
+  <script type="text/javascript" src="/projects/tg_oa/src/tg_oa_crm/Public/bui/Common/assets/js/config-min.js"></script>
+  <script type="text/javascript">
+    BUI.use('common/page');
+  </script>
+  <!-- 仅仅为了显示代码使用，不要在项目中引入使用-->
+  <script type="text/javascript" src="/projects/tg_oa/src/tg_oa_crm/Public/bui/Common/assets/js/prettify.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      prettyPrint();
+    });
+  </script>
+
+<script type="text/javascript"> 
+
+//表格
+
+BUI.use('common/search',function (Search) {
+
+    editing = new BUI.Grid.Plugins.DialogEditing({
+      contentId : 'content', //设置隐藏的Dialog内容
+      autoSave : true, //添加数据或者修改数据时，自动保存
+      triggerCls : 'btn-edit'
+    }),
+    columns = [
+		{title:'&nbsp; 编号',dataIndex:'number',width:90},
+		{title:'学生名字',dataIndex:'name',width:90},
+		{title:'面试时间',dataIndex:'time',width:90},
+		{title:'面试公司',dataIndex:'company',width:100},
+		{title:'面试职位',dataIndex:'position',width:100},
+		{title:'面试结果',dataIndex:'result',width:100},
+		{title:'面试总结',dataIndex:'summarize',width:100}
+      ],
+    store = Search.createStore('getData',{
+      proxy : {
+    	  //
+        method : 'POST'
+      },
+      autoSync : true ,//保存数据后，自动更新
+      pageSize:10
+    });
+   /* 
+
+   */
+  	      var  gridCfg = Search.createGridCfg(columns,{
+  	          tbar : {
+  	            items : [
+  	            ]
+  	          },
+  	          //
+  	          plugins : [editing,BUI.Grid.Plugins.CheckSelection,BUI.Grid.Plugins.AutoFit] // 插件形式引入多选表格
+
+  	     }); 
+  
+  var  search = new Search({
+      store : store,
+      gridCfg : gridCfg
+    }),
+    grid = search.get('grid');
+/* 
+  function addFunction(){
+    var newData = {isNew : true}; //标志是新增加的记录
+    editing.add(newData,'name'); //添加记录后，直接编辑
+  } */
+
+  //删除操作
+  /* function delFunction(){
+    var selections = grid.getSelection();
+    delItems(selections);
+  } */
+
+  function delItems(items){
+    var ids = [];
+    BUI.each(items,function(item){
+      ids.push(item.id);
+    });
+
+    if(ids.length){
+      BUI.Message.Confirm('确认要删除选中的记录么？',function(){
+        store.save('remove',{ids : ids});
+      },'question');
+    } 
+  }
+
+  //监听事件，删除一条记录
+  /* grid.on('cellclick',function(ev){
+    var sender = $(ev.domTarget); //点击的Dom
+    if(sender.hasClass('btn-del')){
+      var record = ev.record;
+      delItems([record]);
+    }
+  }); */
+});
+
+</script>
+</body>
+</html>

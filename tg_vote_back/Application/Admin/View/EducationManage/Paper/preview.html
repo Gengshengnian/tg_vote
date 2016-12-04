@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>单选题</h3>
+	<volist name='dx' id='dx'>
+		<span>{$dx['tet_content']}</span><br/>
+	</volist>
+	<h3>多选题</h3>
+	<volist name='duox' id='duox'>
+		<span>{$duox['tet_content']}</span><br/>
+	</volist>
+	<h3>判断题</h3>
+	<volist name='pd' id='pd'>
+		<span>{$pd['tet_content']}</span><br/>
+	</volist>
+	<h3>填空题</h3>
+	<volist name='tk' id='tk'>
+		<span>{$tk['tet_content']}</span><br/>
+	</volist>
+	<h3>画图题</h3>
+	<volist name='ht' id='ht'>
+		<span>{$ht['tet_content']}</span><br/>
+	</volist>
+	<h3>简答题</h3>
+	<volist name='jd' id='jd'>
+		<span>{$jd['tet_content']}</span><br/>
+	</volist>
+	<a href="__URL__/confirm">
+		<botton>确认</botton>
+	</a>
+	<a href="__URL__/add">
+		<botton>添加</botton>
+	</a>
+	<a href="__URL__/delete">
+		<botton>放弃</botton>
+	</a>
+	
+</body>
+</html>

@@ -1,0 +1,105 @@
+body,ul,p,li,h1,h2,h3,h4,h5,h5{
+	margin: 0;padding: 0;list-style: none;
+	font-family: "微软雅黑";
+    background: #fff;
+}
+img{
+	border:none;display: block;
+}
+a{
+	color:#333;
+}
+.wlh-message{
+	width: 95%;height: auto;
+	margin:0 auto 15px;
+}
+h2{
+	font-size: 18px;color:#616161;
+	margin:10px 0 10px 0;
+}
+.wlh-messagebox{
+	width: 99%;height: auto;margin:0 auto;border:1px solid #ccc;
+	padding:5px;
+}
+fieldset{
+	border:1px dotted #ccc;
+}
+legend{
+	
+}
+.wlh-mymessage{
+	width: 100%;
+	font-size: 14px;
+}
+.wlh-first{
+	width: 26%;
+	font-weight: bold;
+	color:#626262;text-align: right
+}
+.wlh-title{
+	width: 26%;
+	font-weight: bold;
+	color:#626262;text-align: center;
+}
+tr.wlh-tdbg{
+	background: #fff;
+}
+tr.wlh-tdbg:hover{
+    background: #fff;
+}
+.wlh-one{
+	width: 30%;
+}
+.wlh-two{
+	width: 25%;
+}
+.wlh-three{
+	width: 45%;
+}
+.wlh-tds{
+	vertical-align: top;
+}
+/*角色部分 start*/
+.wlh-jueseul{
+   padding-left: 20%;
+}
+/*角色部分 end*/
+
+/*机构部分 start*/
+.wlh-jueseli>a:hover{
+   color:#71ade5;
+}
+/*菜单*/
+.wlh-yiji{height: auto;padding-left: 9px;cursor: default}
+.wlh-yiji li{
+	padding-left: 9px;
+}
+.jiantou{
+	background:url(../image/sideli.png) no-repeat 0px 7px;
+  padding-left: 9px;
+}
+.wlh-erji,.wlh-sanji,.wlh-siji{
+   line-height: 22px;padding-left: 20px;display: none
+}
+.wlh-yiji>p,.wlh-erji>li>p{
+	height: 22px;
+}
+.wlh-yiji>p{
+	background: url(../image/0-ressage/0-yiji.png) no-repeat 0px 7px;
+	background-size: 10px 10px;
+	padding-left: 16px;
+}
+.wlh-erji>li>p{
+	background: url(../image/0-ressage/0-erji.png) no-repeat 0px 8px;
+	background-size: 10px 10px;
+	padding-left: 16px; 
+}
+
+.wlh-sanji>li>p{
+	background: url(../image/0-ressage/0-sanji.png) no-repeat 0px 7px;
+	background-size: 10px 10px;
+	padding-left: 16px;
+}
+/*机构部分 end*/
+
+

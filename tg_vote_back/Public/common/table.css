@@ -1,0 +1,60 @@
+/*table 样式*/
+.table{
+	border-right:1px solid #ddd;
+	border-top:1px solid #ddd;
+}
+.table th{
+	background-color:#F5F5F5;
+	border-left:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	padding:10px;
+}
+.table td{
+	border-left:1px solid #ddd;
+	border-bottom:1px solid #ddd;
+	padding:10px;
+}
+.table tr:nth-of-type(odd){
+	background-color:#F7F7F7;
+}
+.table tr:hover{
+	background-color: #eeeeee;
+}
+/* 文本对齐方式 */
+.text-l{
+	text-align:left;
+}
+.text-r{
+	text-align:right;
+}
+.text-c{
+	text-align:center;
+}
+
+/*页面 表格样式*/
+/*表头*/
+.table-header{
+	background-color:#F5F5F5;
+	position: relative;
+	z-index: 2;
+	border:1px solid #ddd;
+}
+.table-header th{
+	min-width:50px;
+	border-bottom: 0;
+	border-left:0;
+	border-right:1px solid #ddd;
+}
+/*.table-header .table{
+	border:0;
+}*/
+.table .table-number{
+	min-width:auto;
+}
+.table-content{
+	margin-top:-1px;
+	overflow: auto;
+}
+.table-content td{
+	min-width:50px;
+}

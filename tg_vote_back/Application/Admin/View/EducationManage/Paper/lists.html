@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="__PUBLIC__/js/jquery.js"></script>
+</head>
+<body>
+
+	
+	
+	<br/>
+	<br/>
+	<span  style="color:red;">配置试题难度时候，难易中之和要为10哦</span><br>
+	<span>试题班级：{$className}班级</span>
+	<form action="__MODUL__/AutoGeneratePaper/index/action/generatepaper" method = 'post'>
+        <volist name='option' id='option1'>
+        	{$option1}<select name="{$key}" id="{$key}">
+        		<for start="0" end="10">
+        			<option value="{$i}">{$i}</option>
+        		</for>
+        	</select>
+        	<br/>
+        	
+        </volist>
+        	
+       	<input type="submit" value="组卷"/>				
+	</form>
+	<script>
+	$(document).ready(function(){
+		//selected();
+		$("#a1").val(8);
+		$("#b").val(0);
+		$("#c").val(5);
+		$("#d").val(5);
+		$("#e").val(2);
+		$("#f").val(1);
+		$("#g").val(1);
+		$("#one").val(3);
+		$("#two").val(5);
+		$("#three").val(2);
+    }); 
+	
+	
+	
+	</script>
+</body>
+</html>

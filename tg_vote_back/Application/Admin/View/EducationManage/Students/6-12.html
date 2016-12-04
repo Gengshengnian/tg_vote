@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="__PUBLIC__/common/common.css">
+	<script src="__PUBLIC__/js/jquery.js"></script>
+	<script src="__PUBLIC__/js/table12.js"></script>
+	<style>
+body{ 
+	cursor:pointer
+ }
+	.btn-group{
+		width: 60px;
+	    height: 30px;
+	    font-weight: bold;
+	    line-height: 30px;
+	    border: 1px solid #50BFFC;
+	    -moz-box-shadow: inset 2px 1px 5px #50BFFC;
+	    -webkit-box-shadow: inset 2px 1px 5px #50BFFC;
+	    -o-box-shadow: inset 2px 1px 5px #50BFFC;
+	    box-shadow: inset 2px 1px 5px #50BFFC;
+	    background: #5FBFF5;
+	    border-radius: 3px;
+	    color: #fff;
+		width:80px;
+    
+		
+	}
+	</style>
+
+</head>
+<body class="content-box">
+     
+<!-- -----表格部分复制开始--------- -->
+    <div class="content">
+      	<div>CTO</div>
+      	<div class="header-content">
+	      	 <!-- 表格部分 开始-->
+	      	 <div class="table-content">
+	      	 
+ 	      	<h3>项目组长：</h3> 
+	      	 	<table class="table text-l">
+	      	 	<volist>
+		      	 	<!-- 表头部分 结束-->
+		  	 		<tr class="table-header">
+						<th data-role="bh">学生学号</th>
+						<th data-role="nd">学生姓名</th>
+						<th data-role="tm">试卷编号</th>
+						<th data-role="zsd">评分</th>
+						<th data-role = "zsd">操作</th>
+						
+					</tr>
+			      	 	
+					<!-- 表头部分 结束-->
+		      	 	
+		      	 	<volist name = "student" id = "d">
+		      	 		<foreach name='d' item='stu'>
+		      	 			<tr>	
+							
+							<td>{$stu.student_number}</td>
+							<td>{$stu.name}</td>
+								
+							<td>{$stu.tep_code}</td>
+
+							<td id = '{$i}'>{$stu.tes_sub}</td>
+						  
+							<td>
+							<a href = "javascript:void(0);" onclick = "window.open('__URL__/subShow/id/{$stu.id}/void/{$i}/tepid/{$stu.tep_id}','主观题','width=800px,height=600px,scrollbars=yes')">
+							   
+								<input type = "submit" class = "btn-group" style='background-color:#3872f0'  value = "查看主观题"/>
+								</a>
+							</td>
+							 
+						</tr>
+		      	 		</foreach>
+						
+					</volist>
+				</volist>
+				</table>
+				
+				<h3>组员：</h3> 
+	      	 	<table class="table text-l">
+		      	 	<!-- 表头部分 结束-->
+		  	 		<tr class="table-header">
+						<th data-role="bh">学生学号</th>
+						<th data-role="nd">学生姓名</th>
+						<th data-role="tm">试卷编号</th>
+						<th data-role="tm">组长</th>
+						<th data-role="zsd">评分</th>
+						<th data-role = "zsd">操作</th>
+						
+					</tr>
+			      	 	
+					<!-- 表头部分 结束-->
+		      	 	
+		      	 	<volist name = "crew" id = "cre">
+		      	 	<foreach name='cre' item='c'>
+		      	 		<tr>	
+							
+							<td>{$c.student_number}</td>
+							<td>{$c.name}</td>
+								
+							<td>{$c.tep_code}</td>
+							<td>{$c.headman}</td>
+									
+							<td id = 'a{$i}'>{$c.tes_sub}</td>
+						  
+							<td>
+							<a href = "javascript:void(0);" onclick = "window.open('__URL__/subShow/id/{$c.id}/vid/a{$i}/void/{$i}/tepid/{$c.tep_id}','主观题','width=800px,height=600px,scrollbars=yes')">
+							   <input type = "submit" class = "btn-group"   style='background-color:#3872f0' value = "查看主观题"/>
+							</a>
+							</td>
+						</tr>
+		      	 	</foreach>
+						
+					</volist>
+
+				</table>
+				
+      	</div>
+    </div>
+<!-- -----表格部分复制结束--------- -->
+      </div>
+
+	
+</body>
+</html>
